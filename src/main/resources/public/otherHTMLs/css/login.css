@@ -1,0 +1,68 @@
+label{
+    display: block;
+    text-align: center;
+    line-height: 150%;
+    font-size: .85em;
+}
+input[type="text"] {
+    position: relative;
+    display: block;
+    margin : 0 auto;
+}
+input[type="password"] {
+    display: block;
+    margin : 0 auto;
+}
+input[type="radio"] {
+    margin-left: 100cm;
+}
+
+.radio{
+    float: right;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 3%;
+
+}
+
+button{
+    background-color:palegreen;
+    padding-right: 40px;
+    padding-left: 50px;
+    margin-left: 44%;
+
+}
+.alertButton {
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+.alertButton:hover {
+    background: red;
+}
+.alertButton {
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    border-radius: 2px;
+}
+
+.alertButton:hover {
+    background: red;
+}
+.alertButton .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+}
