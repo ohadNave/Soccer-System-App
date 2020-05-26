@@ -11,8 +11,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
 
-import static com.example.demo.DemoApplication.LOG;
-
 @Entity
 public class TeamManager extends SystemUser implements Observer , Serializable {
 
@@ -37,7 +35,6 @@ public class TeamManager extends SystemUser implements Observer , Serializable {
 
     public void setAttributes(int sid){
         setSid(sid);
-        LOG.info("A new team manager created: "+sid);
     }
 
     public void setPermissions(boolean addPlayerPermission, boolean removePlayerPermission, boolean editPlayerRolePermission, boolean addCoachPermission, boolean removeCoachPermission, boolean editCoachRolePermission, boolean addFieldPermission, boolean removeFieldPermission, boolean editFieldNamePermission){

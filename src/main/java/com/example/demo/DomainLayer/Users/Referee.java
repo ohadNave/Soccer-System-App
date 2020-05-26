@@ -11,8 +11,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
 
-import static com.example.demo.DemoApplication.LOG;
-
 
 @Entity
 public class Referee extends SystemUser implements Observer, Serializable {
@@ -40,7 +38,6 @@ public class Referee extends SystemUser implements Observer, Serializable {
     public void setAttributes(Certification certification, RefereeRoll refereeRoll, int sid){
        // this.setSid(sid);
         this.setRoll(refereeRoll);
-        LOG.info("A new referee created: " + sid);
         this.certification = certification;
         matches = new HashSet<>();
         alerts = new ArrayList<>();

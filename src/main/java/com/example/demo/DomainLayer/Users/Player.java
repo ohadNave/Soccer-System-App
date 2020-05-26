@@ -10,7 +10,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import static com.example.demo.DemoApplication.LOG;
+import static com.example.demo.DemoApplication.errorLogger;
+import static com.example.demo.DemoApplication.eventLogger;
 
 /**
  * Done
@@ -38,7 +39,6 @@ public class Player extends SystemUser implements Serializable {
         setRole(role);
         setDateOfBirth(dateOfBirth);
         setPrivate_page(MyFactory.createPrivatePage());
-        LOG.info("A new player created: "+sid);
     }
 
 
@@ -51,10 +51,11 @@ public class Player extends SystemUser implements Serializable {
         if ( !content.isEmpty() ){
             //DBManagerStub.getPrivatePage(privatePage.getPageId()).addContentToPage(content);
             private_page.addContentToPage(content);
-            LOG.info("A private page was updated by: "+ getSid());
+            eventLogger.info("A private page was updated by: "+ getSid());
             return true;
         }
-    return false;
+        errorLogger.error("A private page was failed to update by: "+ getSid());
+        return false;
     }
 
 

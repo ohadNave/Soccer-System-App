@@ -13,7 +13,8 @@ import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.*;
 
-import static com.example.demo.DemoApplication.LOG;
+import static com.example.demo.DemoApplication.errorLogger;
+import static com.example.demo.DemoApplication.eventLogger;
 
 /**
  * Done.
@@ -48,7 +49,6 @@ public class Fan extends SystemUser implements Observer, Serializable {
 
     public void setAttributes(int sid){
         setSid(sid);
-        LOG.info("A new fan created id: "+getSid());
     }
 
     /**
@@ -62,7 +62,7 @@ public class Fan extends SystemUser implements Observer, Serializable {
       //  if(DBManagerStub.getPrivatePage(pid) != null){
             followingPrivatePages.add(privatePage);
          //   DBManagerStub.getPrivatePage(pid).addFollower(getSid());
-            LOG.info( " the fan: "+getSid() + " started to follow the page: "+ privatePage.getPageId());
+            eventLogger.info( " the fan: "+getSid() + " started to follow the page: "+ privatePage.getPageId());
             return true;
     //    }
     //    return false;
@@ -76,9 +76,11 @@ public class Fan extends SystemUser implements Observer, Serializable {
         if ( match != null){
             match.addMatchFollower(this);
             this.followingMatches.add(match);
-            LOG.info( " the fan: "+getSid() + " signed for match alerts, match: "+ match.getId());
+            eventLogger.info( " the fan: "+getSid() + " signed for match alerts, match: "+ match.getId());
             return true;
         }
+        errorLogger.error( " the fan: "+getSid() + " failed to sign for match alerts");
+
         return false;
     }
 
@@ -88,7 +90,7 @@ public class Fan extends SystemUser implements Observer, Serializable {
         if (match != null){
             this.followingMatches.remove(mid);
             match.deleteMatchFollower(this.getSid());
-            LOG.info( " the fan: "+getSid() + " unsigned from match alerts, match: "+ match.toString());
+            eventLogger.info( " the fan: "+getSid() + " unsigned from match alerts, match: "+ match.toString());
             return true;
         }
         return false;
@@ -103,7 +105,7 @@ public class Fan extends SystemUser implements Observer, Serializable {
             myComplains.add(complain);
             DBManager.updateObject(this);
             //DBManagerStub.addComplain(complain.getCid(),complain);
-            LOG.info( " the fan: "+getSid()+ " opened a new complain: "+ complain.cid);
+            eventLogger.info( " the fan: "+getSid()+ " opened a new complain: "+ complain.cid);
             return true;
         }
         return false;

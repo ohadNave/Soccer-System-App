@@ -16,7 +16,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static com.example.demo.DemoApplication.LOG;
+import static com.example.demo.DemoApplication.errorLogger;
+import static com.example.demo.DemoApplication.eventLogger;
 
 /**
  * Done
@@ -31,7 +32,6 @@ public class FAR extends SystemUser implements Serializable {
     public void setAttributes(int sid){
         setSid(sid);
         budgetControl = new BudgetControl();
-        LOG.info("A new FAR created: "+ getSid());
     }
 
     /**
@@ -45,10 +45,11 @@ public class FAR extends SystemUser implements Serializable {
             //if (name.matches("[A-Za-z]")){
                 League league = MyFactory.createLeague(leagueLevel,name, IGamePolicy,scorePolicy);
                 //DBManagerStub.addLeague(league.getLid(), league);
-                LOG.info("A league was initiated by FAR: "+ getSid());
+                eventLogger.info("A league was initiated by FAR: "+ getSid());
                 return true;
             //}
         }
+        errorLogger.error("A league was failed to initiate by FAR: "+ getSid());
         return false;
     }
 
@@ -74,13 +75,13 @@ public class FAR extends SystemUser implements Serializable {
                     for(Team t : teamsForSeason){
                         budgetControl.initializeTeamFinance(t,year);
                     }
-                    LOG.info("A new season was initiated to league: " +league.getName()+" year: " +year);
+                    eventLogger.info("A new season was initiated to league: " +league.getName()+" year: " +year +" by: "+this.getSid());
                     return true;
                 }
             }
         }
 
-
+        errorLogger.error("A new season was failed to initiate to league");
         return false;
     }
 
@@ -93,8 +94,10 @@ public class FAR extends SystemUser implements Serializable {
         if(userName!=null && !userName.isEmpty() && password!=null && !password.isEmpty() && name!=null && !name.isEmpty() && DBManager.checkUserName(userName)){
             Subscriber subscriber = MyFactory.createSubscriber(userName,password,name);
             subscriber.makeRefereeActive(certification , refereeRoll);
+            eventLogger.info("A referee: " + userName + " was activated by FAR: " + getSid());
             return true;
         }
+        errorLogger.error("A referee was failed to activate by FAR: " + getSid());
         return false;
     }
 
@@ -103,9 +106,10 @@ public class FAR extends SystemUser implements Serializable {
             Subscriber subscriber = ((Subscriber) DBManager.getObject(Subscriber.class, id));
         if(subscriber != null) {
             subscriber.makeRefereeNotActive();
-            LOG.info("A referee: " + id + " was removed by FAR: " + getSid());
+            eventLogger.info("A referee: " + id + " was removed by FAR: " + getSid());
             return true;
         }
+        errorLogger.error("A referee was failed to remove by FAR: " + getSid());
         return false;
     }
 
@@ -116,11 +120,12 @@ public class FAR extends SystemUser implements Serializable {
     public boolean setRefereesForLeague(int leagueId, int year, Set<Referee>referees){
         League league = ((League) DBManager.getObject(League.class, leagueId));
         if(league != null && year>=0 && referees!=null){
-            LOG.info("referees were set to league: " +league.getName() + " by FAR: " +getSid());
+            eventLogger.info("referees were set to league: " +league.getName() + " by FAR: " +getSid());
             league.setMainRefereesForSeason(year,referees);
             DBManager.updateObject(league);
             return true;
         }
+        errorLogger.error("referees were failed to set to league by FAR: " +getSid());
         return false;
     }
 
@@ -132,10 +137,11 @@ public class FAR extends SystemUser implements Serializable {
         League league = ((League) DBManager.getObject(League.class, leagueId));
         if(league != null && scorePolicy != null){
             league.setScorePolicyForSeason(league.getCurrent_year(),scorePolicy);
-            LOG.info("A score policy was set to league: "+league.getName()+", year:"+ league.getCurrent_year() +" by FAR: "+getSid());
+            eventLogger.info("A score policy was set to league: "+league.getName()+", year:"+ league.getCurrent_year() +" by FAR: "+getSid());
             DBManager.updateObject(league);
             return true;
         }
+        errorLogger.error("A score policy was failed to set to league by FAR: "+getSid());
         return false;
     }
 
@@ -145,11 +151,12 @@ public class FAR extends SystemUser implements Serializable {
     public boolean setLeagueGameSchedulerPolicy(int leagueId, IGamePolicy IGamePolicy){
         League league = ((League) DBManager.getObject(League.class, leagueId));
         if(league!=null && IGamePolicy !=null){
-            LOG.info("A Game Scheduler policy was set to league: "+league.getName()+", year: "+ league.getCurrent_year() +" by FAR :"+getSid());
+            eventLogger.info("A Game Scheduler policy was set to league: "+league.getName()+", year: "+ league.getCurrent_year() +" by FAR :"+getSid());
             league.setSeasonSchedulerPolicy(league.getCurrent_year(), IGamePolicy);
             DBManager.updateObject(league);
             return true;
         }
+        errorLogger.error("A Game Scheduler policy was failed to set to league by FAR :"+getSid());
         return false;
 
     }
@@ -161,11 +168,12 @@ public class FAR extends SystemUser implements Serializable {
         League league = ((League) DBManager.getObject(League.class, leagueId));
 
         if(league!=null && year >=0){
-            LOG.info("A Game Scheduler policy was activated set to league: "+league.getName()+", year: "+ year +" by FAR: "+getSid());
+            eventLogger.info("A Game Scheduler policy was activated set to league: "+league.getName()+", year: "+ year +" by FAR: "+getSid());
             league.activateGameSchedulePolicyForSeason(year);
             DBManager.updateObject(league);
             return true;
         }
+        errorLogger.error("A Game Scheduler policy was failed to activate set to league by FAR: "+getSid());
         return false;
     }
 
