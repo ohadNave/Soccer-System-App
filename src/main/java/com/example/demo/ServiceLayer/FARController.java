@@ -46,6 +46,24 @@ public class FARController {
         return far.setLeagueGameSchedulerPolicy(leagueIdInt,new GamePolicy());
     }
 
+    public boolean activeGameSchedulerPolicy(String sid , String leagueId){
+
+        int sidInt = -1;
+        int leagueIdInt = -1;
+        try{
+            sidInt=Integer.parseInt(sid);
+            leagueIdInt=Integer.parseInt(leagueId);
+        }
+        catch (Exception e){
+            return false;
+        }
+        FAR far = (FAR) DBManager.getObject(FAR.class,sidInt);
+        if(far == null){
+            return false;
+        }
+        return far.activateGameSchedulePolicyForLeague(leagueIdInt);
+    }
+
     public boolean setLeagueScorePolicy(String sid , String leagueId, String scorePolicy){
 
         int sidInt=-1;

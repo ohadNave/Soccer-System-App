@@ -1,5 +1,6 @@
 package com.example.demo.DomainLayer.LeagueManagment;
 
+import com.example.demo.DomainLayer.Enums.RefereeRoll;
 import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.Referee;
 
@@ -161,5 +162,41 @@ public class Season implements Serializable {
 
     public void setTeam_scores(List<Integer> team_scores) {
         this.team_scores = team_scores;
+    }
+
+    public Set<Referee> getRefereesForMatch(){
+        Set<Referee> toReturn = new HashSet<>();
+
+        List<Referee> refereeList = new ArrayList<>(season_referees);
+
+        int j = (int)(Math.random()*(season_referees.size()-1));
+        int counterMainReferee=0;
+        int counterLineReferee=0;
+        for(int i=0 ; i<refereeList.size() ; i++){
+            Referee referee;
+            if(j<refereeList.size()){
+                referee = refereeList.get(j);
+            }
+            else{
+                referee = refereeList.get(j-refereeList.size());
+            }
+            if(referee.getRoll()== RefereeRoll.MAIN_REFEREE){
+                if(counterMainReferee==0){
+                    toReturn.add(referee);
+                    counterMainReferee++;
+                }
+            }
+            else if(referee.getRoll()== RefereeRoll.LINE_REFEREE){
+                if(counterLineReferee<2){
+                    toReturn.add(referee);
+                    counterLineReferee++;
+                }
+            }
+            if(counterMainReferee==1 && counterLineReferee==2){
+                return  toReturn;
+            }
+            j++;
+        }
+        return toReturn;
     }
 }

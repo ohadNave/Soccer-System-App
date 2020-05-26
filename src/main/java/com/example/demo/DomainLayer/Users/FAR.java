@@ -157,12 +157,12 @@ public class FAR extends SystemUser implements Serializable {
     /**
      *UC 9.7
      */
-    public boolean activateGameSchedulePolicyForLeague(int year, int leagueId){
+    public boolean activateGameSchedulePolicyForLeague(int leagueId){
         League league = ((League) DBManager.getObject(League.class, leagueId));
 
-        if(league!=null && year >=0){
-            LOG.info("A Game Scheduler policy was activated set to league: "+league.getName()+", year: "+ year +" by FAR: "+getSid());
-            league.activateGameSchedulePolicyForSeason(year);
+        if(league!=null){
+            LOG.info("A Game Scheduler policy was activated set to league: "+league.getName() +" by FAR: "+getSid());
+            league.activateGameSchedulePolicyForSeason(league.getCurrent_year());
             DBManager.updateObject(league);
             return true;
         }

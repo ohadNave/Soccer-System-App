@@ -40,6 +40,12 @@ public class League implements Serializable {
 
     public boolean setScorePolicyForSeason(Integer year, ScorePolicy scorePolicy){
 
+        for(Season s : seasons){
+            if(s.getYear()==year){
+                s.setScorePolicy(scorePolicy);
+                return true;
+            }
+        }
 //        if(DBManagerStub.getSeason(lid,year)!=null && scorePolicy!=null){
 //            Season season = DBManagerStub.getSeason(lid,year);
 //            season.setScorePolicy(scorePolicy);
@@ -50,6 +56,12 @@ public class League implements Serializable {
     }
 
     public boolean setSeasonSchedulerPolicy(Integer year, IGamePolicy IGamePolicy){
+        for(Season s : seasons){
+            if(s.getYear()==year){
+                s.setIGamePolicy(IGamePolicy);
+                return true;
+            }
+        }
 //        if(DBManagerStub.getSeason(lid,year) != null && gameSchedulerPolicy != null){
 //            Season season = DBManagerStub.getSeason(lid,year);
 //            season.setGameSchedulerPolicy(gameSchedulerPolicy);
@@ -61,6 +73,11 @@ public class League implements Serializable {
     }
 
     public boolean activateGameSchedulePolicyForSeason(int year){
+        for(Season s : seasons){
+            if(s.getYear()==year){
+                return s.activateGameSchedulePolicy();
+            }
+        }
 //        if(DBManagerStub.getSeason(lid,year)!=null){
 //            Season season = DBManagerStub.getSeason(lid,year);
 //            season.activateGameSchedulePolicy();
