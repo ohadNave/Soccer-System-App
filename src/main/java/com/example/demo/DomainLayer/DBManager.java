@@ -88,8 +88,7 @@ public class DBManager {
 
     public static boolean checkTeamName(String teamName){
         if (  teamName != null && teamName.length() > 2  ){
-//            return daoMySQL.checkTeamName(teamName);
-            return true;
+            return daoMySQL.checkTeamName(teamName);
 
         }
         return false;

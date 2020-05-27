@@ -4,6 +4,7 @@ import com.example.demo.DomainLayer.DBManager;
 import com.example.demo.DomainLayer.Users.Owner;
 import com.example.demo.DomainLayer.Users.Subscriber;
 import java.util.ArrayDeque;
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class OwnerController {
@@ -12,6 +13,10 @@ public class OwnerController {
     public OwnerController(){}
 
     public Queue<String> getAlerts(String sid){
+//        Queue<String> q = new LinkedList<>();
+//        ((LinkedList<String>) q).add("first alertttttttt");
+//        ((LinkedList<String>) q).add("second alertttttttt");
+//        return q;
         Queue<String> alertsToReturn = new ArrayDeque<>();
         int sidInt= -1;
 
