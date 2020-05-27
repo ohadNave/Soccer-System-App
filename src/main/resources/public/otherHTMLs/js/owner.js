@@ -109,12 +109,14 @@ function displayalertsOwner() {
     window.location.href = "alerts.html";
 }
 
-function displayAlerts() {
+function displayOwnerAlerts() {
     var x = document.getElementById("alerts");
     // var y = document.getElementById("back");
-    var i = localStorage.getItem("lengthOfAlerts")-1;
+    // var i = localStorage.getItem("lengthOfAlerts")-1;
+    var text = localStorage.getItem("arrayOfAlert");
     clearInterval(interval);
-    while (localStorage.getItem("lengthOfAlerts") > 0) {
+    // while (localStorage.getItem("lengthOfAlerts") > 0) {
+    while (text.length> 0) {
         var random = Math.floor(Math.random() * 4) + 1;
         var alerts = document.getElementById("alerts");
         var message = document.createElement("div", "id=message");
@@ -139,7 +141,7 @@ function displayAlerts() {
         btn.setAttribute("style", "  margin-left: 10px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px; cursor: pointer;transition: 0.3s; ")
 
         var times = document.createTextNode("X");
-        var text = localStorage.getItem("arrayOfAlert");
+        // var text = localStorage.getItem("arrayOfAlert");
         text = text.split(/[ ","]+/);
 
 
