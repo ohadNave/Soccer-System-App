@@ -6,7 +6,9 @@ import com.example.demo.DomainLayer.LeagueManagment.Team;
 import com.example.demo.DomainLayer.MyFactory;
 import javax.persistence.*;
 import java.io.Serializable;
-import static com.example.demo.DemoApplication.LOG;
+
+import static com.example.demo.DemoApplication.errorLogger;
+import static com.example.demo.DemoApplication.eventLogger;
 
 /**
  * Done
@@ -34,7 +36,6 @@ public class Coach extends SystemUser implements Serializable{
         setSid(sid);
         setRole(role);
         setCertification(certification);
-        LOG.info("A new coach created, id: " + getSid());
     }
 
     /**
@@ -46,9 +47,10 @@ public class Coach extends SystemUser implements Serializable{
          //   PrivatePage privatePage = DBManagerStub.getPrivatePage(this.privatePage.getPageId());
             private_page.addContentToPage(content);
            // DBManagerStub.addPrivatePage(this.privatePage.getPageId());
-            LOG.info("A private page was updated by: "+ getSid());
+            eventLogger.info("A private page was updated by: "+ getSid());
             return true;
         }
+        errorLogger.error("A private page was failed to update by: "+ getSid());
         return false;
     }
 
@@ -70,9 +72,10 @@ public class Coach extends SystemUser implements Serializable{
     public boolean setRole(CoachRole role){
         if(role!=null){
             this.role = role;
-            LOG.info("A new role was set to coach id: " +getSid() +"role: "+role.name());
+            eventLogger.info("A new role was set to coach id: " +getSid() +"role: "+role.name());
             return true;
         }
+        errorLogger.error("A new role was failed to set to coach id: " +getSid());
         return false;
     }
 

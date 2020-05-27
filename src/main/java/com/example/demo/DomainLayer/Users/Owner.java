@@ -12,7 +12,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
 
-import static com.example.demo.DemoApplication.LOG;
+import static com.example.demo.DemoApplication.errorLogger;
+import static com.example.demo.DemoApplication.eventLogger;
 
 @Entity
 public class Owner extends SystemUser implements Observer, Serializable {
@@ -36,7 +37,6 @@ public class Owner extends SystemUser implements Observer, Serializable {
 
     public void setAttributes(int sid){
         setSid(sid);
-        LOG.info("A new owner created: " + getSid());
     }
 
     /**
@@ -45,10 +45,12 @@ public class Owner extends SystemUser implements Observer, Serializable {
     public boolean addPlayers(Set<Integer> players){
         if( team != null && players != null ){
                 if(team.addPlayers(players)){
-                    LOG.info("New players were added to the team: " + this.team.getTid()+" by: "+ getSid());
+                    eventLogger.info("New players were added to the team: " + this.team.getTid()+" by: "+ getSid());
                     return true;
                 }
         }
+        errorLogger.error("New players were failed to add to the team: " + this.team.getTid()+" by: "+ getSid());
+
         return false;
     }
 
@@ -140,10 +142,11 @@ public class Owner extends SystemUser implements Observer, Serializable {
         if(newSubscriberOwner != null){
             newSubscriberOwner.makeOwnerActive();
             owners.add(newSubscriberOwner.getOwner());
-            LOG.info("A new owner " + sid + ", was set to the team: "+ team.getTid()+" by: " +getSid());
+            eventLogger.info("A new owner " + sid + ", was set to the team: "+ team.getTid()+" by: " +getSid());
             //DBManagerStub.updateObject(newSubscriberOwner);
             return true;
         }
+        errorLogger.error("A new owner " + sid + ", was failed to set to the team: "+ team.getTid()+" by: " +getSid());
         return false;
     }
 
@@ -157,6 +160,7 @@ public class Owner extends SystemUser implements Observer, Serializable {
             removeOwner(owner.getSid());
             deletedOwner.owners.remove(owner);
             owner.setTeam(null);
+            eventLogger.info("A new owner " + owner + ", was removed from the team: "+ team.getTid()+" by: " +getSid());
         }
         owners.remove(deletedOwner);
         deletedOwner.setTeam(null);
@@ -172,10 +176,11 @@ public class Owner extends SystemUser implements Observer, Serializable {
             if(team.addTeamManager(teamManager)){
                 teamManager.setOwner(this);
                 DBManager.updateObject(this);
-                LOG.info("A new team manager " + teamManager + " was added to team: "+ team.getTid() +". Made by owner: " + getSid());
+                eventLogger.info("A new team manager " + tmid + " was added to team: "+ team.getTid() +". Made by owner: " + getSid());
                 return true;
             }
         }
+        eventLogger.error("A new team manager " + tmid + " was failed to add to team. Made by owner: " + getSid());
         return false;
     }
 
@@ -186,10 +191,11 @@ public class Owner extends SystemUser implements Observer, Serializable {
         if( this.team != null ){
             if(team.deleteTeamManager(teamManager)){
                 DBManager.updateObject(this);
-                LOG.info("The team manager "+ teamManager+" was deleted from team: "+ team.getTid() +". Made by owner: " + getSid());
+                eventLogger.info("The team manager "+ teamManager+" was deleted from team: "+ team.getTid() +". Made by owner: " + getSid());
                 return true;
             }
         }
+        errorLogger.error("The team manager "+ teamManager+" was failed to delete from team. Made by owner: " + getSid());
         return false;
     }
 
@@ -202,10 +208,11 @@ public class Owner extends SystemUser implements Observer, Serializable {
         if ( this.team != null ){
             if (team.isActive()){
                 team.setTeamNotActive();
-                LOG.info("The team " + team.getTid() + " was closed by Owner: " + getSid() );
+                eventLogger.info("The team " + team.getTid() + " was closed by Owner: " + getSid() );
                 return true;
             }
         }
+        errorLogger.error("The team " + team.getTid() + " was failed to close by Owner: " + getSid() );
         return false;
     }
 
@@ -445,7 +452,7 @@ public class Owner extends SystemUser implements Observer, Serializable {
     public boolean openTeamRequest(String teamName){
         if( this.team == null && DBManager.checkTeamName(teamName)){
             MyFactory.createTeamRequest(teamName, this.getSid());
-            LOG.info("A new team request was created by sid : "+ getSid() + ", team name: " + teamName);
+            eventLogger.info("A new team request was created by sid : "+ getSid() + ", team name: " + teamName);
             return true;
         }
         System.out.println("same team name or no current team for owner");

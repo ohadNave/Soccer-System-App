@@ -12,8 +12,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-import static com.example.demo.DemoApplication.LOG;
-
 @Entity
 public class Subscriber implements Serializable {
 
@@ -53,7 +51,6 @@ public class Subscriber implements Serializable {
         this.userName = userName;
         this.password = password;
         this.name = name;
-        LOG.info("A new subscriber created: " + id );
     }
 
 

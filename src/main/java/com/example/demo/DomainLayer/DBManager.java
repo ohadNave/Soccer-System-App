@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+import static com.example.demo.DemoApplication.errorLogger;
+import static com.example.demo.DemoApplication.eventLogger;
+
 @Service
 public class DBManager {
 
@@ -22,6 +25,8 @@ public class DBManager {
         }
         catch (Exception e){
             e.printStackTrace();
+            errorLogger.error("database lost connection");
+            errorLogger.error(e);
             return null;
         }
     }
@@ -29,27 +34,40 @@ public class DBManager {
     public static void saveObject(Object o){
         try{
             daoMySQL.save(o);
+            String objName = o.getClass().getName();
+            eventLogger.info("A new object: " + objName+ " was added to the dataBase");
         }
         catch (Exception e){
             e.printStackTrace();
+            errorLogger.error("database lost connection");
+            errorLogger.error(e);
         }
     }
 
     public static void updateObject(Object o){
         try{
+            String objName = o.getClass().getName();
             daoMySQL.update(o);
+            eventLogger.info("A new object: " + objName+ " was updated in the dataBase");
+
         }
         catch (Exception e){
             e.printStackTrace();
+            errorLogger.error("database lost connection");
+            errorLogger.error(e);
         }
     }
 
     public static void removeObject(Object o){
         try{
+            String objName = o.getClass().getName();
             daoMySQL.delete(o);
+            eventLogger.info("A new object: " + objName+ " was removed from the dataBase");
         }
         catch (Exception e){
             e.printStackTrace();
+            errorLogger.error("database lost connection");
+            errorLogger.error(e);
         }
     }
 
@@ -59,6 +77,8 @@ public class DBManager {
         }
         catch (Exception e){
             e.printStackTrace();
+            errorLogger.error("database lost connection");
+            errorLogger.error(e);
         }
     }
 
@@ -68,10 +88,15 @@ public class DBManager {
         }
         catch (Exception e){
             e.printStackTrace();
+            errorLogger.error("database lost connection");
+            errorLogger.error(e);
             return null;
         }
     }
 
+    public static Subscriber getByUserName(String userName){
+        return daoMySQL.getByUserName(userName);
+    }
 
     /**
      * For register
@@ -85,8 +110,7 @@ public class DBManager {
 
     public static boolean checkTeamName(String teamName){
         if (  teamName != null && teamName.length() > 2  ){
-//            return daoMySQL.checkTeamName(teamName);
-            return true;
+            return daoMySQL.checkTeamName(teamName);
 
         }
         return false;

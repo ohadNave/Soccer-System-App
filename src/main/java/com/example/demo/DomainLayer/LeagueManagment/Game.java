@@ -15,10 +15,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Observable;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class Game extends Observable implements ISubjectMatch, Serializable {
@@ -65,11 +62,11 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
         this.match_followers = new HashSet<>();
         this.game_events =new HashSet<>();
         this.referee = referees;
-        for(Referee r : referee){
-            r.getMatches().add(this);
-        }
         this.team_home_id = home_id;
         this.team_away_id = away_id;
+        for(Referee r : referee){
+            r.addGame(this);
+        }
     }
 
 
@@ -122,9 +119,6 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
             MatchDateChangedAlert matchDateChangedAlert = MyFactory.createMatchDateChangedAlert(newDate);
             notifyReferees(matchDateChangedAlert);
             notifyMatchFollowers(matchDateChangedAlert);
-
-            DBManager.updateObject(this);
-
         }
     }
 
@@ -150,7 +144,8 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
      */
     @Override
     public void notifyReferees(Alert newAlert) {
-        for(Referee r : referee) {
+        for (Referee r : referee){
+//            DBManager.detachObject(r);
             r.update(this,newAlert);
         }
     }
@@ -303,6 +298,7 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
 
     public void setSeason(Season season) {
         this.season = season;
+        DBManager.updateObject(this);
     }
 
     @Override
@@ -313,8 +309,8 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
         return id == game.id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id);
+//    }
 }

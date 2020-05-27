@@ -11,8 +11,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
 
-import static com.example.demo.DemoApplication.LOG;
-
 
 @Entity
 public class Referee extends SystemUser implements Observer, Serializable {
@@ -23,14 +21,12 @@ public class Referee extends SystemUser implements Observer, Serializable {
     @Enumerated(EnumType.STRING)
     private Certification certification;
 
-    @ManyToMany( cascade = CascadeType.MERGE)
+    @ManyToMany( cascade = CascadeType.ALL)
     private Set<Game>matches;
 
 
     @OneToMany
     private List<Alert> alerts;
-
-
 
 
     public Referee() {
@@ -40,7 +36,6 @@ public class Referee extends SystemUser implements Observer, Serializable {
     public void setAttributes(Certification certification, RefereeRoll refereeRoll, int sid){
        // this.setSid(sid);
         this.setRoll(refereeRoll);
-        LOG.info("A new referee created: " + sid);
         this.certification = certification;
         matches = new HashSet<>();
         alerts = new ArrayList<>();
@@ -79,7 +74,6 @@ public class Referee extends SystemUser implements Observer, Serializable {
      */
     public boolean addEventToMatch(int matchId, int minuteInGame, String description, EventType eventType){
         Game match = (Game) DBManager.getObject(Game.class,matchId);
-        boolean refMatch = matches.contains(match);
         if( match !=null && matches!=null && minuteInGame > 0 && minuteInGame < 125 && !description.isEmpty() && eventType != null )
         {
             GameEvent newEvent = MyFactory.createEvent(minuteInGame,description,eventType);
@@ -138,7 +132,7 @@ public class Referee extends SystemUser implements Observer, Serializable {
         if (o != null && arg != null){
             if (arg instanceof Alert &&  o instanceof Game){
                 Game tempMatch = ((Game)o);
-                    if (this.matches != null && matches.contains((tempMatch.getId()))){
+                    if (this.matches != null && matches.contains((tempMatch))){
                        handleAlert(((Alert) arg));
                     }
             }
@@ -152,7 +146,7 @@ public class Referee extends SystemUser implements Observer, Serializable {
     public void handleAlert(Alert alert){
         if (alert != null){
             this.alerts.add(alert);
-            DBManager.updateObject(this);
+            //DBManager.updateObject(this);
         }
     }
 
@@ -226,6 +220,14 @@ public class Referee extends SystemUser implements Observer, Serializable {
 //        return false;
 //    }
 
+    public void addGame(Game game){
+//        Set<Game> newGames = new HashSet<>();
+//        for (Game g :matches){
+//            matches.add(g);
+//        }
+        matches.add(game);
+//        setMatches(newGames);
+    }
 
     @Override
     public boolean equals(Object o) {

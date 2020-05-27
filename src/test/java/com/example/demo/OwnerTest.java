@@ -5,12 +5,9 @@ import com.example.demo.DomainLayer.Enums.Certification;
 import com.example.demo.DomainLayer.Enums.LeagueLevel;
 import com.example.demo.DomainLayer.Enums.PlayerRole;
 import com.example.demo.DomainLayer.Enums.RefereeRoll;
-import com.example.demo.DomainLayer.LeagueManagment.Team;
+import com.example.demo.DomainLayer.LeagueManagment.*;
 import com.example.demo.DomainLayer.MyFactory;
-import com.example.demo.DomainLayer.Users.FAR;
-import com.example.demo.DomainLayer.Users.Owner;
-import com.example.demo.DomainLayer.Users.Player;
-import com.example.demo.DomainLayer.Users.Subscriber;
+import com.example.demo.DomainLayer.Users.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -70,7 +67,7 @@ public class OwnerTest {
         subscriber = MyFactory.createSubscriber("ohad-far2","s","ohad");
         subscriber.makeFARActive();
         FAR far = subscriber.getFar();
-        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga",null,null);
+        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga");
 
         subscriber2  = MyFactory.createSubscriber("owner","none","none");
         subscriber2.makeOwnerActive();
@@ -114,8 +111,47 @@ public class OwnerTest {
 
     @Test
     public void test(){
-        Subscriber subscriber = MyFactory.createSubscriber("ohad","pass","a");
-        subscriber.makeOwnerActive();
+        Subscriber owner1 = MyFactory.createSubscriber("owner1","1234","a");
+        owner1.makeOwnerActive();
+        Subscriber owner2 = MyFactory.createSubscriber("owner2","1234","a");
+        owner2.makeOwnerActive();
+        Subscriber far = MyFactory.createSubscriber("far","1234","a");
+        far.makeFARActive();
+        Subscriber mainReferee = MyFactory.createSubscriber("main referee","1234","a");
+        mainReferee.makeRefereeActive(Certification.BASIC,RefereeRoll.MAIN_REFEREE);
+        Subscriber lineReferee1 = MyFactory.createSubscriber("line referee1","1234","a");
+        lineReferee1.makeRefereeActive(Certification.BASIC,RefereeRoll.LINE_REFEREE);
+        Subscriber lineReferee2 = MyFactory.createSubscriber("line referee2","1234","a");
+        lineReferee2.makeRefereeActive(Certification.BASIC,RefereeRoll.LINE_REFEREE);
+
+        Set<Referee> referees = new HashSet<>();
+        referees.add(mainReferee.getReferee());
+        referees.add(lineReferee1.getReferee());
+        referees.add(lineReferee2.getReferee());
+
+        Team team1 = MyFactory.createTeam(owner1.getOwner(),"team1");
+        Team team2 = MyFactory.createTeam(owner2.getOwner(),"team2");
+        List<Team> teams = new ArrayList<>();
+        teams.add(team1);
+        teams.add(team2);
+
+        Game game1 = MyFactory.createGame(null, null, null,team1,team2,referees);
+        Game game2 = MyFactory.createGame(null, null, null,team2,team1,referees);
+
+        League league1 = MyFactory.createLeague(LeagueLevel.PremierLeague,"league1");
+        league1.startNewSeason(2019,teams);
+        league1.startNewSeason(2020,teams);
+        league1.startNewSeason(2021,teams);
+        League league2 = MyFactory.createLeague(LeagueLevel.PremierLeague,"league2");
+        league2.startNewSeason(2019,teams);
+        league2.startNewSeason(2020,teams);
+        league2.startNewSeason(2021,teams);
+
+
+
+
+
+
 
 //        subscriber.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
     }
