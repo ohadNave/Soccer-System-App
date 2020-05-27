@@ -14,7 +14,8 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import static com.example.demo.DemoApplication.LOG;
+import static com.example.demo.DemoApplication.errorLogger;
+import static com.example.demo.DemoApplication.eventLogger;
 
 @Entity
 public class sysMan extends SystemUser implements Observer, Serializable {
@@ -56,9 +57,10 @@ public class sysMan extends SystemUser implements Observer, Serializable {
         if ( team!=null ){
             team.closeTeamPermanently();
 //            DBManagerStub.closedTeamPermanantly(team.getTid());
-            LOG.info("A team: "+team.getName() +"was closed permanently by the system manager");
+            eventLogger.info("A team: "+team.getName() +"was closed permanently by the system manager");
             return true;
         }
+        errorLogger.error("A team was failed to be permanently closed by the system manager");
         return false;
     }
 
@@ -70,9 +72,10 @@ public class sysMan extends SystemUser implements Observer, Serializable {
         Subscriber subscriber = ((Subscriber) DBManager.getObject(Subscriber.class, sid));
         if (subscriber != null){
             DBManager.removeObject(subscriber);
-            LOG.info("A subscriber: "+ sid + " was removed by the system manager");
+            eventLogger.info("A subscriber: "+ sid + " was removed by the system manager");
             return true;
         }
+        errorLogger.error("A subscriber: "+ sid + " was failed to be removed by the system manager");
         return false;
     }
 
@@ -84,9 +87,11 @@ public class sysMan extends SystemUser implements Observer, Serializable {
         if ( complain!=null && respond!=null && !respond.isEmpty() ){
             complain.setSystemManagerRespond(respond);
             DBManager.updateObject(complain);
-            LOG.info("system manager responded to complain id: " +cid);
+            eventLogger.info("system manager responded to complain id: " +cid);
             return true;
         }
+        errorLogger.error("system manager was failed to respond to complain id: " +cid);
+
         return false;
     }
 
