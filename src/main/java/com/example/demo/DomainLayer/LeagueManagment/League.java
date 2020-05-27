@@ -31,27 +31,21 @@ public class League implements Serializable {
     private Set<Season> seasons;
 
 
-    public void setAttributes(LeagueLevel level, String name, IGamePolicy IGamePolicy, ScorePolicy scorePolicy){
+    public void setAttributes(LeagueLevel level, String name){
         this.league_level = level;
         this.name = name;
         this.current_year = Year.now().getValue();
         seasons = new HashSet<>();
     }
 
-    public boolean setScorePolicyForSeason(Integer year, ScorePolicy scorePolicy){
+    public boolean setScorePolicyForSeason(Integer year, IScorePolicy scorePolicy){
 
         for(Season s : seasons){
             if(s.getYear()==year){
-                s.setScorePolicy(scorePolicy);
+                s.setIScorePolicy(scorePolicy);
                 return true;
             }
         }
-//        if(DBManagerStub.getSeason(lid,year)!=null && scorePolicy!=null){
-//            Season season = DBManagerStub.getSeason(lid,year);
-//            season.setScorePolicy(scorePolicy);
-//            DBManagerStub.addSeason(lid,year,season);
-//            return true;
-//        }
         return false;
     }
 
@@ -87,9 +81,19 @@ public class League implements Serializable {
         return false;
     }
 
-    private boolean startSeason(List<Team> teams, IGamePolicy IGamePolicy, ScorePolicy scorePolicy){
+//    private boolean startSeason(List<Team> teams, IGamePolicy IGamePolicy, ScorePolicy scorePolicy){
+//        if(teams != null){
+//            Season season = MyFactory.createSeason(this, current_year, IGamePolicy, scorePolicy);
+//            season.initializeTeams(teams);
+//            seasons.add(season);
+//            return true;
+//        }
+//        return false;
+//    }
+
+    private boolean startSeason(List<Team> teams){
         if(teams != null){
-            Season season = MyFactory.createSeason(this, current_year, IGamePolicy, scorePolicy);
+            Season season = MyFactory.createSeason(this, current_year);
             season.initializeTeams(teams);
             seasons.add(season);
             return true;
@@ -110,14 +114,13 @@ public class League implements Serializable {
 
 
 
-    public boolean startNewSeason(int year , List<Team> teams, IGamePolicy IGamePolicy, ScorePolicy scorePolicy){
-        if( year <= 0){
-            return false;
-        }
-        else{
+    public boolean startNewSeason(int year , List<Team> teams){
+        if( year >= 2019){
             current_year = year;
-            return startSeason(teams, IGamePolicy, scorePolicy);
+            return startSeason(teams);
+
         }
+        return false;
     }
 
 

@@ -25,12 +25,12 @@ import static com.example.demo.DemoApplication.LOG;
 public class FAR extends SystemUser implements Serializable {
 
     @Transient
-    private static BudgetControl budgetControl;
+    private static BudgetControl budgetControl = new BudgetControl();
 
 
     public void setAttributes(int sid){
         setSid(sid);
-        budgetControl = new BudgetControl();
+        //budgetControl = new BudgetControl();
         LOG.info("A new FAR created: "+ getSid());
     }
 
@@ -39,27 +39,53 @@ public class FAR extends SystemUser implements Serializable {
      * first creation of a given league.
      * @return
      */
-    public boolean initializeLeague(LeagueLevel leagueLevel, String name, IGamePolicy IGamePolicy, ScorePolicy scorePolicy){
-        if( !isInteger(name) && leagueLevel!=null && name!=null && !name.isEmpty()){
-//        if( !isInteger(name) && leagueLevel!=null && name!=null && !name.isEmpty() && gameSchedulerPolicy!=null && scorePolicy!=null){
-            //if (name.matches("[A-Za-z]")){
-                League league = MyFactory.createLeague(leagueLevel,name, IGamePolicy,scorePolicy);
-                //DBManagerStub.addLeague(league.getLid(), league);
-                LOG.info("A league was initiated by FAR: "+ getSid());
-                return true;
-            //}
+//    public boolean initializeLeague(LeagueLevel leagueLevel, String name, IGamePolicy gamePolicy, ScorePolicy scorePolicy){
+//        if( name.matches("[A-Za-z]") && leagueLevel!=null && name!=null && !name.isEmpty() && gamePolicy!=null && scorePolicy!=null){
+//                League league = MyFactory.createLeague(leagueLevel,name, gamePolicy,scorePolicy);
+//                LOG.info("A league was initiated by FAR: "+ getSid());
+//                return true;
+//        }
+//        return false;
+//    }
+
+    public boolean initializeLeague(LeagueLevel leagueLevel, String name){
+        if( name.matches("[A-Za-z]+") && leagueLevel!=null && name!=null ){
+            MyFactory.createLeague(leagueLevel,name);
+            LOG.info("A league was initiated by FAR: "+ getSid());
+            return true;
         }
         return false;
     }
-
-
 
 
     /**
      * UC 9.2
      * Initialize a specific season for an exiting league.
      */
-    public boolean initializeSeasonForLeague(int leagueId, int year, int[] team_ids, IGamePolicy IGamePolicy, ScorePolicy scorePolicy ){
+//    public boolean initializeSeasonForLeague(int leagueId, int year, Set<Integer> team_ids, IGamePolicy IGamePolicy, ScorePolicy scorePolicy ){
+//
+//        if (team_ids != null){
+//            List<Team> teamsForSeason = new ArrayList<>();
+//            League league = ((League) DBManager.getObject(League.class, leagueId));
+//            for (Integer tid: team_ids){
+//                Team team = ((Team) DBManager.getObject(Team.class, tid));
+//                teamsForSeason.add(team);
+//            }
+//            if(league != null && teamsForSeason !=null && year >= 2019 ){
+////            if(league != null && teamsForSeason !=null && year >= 2019 && gameSchedulerPolicy != null && scorePolicy != null){
+//                if(league.startNewSeason(year , teamsForSeason, IGamePolicy, scorePolicy)){
+//                    for(Team t : teamsForSeason){
+//                        budgetControl.initializeTeamFinance(t,year);
+//                    }
+//                    LOG.info("A new season was initiated to league: " +league.getName()+" year: " +year);
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
+
+    public boolean initializeSeasonForLeague(int leagueId, int year, Set<Integer> team_ids ){
 
         if (team_ids != null){
             List<Team> teamsForSeason = new ArrayList<>();
@@ -69,8 +95,7 @@ public class FAR extends SystemUser implements Serializable {
                 teamsForSeason.add(team);
             }
             if(league != null && teamsForSeason !=null && year >= 2019 ){
-//            if(league != null && teamsForSeason !=null && year >= 2019 && gameSchedulerPolicy != null && scorePolicy != null){
-                if(league.startNewSeason(year , teamsForSeason, IGamePolicy, scorePolicy)){
+                if(league.startNewSeason(year , teamsForSeason)){
                     for(Team t : teamsForSeason){
                         budgetControl.initializeTeamFinance(t,year);
                     }
@@ -79,8 +104,6 @@ public class FAR extends SystemUser implements Serializable {
                 }
             }
         }
-
-
         return false;
     }
 
@@ -128,7 +151,7 @@ public class FAR extends SystemUser implements Serializable {
     /**
      *UC 9.5
      */
-    public boolean setScorePolicyForSeason(int leagueId , ScorePolicy scorePolicy){
+    public boolean setScorePolicyForSeason(int leagueId , IScorePolicy scorePolicy){
         League league = ((League) DBManager.getObject(League.class, leagueId));
         if(league != null && scorePolicy != null){
             league.setScorePolicyForSeason(league.getCurrent_year(),scorePolicy);

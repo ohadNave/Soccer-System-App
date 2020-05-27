@@ -110,6 +110,15 @@ public class DaoMySQL implements Dao<Object> {
 
     }
 
+    public Subscriber getByUserName(String existingUserName) {
+        Object subscriber = entityManager.createQuery(
+                "SELECT C FROM Subscriber C WHERE C.userName LIKE : userName" )
+                .setParameter("userName",existingUserName)
+                .getSingleResult();
+        return ((Subscriber) subscriber);
+
+    }
+
     public boolean checkUserName(String potentialUserName){
         boolean valid = false;
         try{

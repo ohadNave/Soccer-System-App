@@ -79,7 +79,7 @@ public class FARController {
         if(far == null){
             return false;
         }
-        ScorePolicy scorePolicyI = new ScorePolicyA();
+        IScorePolicy scorePolicyI = new ScorePolicyA();
         if(scorePolicy.equals("ScorePolicyB")){
             scorePolicyI=new ScorePolicyB();
         }

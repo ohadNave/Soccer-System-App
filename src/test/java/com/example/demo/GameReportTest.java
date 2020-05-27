@@ -28,7 +28,7 @@ public class GameReportTest {
         Subscriber s1 = MyFactory.createSubscriber("ohad-far2","s","ohad");
         s1.makeFARActive();
         FAR far = s1.getFar();
-        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga",null,null);
+        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga");
 
         //create owners
         Subscriber s2 = MyFactory.createSubscriber("owner1","none","none");
@@ -58,16 +58,16 @@ public class GameReportTest {
         teams.add(team3);
         teams.add(team4);
 
-        int[] team_ids = new int[3];
-        team_ids[0] = team2.getTid();
-        team_ids[1] = team3.getTid();
-        team_ids[2] = team4.getTid();
+        Set<Integer> team_ids = new HashSet<>();
+        team_ids.add(team2.getTid());
+        team_ids.add(team3.getTid());
+        team_ids.add(team4.getTid());
 
 
 //		IMatchPolicy aPolicy = new MatchPolicy();
 //		ScorePolicy scorePolicy = new ScorePolicyA();
 
-        far.initializeSeasonForLeague(1,2020, team_ids,null,null);
+        far.initializeSeasonForLeague(1,2020, team_ids);
 
 
         //create referees
@@ -89,8 +89,8 @@ public class GameReportTest {
         Field f1 = MyFactory.createField("Terner");
         Field f2 = MyFactory.createField("Vasermil");
 
-        Game m1 = MyFactory.createMatch(LocalDate.now(), LocalTime.NOON,f1,team2,team3,referees);
-        Game m2 = MyFactory.createMatch(LocalDate.now(), LocalTime.NOON,f1,team4,team2,referees);
+        Game m1 = MyFactory.createGame(LocalDate.now(), LocalTime.NOON,f1,team2,team3,referees);
+        Game m2 = MyFactory.createGame(LocalDate.now(), LocalTime.NOON,f1,team4,team2,referees);
         Set<Game> matches = new HashSet<>();
 
         matches.add(m1);

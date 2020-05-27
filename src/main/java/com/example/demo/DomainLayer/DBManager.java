@@ -72,6 +72,9 @@ public class DBManager {
         }
     }
 
+    public static Subscriber getByUserName(String userName){
+        return daoMySQL.getByUserName(userName);
+    }
 
     /**
      * For register

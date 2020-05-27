@@ -60,10 +60,13 @@ public class MyFactory {
     }
 
     public static Subscriber createSubscriber(String userName, String password, String name){
-        Subscriber subscriber = new Subscriber();
-        subscriber.setAttributes(userName,password,name);
-        DBManager.saveObject(subscriber);
-        return subscriber;
+        if(DBManager.checkUserName(userName)){
+            Subscriber subscriber = new Subscriber();
+            subscriber.setAttributes(userName,password,name);
+            DBManager.saveObject(subscriber);
+            return subscriber;
+        }
+      return null;
     }
 
     public static sysMan createSystemManager(int sid){
@@ -115,16 +118,23 @@ public class MyFactory {
         return field;
     }
 
-    public static League createLeague(LeagueLevel leagueLevel, String name, IGamePolicy IGamePolicy, ScorePolicy scorePolicy){
+    public static League createLeague(LeagueLevel leagueLevel, String name){
         League league = new League();
-        league.setAttributes(leagueLevel,name, IGamePolicy,scorePolicy);
+        league.setAttributes(leagueLevel,name);
         DBManager.saveObject(league);
         return league;
     }
 
-    public static Season createSeason(League league, int currentYear, IGamePolicy IGamePolicy, ScorePolicy scorePolicy){
+//    public static Season createSeason(League league, int currentYear, IGamePolicy IGamePolicy, ScorePolicy scorePolicy){
+//        Season season = new Season();
+//        season.setAttributes(league,currentYear, IGamePolicy,scorePolicy);
+//        DBManager.saveObject(season);
+//        return season;
+//    }
+
+    public static Season createSeason(League league, int currentYear){
         Season season = new Season();
-        season.setAttributes(league,currentYear, IGamePolicy,scorePolicy);
+        season.setAttributes(league,currentYear);
         DBManager.saveObject(season);
         return season;
     }
@@ -148,7 +158,7 @@ public class MyFactory {
         return privatePage;
     }
 
-    public static Game createMatch(LocalDate date, LocalTime hour, Field field, Team home, Team away, Set<Referee> referees){
+    public static Game createGame(LocalDate date, LocalTime hour, Field field, Team home, Team away, Set<Referee> referees){
         Game match = new Game();
         match.setAttributes(date,hour,field,home.getTid(),away.getTid(),referees);
         DBManager.saveObject(match);
@@ -168,6 +178,7 @@ public class MyFactory {
     public static MatchDateChangedAlert createMatchDateChangedAlert(LocalDate newMatchDate){
         MatchDateChangedAlert matchDateChangedAlert = new MatchDateChangedAlert();
         matchDateChangedAlert.setAttributes(newMatchDate);
+        DBManager.saveObject(matchDateChangedAlert);
         return matchDateChangedAlert;
     }
 

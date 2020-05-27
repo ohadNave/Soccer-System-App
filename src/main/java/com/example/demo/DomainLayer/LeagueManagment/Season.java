@@ -1,8 +1,12 @@
 package com.example.demo.DomainLayer.LeagueManagment;
 
+import com.example.demo.DomainLayer.DBManager;
+import com.example.demo.DomainLayer.Enums.GamePolicyEnum;
 import com.example.demo.DomainLayer.Enums.RefereeRoll;
+import com.example.demo.DomainLayer.Enums.ScorePolicyEnum;
 import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.Referee;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -34,27 +38,50 @@ public class Season implements Serializable {
     @Column(name = "matches")
     private Set<Game> matches;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "league_id")
     private League league;
+
+
+    @Enumerated(EnumType.STRING)
+    private GamePolicyEnum gamePolicyEnum;
+
+    @Enumerated(EnumType.STRING)
+    private ScorePolicyEnum scorePolicyEnum;
 
     @Transient
     private IGamePolicy IGamePolicy;
     @Transient
-    private ScorePolicy scorePolicy;
+    private IScorePolicy IScorePolicy;
 
 
-    public void setAttributes(League league, int currentYear, IGamePolicy IGamePolicy, ScorePolicy scorePolicy){
+
+
+    public void setAttributes(League league, int currentYear){
         this.year = currentYear;
         this.teams_league = new ArrayList<>();
-        this.IGamePolicy = IGamePolicy;
-        this.scorePolicy = scorePolicy;
         this.season_referees = new HashSet<>();
         this.matches =new HashSet<>();
         this.team_scores = new ArrayList<>();
         setLeague(league);
     }
 
+
+    @PostLoad
+    public void setPolicies(){
+        if (gamePolicyEnum != null){
+            if (gamePolicyEnum == GamePolicyEnum.STANDARD)
+                setIGamePolicy(new GamePolicy());
+        }
+        if ( scorePolicyEnum != null){
+            if (scorePolicyEnum == ScorePolicyEnum.SCORE_POLICY_A ){
+                setIScorePolicy(new ScorePolicyA());
+            }
+            else{
+                setIScorePolicy(new ScorePolicyB());
+            }
+        }
+    }
 
     /**
      * DB care required
@@ -75,6 +102,7 @@ public class Season implements Serializable {
     public boolean activateGameSchedulePolicy(){
         if(teams_league != null && IGamePolicy != null ){
             IGamePolicy.activate(this);
+            DBManager.updateObject(this);
             return true;
         }
         return false;
@@ -87,7 +115,6 @@ public class Season implements Serializable {
         return IGamePolicy;
     }
 
-
     public Set<Referee> getSeason_referees() {
         return season_referees;
     }
@@ -96,14 +123,31 @@ public class Season implements Serializable {
         this.season_referees = referees;
     }
 
-    public void setIGamePolicy(IGamePolicy IGamePolicy) { this.IGamePolicy = IGamePolicy; }
-
-    public ScorePolicy getScorePolicy() {
-        return scorePolicy;
+    public void setIGamePolicy(IGamePolicy IGamePolicy) {
+        if (IGamePolicy instanceof GamePolicy) {
+            setGamePolicyEnum(GamePolicyEnum.STANDARD);
+            this.IGamePolicy = IGamePolicy;
+        } else {
+            setGamePolicyEnum(GamePolicyEnum.UNIQUE);
+            this.IGamePolicy = IGamePolicy;
+        }
+        DBManager.updateObject(this);
     }
 
-    public void setScorePolicy(ScorePolicy scorePolicy) {
-        this.scorePolicy = scorePolicy;
+    public IScorePolicy getIScorePolicy() {
+        return IScorePolicy;
+    }
+
+    public void setIScorePolicy(IScorePolicy IScorePolicy) {
+        if (IScorePolicy instanceof ScorePolicyA){
+            setScorePolicyEnum(ScorePolicyEnum.SCORE_POLICY_A);
+            this.IScorePolicy = IScorePolicy;
+        }
+        else{
+            setScorePolicyEnum(ScorePolicyEnum.SCORE_POLICY_B);
+            this.IScorePolicy = IScorePolicy;
+        }
+        DBManager.updateObject(this);
     }
 
     public int getYear() {
@@ -199,4 +243,30 @@ public class Season implements Serializable {
         }
         return toReturn;
     }
+
+    public GamePolicyEnum getGamePolicyEnum() {
+        return gamePolicyEnum;
+    }
+
+    public void setGamePolicyEnum(GamePolicyEnum gamePolicyEnum) {
+        this.gamePolicyEnum = gamePolicyEnum;
+    }
+
+    public ScorePolicyEnum getScorePolicyEnum() {
+        return scorePolicyEnum;
+    }
+
+    public void setScorePolicyEnum(ScorePolicyEnum scorePolicy) {
+        this.scorePolicyEnum = scorePolicy;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Season)) return false;
+        if (!super.equals(o)) return false;
+        Season season = (Season) o;
+        return getSeason_id() == season.getSeason_id();
+    }
+
 }
