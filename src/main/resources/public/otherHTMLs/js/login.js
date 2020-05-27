@@ -254,15 +254,19 @@ function subscriberChoose() {
 
 
               if(choice=="FAR"){
+                  localStorage.setItem("choice", "FAR");
                   window.location.href="FAR.html";
              }
               else if(choice=="owner"){
+                  localStorage.setItem("choice", "owner");
                   window.location.href="owner.html";
               }
               else if (choice=="mainReferee"){
+                  localStorage.setItem("choice", "mainReferee");
                    window.location.href="mainReferee.html";
               }
               else if (choice=="lineReferee"){
+                  localStorage.setItem("choice", "lineReferee");
                   window.location.href="lineReferee.html";
               }
 
