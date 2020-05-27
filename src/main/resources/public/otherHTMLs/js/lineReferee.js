@@ -8,7 +8,7 @@ var globalVariable={
     ownerAlerts: new Array()
 };
 function getID() {
-    return globalVariable.sid;
+    return localStorage.getItem("sid");
 }
 function displayAddEvent() {
     hideAllDives();
@@ -275,7 +275,7 @@ function makeReport(){
 }
 
 function getLineRefereeAlerts() {
-    var myURL="http://localhost:8080/lineReferee/getAlerts/"+globalVariable.sid;
+    var myURL="http://localhost:8080/lineReferee/getAlerts/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {

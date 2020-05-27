@@ -8,7 +8,7 @@ var globalVariable={
     ownerAlerts: new Array()
 };
 function getID() {
-    return globalVariable.sid;
+    return localStorage.getItem("sid");
 }
 function displayAddEvent() {
     hideAllDives();
