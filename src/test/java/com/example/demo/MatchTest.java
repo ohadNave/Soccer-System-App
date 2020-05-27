@@ -27,7 +27,7 @@ public class MatchTest {
         Subscriber s1 = MyFactory.createSubscriber("ohad-far2","s","ohad");
         s1.makeFARActive();
         FAR far = s1.getFar();
-        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga");
+        far.initializeLeague(LeagueLevel.PremierLeague,"LaLiga");
 
         //create owners
         Subscriber s2 = MyFactory.createSubscriber("owner1","none","none");
@@ -61,9 +61,9 @@ public class MatchTest {
 
 
         //create referees
-        Subscriber sr1 = MyFactory.createSubscriber("ref1","none","none");
-        Subscriber sr2 = MyFactory.createSubscriber("ref2","none","none");
-        Subscriber sr3= MyFactory.createSubscriber("ref3","none","none");
+        Subscriber sr1 = MyFactory.createSubscriber("refe1","none","none");
+        Subscriber sr2 = MyFactory.createSubscriber("refe2","none","none");
+        Subscriber sr3= MyFactory.createSubscriber("refe3","none","none");
         sr1.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
         sr2.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
         sr3.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
@@ -92,7 +92,7 @@ public class MatchTest {
 
         currSeason.setMatches(matches);
         System.out.println("asd");
-        DBManager.updateObject(s1);
+      //  DBManager.updateObject(s1);
 
 
     }

@@ -4,6 +4,7 @@ import com.example.demo.DomainLayer.Alerts.Alert;
 import com.example.demo.DomainLayer.DBManager;
 import com.example.demo.DomainLayer.Enums.Certification;
 import com.example.demo.DomainLayer.Enums.EventType;
+import com.example.demo.DomainLayer.Enums.MatchStatus;
 import com.example.demo.DomainLayer.Enums.RefereeRoll;
 import com.example.demo.DomainLayer.LeagueManagment.*;
 import com.example.demo.DomainLayer.MyFactory;
@@ -25,7 +26,7 @@ public class Referee extends SystemUser implements Observer, Serializable {
     private Set<Game>matches;
 
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Alert> alerts;
 
 
@@ -204,13 +205,13 @@ public class Referee extends SystemUser implements Observer, Serializable {
         return matches;
     }
 
-//    public boolean startMatch(Game m1){
-//        if(m1.getStatus()==MatchStatus.YET_TO_COME) {
-//            m1.setStatus(MatchStatus.IN_PROGRESS);
-//            return true;
-//        }
-//        return false;
-//    }
+    public boolean startMatch(Game m1){
+        if(m1.getStatus()== MatchStatus.YET_TO_COME) {
+            m1.setStatus(MatchStatus.IN_PROGRESS);
+            return true;
+        }
+        return false;
+    }
 //
 //    public boolean endMatch(Game m1){
 //        if(m1.getStatus()==MatchStatus.IN_PROGRESS) {
@@ -238,9 +239,9 @@ public class Referee extends SystemUser implements Observer, Serializable {
         return getSid() == referee.getSid();
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), roll);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(super.hashCode(), roll);
+//    }
 }
 

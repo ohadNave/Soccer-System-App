@@ -118,7 +118,7 @@ public class MyFactory {
     public static GameEvent createEvent(int minuteInGame, String description, EventType eventType){
         GameEvent eventi = new GameEvent();
         eventi.setAttributes(minuteInGame,description,eventType);
-        DBManager.saveObject(eventi);
+        //DBManager.saveObject(eventi);
         eventLogger.info("A new Game Event created, id: " + eventi.getEid());
         return eventi;
     }
@@ -189,6 +189,7 @@ public class MyFactory {
     public static GameEventAlert createGameEventAlert(int minute, GameEvent event){
         GameEventAlert gameEventAlert = new GameEventAlert();
         gameEventAlert.setAttributes(minute,event);
+        DBManager.saveObject(gameEventAlert);
         return gameEventAlert;
     }
 
@@ -202,6 +203,7 @@ public class MyFactory {
     public static MatchEndedAlert createMatchEndedAlert(GameReport gameReport){
         MatchEndedAlert matchEndedAlert = new MatchEndedAlert();
         matchEndedAlert.setAttributes(gameReport);
+        DBManager.updateObject(matchEndedAlert);
         return matchEndedAlert;
     }
 

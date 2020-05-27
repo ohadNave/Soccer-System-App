@@ -28,15 +28,15 @@ public class GameReportTest {
         Subscriber s1 = MyFactory.createSubscriber("ohad-far2","s","ohad");
         s1.makeFARActive();
         FAR far = s1.getFar();
-        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga");
+        far.initializeLeague(LeagueLevel.PremierLeague,"LaLiga");
 
         //create owners
         Subscriber s2 = MyFactory.createSubscriber("owner1","none","none");
         Subscriber s3 = MyFactory.createSubscriber("owner2","none","none");
         Subscriber s4= MyFactory.createSubscriber("owner3","none","none");
-        Subscriber sr1 = MyFactory.createSubscriber("ref1","none","none");
-        Subscriber sr2 = MyFactory.createSubscriber("ref2","none","none");
-        Subscriber sr3= MyFactory.createSubscriber("ref3","none","none");
+        Subscriber sr1 = MyFactory.createSubscriber("refe1","none","none");
+        Subscriber sr2 = MyFactory.createSubscriber("refe2","none","none");
+        Subscriber sr3= MyFactory.createSubscriber("refe3","none","none");
 
 
         s2.makeOwnerActive();
@@ -105,7 +105,8 @@ public class GameReportTest {
         fr1.addEventToMatch(g1.getId(),23,"Barda gets a red card", EventType.RedCard);
         fr1.addEventToMatch(m1.getId(),55,"Melikson scores", EventType.Goal);
 
-
         fr1.createGameReport(m1.getId(),team2,team3,1,0);
+
+
     }
 }

@@ -51,7 +51,8 @@ public class Season implements Serializable {
 
     @Transient
     private IGamePolicy IGamePolicy;
-    @Transient
+
+
     private IScorePolicy IScorePolicy;
 
 

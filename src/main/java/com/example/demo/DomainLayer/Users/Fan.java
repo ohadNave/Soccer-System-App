@@ -136,7 +136,7 @@ public class Fan extends SystemUser implements Observer, Serializable {
 
                 // FOR MATCH ADD EVENT ALERT(foul/goal..) or MATCH ENDED ALERT(3:0 Real Madrid - Barcelona..) or MATCH DATE CHANGED ALERT.
                 if (o instanceof Game) {
-                    if (this.followingMatches != null && this.followingMatches.contains(((Game) o).getId())) {
+                    if (this.followingMatches != null && this.followingMatches.contains(o)) {
                         handleAlert(((Alert) arg));
                     }
                 }
@@ -154,7 +154,6 @@ public class Fan extends SystemUser implements Observer, Serializable {
     public boolean handleAlert(Alert alert){
             if (alert != null){
                 alerts.add(alert);
-                DBManager.updateObject(this);
                 return true;
             }
         return false;
