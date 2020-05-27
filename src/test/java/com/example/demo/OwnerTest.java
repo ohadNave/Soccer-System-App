@@ -70,7 +70,7 @@ public class OwnerTest {
         subscriber = MyFactory.createSubscriber("ohad-far2","s","ohad");
         subscriber.makeFARActive();
         FAR far = subscriber.getFar();
-        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga",null,null);
+        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga");
 
         subscriber2  = MyFactory.createSubscriber("owner","none","none");
         subscriber2.makeOwnerActive();

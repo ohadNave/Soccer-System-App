@@ -3,7 +3,7 @@ package com.example.demo.DomainLayer.LeagueManagment;
 
 import java.util.List;
 
-public class ScorePolicyA implements ScorePolicy {
+public class ScorePolicyA implements IScorePolicy {
     private String description;
     private int addToWinner;
     private int addToLooser;

@@ -11,7 +11,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @SpringBootTest
 public class LeagueTests {
@@ -22,7 +24,7 @@ public class LeagueTests {
         Subscriber s1 = MyFactory.createSubscriber("ohad-far","s","ohad");
         s1.makeFARActive();
         FAR far = s1.getFar();
-        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga",null,null);
+        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga");
     }
 
     @Test
@@ -31,7 +33,7 @@ public class LeagueTests {
         Subscriber s1 = MyFactory.createSubscriber("ohad-far2","s","ohad");
         s1.makeFARActive();
         FAR far = s1.getFar();
-        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga",null,null);
+        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga");
 
 
         Subscriber s2 = MyFactory.createSubscriber("owner1","none","none");
@@ -51,12 +53,12 @@ public class LeagueTests {
         teams.add(team3);
         teams.add(team4);
 
-        int[] team_ids = new int[3];
-        team_ids[0] = team2.getTid();
-        team_ids[1] = team3.getTid();
-        team_ids[2] = team4.getTid();
+        Set<Integer> team_ids = new HashSet<>();
+        team_ids.add(team2.getTid());
+        team_ids.add(team3.getTid());
+        team_ids.add(team4.getTid());
 
-        far.initializeSeasonForLeague(1,2020, team_ids,null,null);
+        far.initializeSeasonForLeague(1,2020, team_ids);
         League leagueFromDB = ((League) DBManager.getObject(League.class, 1));
     }
 

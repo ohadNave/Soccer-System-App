@@ -1,6 +1,6 @@
 package com.example.demo.DomainLayer.LeagueManagment;
 
-public class ScorePolicyB implements ScorePolicy{
+public class ScorePolicyB implements IScorePolicy {
     private String description;
     private int addToWinner;
     private int addToLooser;

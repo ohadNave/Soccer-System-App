@@ -24,16 +24,12 @@ public class GamePolicy implements IGamePolicy {
                 for(int j = i + 1 ; j<seasonTeams.size(); j++){
                     Team homeTeam = seasonTeams.get(i);
                     Team awayTeam = seasonTeams.get(j);
-                    LocalDate localDate1= LocalDate.of( Year.now().getValue() , (int)(Math.random() * 12),  (int)(Math.random() * 28) );
-                    LocalDate localDate2= LocalDate.of( Year.now().getValue() , (int)(Math.random() * 12),  (int)(Math.random() * 28) );
-                    LocalTime localTime = LocalTime.of(12+(int)(Math.random()*9),0);
-                    Game match = MyFactory.createMatch(localDate1, localTime, homeTeam.getField().get(0),homeTeam,awayTeam,null);
-                    LocalTime localTime2 = LocalTime.of(12+(int)(Math.random()*9),0);
-                    Game match2 = MyFactory.createMatch(localDate2, localTime2, awayTeam.getField().get(0),awayTeam,homeTeam,null );
-                    match.setSeason(season);
-                    match2.setSeason(season);
-                    matches.add(match);
-                    matches.add(match2);
+                    Game game_home = MyFactory.createGame(generateDate(), generateHour(), homeTeam.getField().get(0),homeTeam,awayTeam,season.getRefereesForMatch());
+                    Game game_away = MyFactory.createGame(generateDate(), generateHour(), awayTeam.getField().get(0),awayTeam,homeTeam,season.getRefereesForMatch());
+                    game_home.setSeason(season);
+                    game_away.setSeason(season);
+                    matches.add(game_home);
+                    matches.add(game_away);
                 }
             }
             season.setMatches(matches);
@@ -47,5 +43,19 @@ public class GamePolicy implements IGamePolicy {
     public String getDescription() {
         return description;
     }
+
+
+    public LocalDate generateDate(){
+        Random random = new Random();
+        LocalDate localDate = LocalDate.of( Year.now().getValue() , random.nextInt(12 - 1 + 1) + 1,  random.nextInt(28 - 1 + 1) + 1 );
+        return  localDate;
+    }
+
+    public LocalTime generateHour(){
+        Random random = new Random();
+        LocalTime localTime = LocalTime.of(random.nextInt(12 - 9 + 1) + 9,0);
+        return  localTime;
+    }
+
 
 }
