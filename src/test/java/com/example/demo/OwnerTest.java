@@ -115,8 +115,8 @@ public class OwnerTest {
         owner1.makeOwnerActive();
         Subscriber owner2 = MyFactory.createSubscriber("owner2","1234","a");
         owner2.makeOwnerActive();
-        Subscriber far = MyFactory.createSubscriber("far","1234","a");
-        far.makeFARActive();
+//        Subscriber far = MyFactory.createSubscriber("far","1234","a");
+//        far.makeFARActive();
         Subscriber mainReferee = MyFactory.createSubscriber("main referee","1234","a");
         mainReferee.makeRefereeActive(Certification.BASIC,RefereeRoll.MAIN_REFEREE);
         Subscriber lineReferee1 = MyFactory.createSubscriber("line referee1","1234","a");

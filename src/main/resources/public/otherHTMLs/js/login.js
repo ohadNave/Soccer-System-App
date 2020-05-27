@@ -246,10 +246,17 @@ function displayOwnerPage() {
 
 
 }
+
+
+function displayAlerts() {
+
+
+}
 function subscriberChoose() {
 
     var e1 = document.getElementById("chooseSub");
     var choice = e1.options[e1.selectedIndex].value;
+    localStorage.setItem("choice")
 
 
 
