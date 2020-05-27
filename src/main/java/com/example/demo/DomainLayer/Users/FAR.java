@@ -51,7 +51,7 @@ public class FAR extends SystemUser implements Serializable {
     public boolean initializeLeague(LeagueLevel leagueLevel, String name){
         if( name.matches("[A-Za-z]+") && leagueLevel!=null && name!=null ){
             MyFactory.createLeague(leagueLevel,name);
-            LOG.info("A league was initiated by FAR: "+ getSid());
+            eventLogger.info("A league was initiated by FAR: "+ getSid());
             return true;
         }
         errorLogger.error("A league was failed to initiate by FAR: "+ getSid());
@@ -63,7 +63,7 @@ public class FAR extends SystemUser implements Serializable {
      * UC 9.2
      * Initialize a specific season for an exiting league.
      */
-    public boolean initializeSeasonForLeague(int leagueId, int year, int[] team_ids, IGamePolicy IGamePolicy, ScorePolicy scorePolicy ){
+    public boolean initializeSeasonForLeague(int leagueId, int year, Set<Integer> team_ids ){
 
         if (team_ids != null){
             List<Team> teamsForSeason = new ArrayList<>();
@@ -170,7 +170,7 @@ public class FAR extends SystemUser implements Serializable {
         League league = ((League) DBManager.getObject(League.class, leagueId));
 
         if(league!=null){
-            LOG.info("A Game Scheduler policy was activated set to league: "+league.getName() +" by FAR: "+getSid());
+            eventLogger.info("A Game Scheduler policy was activated set to league: "+league.getName() +" by FAR: "+getSid());
             league.activateGameSchedulePolicyForSeason(league.getCurrent_year());
             DBManager.updateObject(league);
             return true;

@@ -135,17 +135,17 @@ public class OwnerTest {
         teams.add(team1);
         teams.add(team2);
 
-        Game game1 = MyFactory.createMatch(null, null, null,team1,team2,referees);
-        Game game2 = MyFactory.createMatch(null, null, null,team2,team1,referees);
+        Game game1 = MyFactory.createGame(null, null, null,team1,team2,referees);
+        Game game2 = MyFactory.createGame(null, null, null,team2,team1,referees);
 
-        League league1 = MyFactory.createLeague(LeagueLevel.PremierLeague,"league1",new GamePolicy(),new ScorePolicyA());
-        league1.startNewSeason(2019,teams,new GamePolicy(),new ScorePolicyA());
-        league1.startNewSeason(2020,teams,new GamePolicy(),new ScorePolicyA());
-        league1.startNewSeason(2021,teams,new GamePolicy(),new ScorePolicyA());
-        League league2 = MyFactory.createLeague(LeagueLevel.PremierLeague,"league2",new GamePolicy(),new ScorePolicyA());
-        league2.startNewSeason(2019,teams,new GamePolicy(),new ScorePolicyA());
-        league2.startNewSeason(2020,teams,new GamePolicy(),new ScorePolicyA());
-        league2.startNewSeason(2021,teams,new GamePolicy(),new ScorePolicyA());
+        League league1 = MyFactory.createLeague(LeagueLevel.PremierLeague,"league1");
+        league1.startNewSeason(2019,teams);
+        league1.startNewSeason(2020,teams);
+        league1.startNewSeason(2021,teams);
+        League league2 = MyFactory.createLeague(LeagueLevel.PremierLeague,"league2");
+        league2.startNewSeason(2019,teams);
+        league2.startNewSeason(2020,teams);
+        league2.startNewSeason(2021,teams);
 
 
 
