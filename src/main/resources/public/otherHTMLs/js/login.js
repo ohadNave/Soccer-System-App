@@ -82,9 +82,9 @@ function loginButton() {
     // data.sid = "1";
     data.username = username.value;
     data.password = password.value;
-    alert("my data is: " + data);
+    // alert("my data is: " + data);
     var json = JSON.stringify(data);
-    alert("my json is:"+json);
+    // alert("my json is:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
@@ -223,7 +223,7 @@ function back() {
     displayOwnerPage()
 
 }
-
+var ownerInterval;
 var clicked=false;
 function displayOwnerPage() {
     hideAllDives();
@@ -252,7 +252,28 @@ function displayOwnerPage() {
     // }
 
     // setInterval(displayalertsOwner,400,clicked==true);
-    setInterval(getOwnerAlerts,1000);
+    // ownerInterval=setInterval(getOwnerAlerts,1000);
+
+
+}
+
+function chooseAlerts() {
+    if(localStorage.getItem("choice")=="owner"){
+        displayOwnerAlerts();
+    }
+    else if(localStorage.getItem("choice")=="lineReferee"){
+        displayalertsLineReferee();
+    }
+    else if(localStorage.getItem("choice")=="mainReferee"){
+        displayalertsMainReferee();
+    }
+
+}
+
+
+function displayAlerts() {
+
+    window.location.href="alerts.html";
 
 
 }
@@ -260,6 +281,7 @@ function subscriberChoose() {
 
     var e1 = document.getElementById("chooseSub");
     var choice = e1.options[e1.selectedIndex].value;
+    localStorage.setItem("choice",choice);
 
 
 

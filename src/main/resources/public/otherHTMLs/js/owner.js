@@ -20,9 +20,9 @@ function hideAllDives1() {
     addTeamPage.style.display = "none";
 
 }
-var interval;
+var intervalOwner;
 function setIntervals() {
-     interval=setInterval(getOwnerAlerts,1000);
+    intervalOwner=setInterval(getOwnerAlerts,1000);
 
 }
 function opentNewTeam() {
@@ -109,12 +109,17 @@ function displayalertsOwner() {
     window.location.href = "alerts.html";
 }
 
-function displayAlerts() {
+function displayOwnerAlerts() {
     var x = document.getElementById("alerts");
     // var y = document.getElementById("back");
-    var i = localStorage.getItem("lengthOfAlerts")-1;
-    clearInterval(interval);
-    while (localStorage.getItem("lengthOfAlerts") > 0) {
+    // var i = localStorage.getItem("lengthOfAlerts")-1;
+    var text = localStorage.getItem("arrayOfAlert");
+    text=JSON.parse(text);
+    // text=text.split(/[ /[/,]+/);
+    clearInterval(intervalOwner);
+    var i=text.length-1;
+    // while (localStorage.getItem("lengthOfAlerts") > 0) {
+    while (text.length> 0) {
         var random = Math.floor(Math.random() * 4) + 1;
         var alerts = document.getElementById("alerts");
         var message = document.createElement("div", "id=message");
@@ -139,18 +144,18 @@ function displayAlerts() {
         btn.setAttribute("style", "  margin-left: 10px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px; cursor: pointer;transition: 0.3s; ")
 
         var times = document.createTextNode("X");
-        var text = localStorage.getItem("arrayOfAlert");
-        text = text.split(/[ ","]+/);
+        // var text = localStorage.getItem("arrayOfAlert");
+        // text = text.split(/[ ","]+/);
 
 
         var text2 = document.createTextNode(text[i]);
-        if(text2=="]" || (text2=="[")){
-        }
-        else {
-            i--;
-        }
+        // if(text2=="]" || (text2=="[")){
+        // }
+        // else {
+        //     i--;
+        // }
         text.splice(i, 1);
-
+        i--;
 
         localStorage.setItem("lengthOfAlerts", text.length);
 
@@ -166,16 +171,7 @@ function displayAlerts() {
 
     }
 
-        // if (x.style.display === "none") {
-        //     x.style.display = "block";
-        // } else {
-        //     x.style.display = "none";
-        // }
-        // if (y.style.display === "none") {
-        //     y.style.display = "block";
-        // } else {
-        //     y.style.display = "none";
-        // }
+
 
 
         var close = document.getElementsByClassName("closebtn");
