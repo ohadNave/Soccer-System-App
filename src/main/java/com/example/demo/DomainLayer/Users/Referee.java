@@ -22,12 +22,13 @@ public class Referee extends SystemUser implements Observer, Serializable {
     private Certification certification;
 
     @ManyToMany( cascade = CascadeType.ALL)
-    private Set<Game>matches;
+    private Set<Game> matches;
 
-
-    @OneToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Alert> alerts;
 
+    @ElementCollection
+    private List<String> prevAlerts;
 
     public Referee() {
         this.alerts = new LinkedList<>();
@@ -39,6 +40,7 @@ public class Referee extends SystemUser implements Observer, Serializable {
         this.certification = certification;
         matches = new HashSet<>();
         alerts = new ArrayList<>();
+        prevAlerts = new ArrayList<>();
     }
 
 
@@ -128,7 +130,7 @@ public class Referee extends SystemUser implements Observer, Serializable {
      * @param arg - the relevant alert(GameDateChangedAlert).
      */
     @Override
-    public void update(Observable o, Object arg) {
+    public synchronized void update(Observable o, Object arg) {
         if (o != null && arg != null){
             if (arg instanceof Alert &&  o instanceof Game){
                 Game tempMatch = ((Game)o);
@@ -143,10 +145,10 @@ public class Referee extends SystemUser implements Observer, Serializable {
      * require DB care.
      * @param alert
      */
-    public void handleAlert(Alert alert){
+    public synchronized void handleAlert(Alert alert){
         if (alert != null){
             this.alerts.add(alert);
-            //DBManager.updateObject(this);
+            DBManager.updateObject(this);
         }
     }
 
@@ -180,7 +182,13 @@ public class Referee extends SystemUser implements Observer, Serializable {
     }
 
     public List<Alert> getAlerts() {
-        return alerts;
+        List<Alert> newAlert = new ArrayList<>();
+        for (Alert a: alerts){
+            newAlert.add(a);
+            prevAlerts.add(alerts.toString());
+        }
+        alerts.clear();
+        return newAlert;
     }
 
     public RefereeRoll getRoll() {
@@ -221,12 +229,7 @@ public class Referee extends SystemUser implements Observer, Serializable {
 //    }
 
     public void addGame(Game game){
-//        Set<Game> newGames = new HashSet<>();
-//        for (Game g :matches){
-//            matches.add(g);
-//        }
         matches.add(game);
-//        setMatches(newGames);
     }
 
     @Override
@@ -241,6 +244,15 @@ public class Referee extends SystemUser implements Observer, Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), roll);
+    }
+
+
+    public List<String> getPrevAlerts() {
+        return prevAlerts;
+    }
+
+    public void setPrevAlerts(List<String> prevAlerts) {
+        this.prevAlerts = prevAlerts;
     }
 }
 

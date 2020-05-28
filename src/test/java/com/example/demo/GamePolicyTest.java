@@ -128,4 +128,14 @@ public class GamePolicyTest {
         Referee referee2 = s7.getReferee();
         Referee referee3 = s8.getReferee();
     }
+
+    @Test
+    public void Test2(){
+        Subscriber s6 = DBManager.getByUserName("referee - 1");
+        Subscriber s7 = DBManager.getByUserName("referee - 2");
+        Subscriber s8 = DBManager.getByUserName("referee - 3");
+        Referee referee1 = s6.getReferee();
+        Referee referee2 = s7.getReferee();
+        Referee referee3 = s8.getReferee();
+    }
 }

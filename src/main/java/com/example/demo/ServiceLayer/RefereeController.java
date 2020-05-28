@@ -1,7 +1,5 @@
 package com.example.demo.ServiceLayer;
 
-
-
 import com.example.demo.DomainLayer.Alerts.Alert;
 import com.example.demo.DomainLayer.DBManager;
 import com.example.demo.DomainLayer.Enums.EventType;
