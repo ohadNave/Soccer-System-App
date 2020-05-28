@@ -24,7 +24,7 @@ public class ExampleController {
 //    ******ADD SCORE POLICY*******
     RefereeController refereeController = new RefereeController();
     @RequestMapping("/addScorePolicy/getLeagueNames")
-    public Set<League> getLeaguesNames_scorePolicy(){
+    public String[] getLeaguesNames_scorePolicy(){
      //   System.out.println("i'm in java function");
         FARController farController = new FARController();
         return farController.getLeagues();
@@ -46,7 +46,7 @@ public class ExampleController {
 
 //    ******ADD PLACEMENT POLICY*******
     @RequestMapping("/addPlacementPolicy/getLeagueNames")
-    public Set<League> getLeaguesNames_placementPolicy(){
+    public String[] getLeaguesNames_placementPolicy(){
         //   System.out.println("i'm in java function");
         FARController farController = new FARController();
         return farController.getLeagues();
@@ -63,6 +63,12 @@ public class ExampleController {
     public boolean setPlacementPolicy(@RequestBody setPlacementParameters param){
         FARController farController = new FARController();
         return farController.setLeagueGameSchedulerPolicy(param.getSid(),param.getLeagueID(),param.getPlacementPolicy());
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/applyPlacementPolicy")
+    public boolean applyPlacementPolicy(@RequestBody setPlacementParameters param){
+        FARController farController = new FARController();
+        return farController.activeGameSchedulerPolicy(param.getSid(),param.getLeagueID());
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/login")
@@ -136,7 +142,7 @@ public class ExampleController {
     public String []  getPossibleGames(@PathVariable String subscriberID){
 //     System.out.println("the name i get is "+leagueName);
 //       RefereeController refereeController = new RefereeController();
-       return refereeController.getListOfGames(subscriberID);
+        return refereeController.getListOfGames(subscriberID);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/addEvent")
@@ -148,7 +154,7 @@ public class ExampleController {
 
 //    *****MAKE REPORT****
     @RequestMapping("/getTeamsInGame/{matchID}")
-    public String[] getTeamsOfGame(@PathVariable String matchID){
+    public String[] getTeamsInGame(@PathVariable String matchID){
     //     System.out.println("the name i get is "+leagueName);
       //  RefereeController refereeController = new RefereeController();
         return refereeController.getTeamsNames(matchID);

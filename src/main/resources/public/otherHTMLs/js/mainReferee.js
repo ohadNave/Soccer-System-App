@@ -51,7 +51,7 @@ function hideAllDives() {
 
 // *****ADD EVENT*****
 function getAllRelatedGames() {
-    var myURL="http://localhost:8080/getListOfGames/"+getID();
+    var myURL="/getListOfGames/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -82,7 +82,7 @@ function getAllRelatedGames() {
 
 function addEvent() {
     // Post a user
-    var url = "http://localhost:8080/addEvent";
+    var url = "/addEvent";
 
     var data = {};
 
@@ -122,16 +122,17 @@ function addEvent() {
 
 // ****MAKE REPORT****
 function getAllRelatedGames_makeReport() {
-    var myURL="http://localhost:8080/getListOfGames/"+getID();
+    var myURL="/getListOfGames/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             // var jsonData = JSON.parse(this);
             var jsonData = (JSON.parse(this.response));
+            // alert(!document.getElementById("relatedGames_makeReport0"));
             if(!document.getElementById("relatedGames_makeReport0")){
-                for (var i = 0; i < jsonData.length; i=i+2) {
+                for (var i = 0; i < jsonData.length-1; i=i+2) {
                     var gameDate = jsonData[i];
-                    alert("game date:"+gameDate);
+                    // alert("game date:"+gameDate);
                     var counter = gameDate;
                     dict_date_matchID[gameDate]=jsonData[i+1];
                     var x = document.getElementById("matches");
@@ -167,14 +168,16 @@ function getTeamsOfGame(){
     var e1 = document.getElementById("matches");
     var game = e1.options[e1.selectedIndex].value;
     makeReport_selectedGame = dict_date_matchID[game];
-    alert("the user chose:"+makeReport_selectedGame);
-    var myURL="http://localhost:8080/getTeamsInGame/"+makeReport_selectedGame;
-    alert("mu url is:"+myURL);
+    // alert("the user chose:"+makeReport_selectedGame);
+    var myURL="/getTeamsInGame/"+makeReport_selectedGame;
+    // alert("mu url is:"+myURL);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
+            alert("i have a response");
             // var jsonData = JSON.parse(this);
             var jsonData = JSON.parse(this.responseText);
+            alert("passed parsing");
             var firstTeam = jsonData[0];
             makeReport_TeamA=firstTeam;
             var secondTeam = jsonData[1];
@@ -182,8 +185,9 @@ function getTeamsOfGame(){
             dict_teamName_teamID[firstTeam]=jsonData[2];
             dict_teamName_teamID[secondTeam]=jsonData[3];
             if(!document.getElementById("teamsOfGameDiv")){
+                alert("i am in the if statement");
                 var x = document.getElementById("scoreOfTeams");
-                var div = document.getElementById("teamsOfGameDiv");
+                var div = document.createElement("teamsOfGameDiv");
                 var label1 = document.createElement("label1");
                 var t1 = document.createTextNode("score of "+firstTeam+":");
                 label1.setAttribute("for","scoreTeamA");
@@ -216,6 +220,9 @@ function getTeamsOfGame(){
                 x.appendChild(div);
             }
         }
+        else{
+            alert("i don't have a response")
+        }
 
     };
     xhttp.open("GET", myURL, true);
@@ -235,7 +242,7 @@ function makeReport_moveBackFromChoosingTeamsToChoosingGame(){
 
 function makeReport(){
     // Post a user
-    var url = "http://localhost:8080/makeReport";
+    var url = "/makeReport";
 
     var data = {};
 
@@ -258,7 +265,7 @@ function makeReport(){
         data.scoreLoosingTeam=scoreTeamA;
     }
     var json = JSON.stringify(data);
-    alert("details of report are:"+json);
+    // alert("details of report are:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
@@ -277,7 +284,7 @@ function makeReport(){
 
 var mainRefereeAlerts=new Array();
 function getMainRefereeAlerts() {
-    var myURL="http://localhost:8080/mainReferee/getAlerts/"+getID();
+    var myURL="/getAlerts/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
