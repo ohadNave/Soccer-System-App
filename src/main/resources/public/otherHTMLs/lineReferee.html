@@ -62,7 +62,7 @@
     <![endif]-->
 
 </head>
-<body onload="setInterval(getLineRefereeAlerts,1000);">
+<body onload="intervalLineReferee()">
 
 <div id="fh5co-page">
     <header id="fh5co-header" role="banner">
@@ -99,7 +99,7 @@
         </div>
     </aside>
 
-    <button id="alertButton" style=" margin-left: 25px; float: left; border: none; background-color: #27E1CE; padding: 20px 40px; color: white; border-radius: 10px;" type="button" onClick="displayalertsLineReferee()">
+    <button id="alertButton" style=" margin-left: 25px; float: left; border: none; background-color: #27E1CE; padding: 20px 40px; color: white; border-radius: 10px;" type="button" onClick="displayAlerts()">
         <span>Inbox</span>
         <span id="badge" style="
   								top: 120px;

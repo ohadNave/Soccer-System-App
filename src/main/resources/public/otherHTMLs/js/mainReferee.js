@@ -292,25 +292,36 @@ function getMainRefereeAlerts() {
     xhttp.send();
 }
 
+var intervalMainReferee;
+function setIntervals() {
+    intervalMainReferee=setInterval(getMainRefereeAlerts,1000);
+
+}
+
+
 function displayalertsMainReferee(){
-    hideAllDives();
     var x = document.getElementById("alerts");
-
-
-    while (globalVariable.ownerAlerts.length > 0) {
+    // var y = document.getElementById("back");
+    // var i = localStorage.getItem("lengthOfAlerts")-1;
+    var text = localStorage.getItem("arrayOfAlert");
+    text=JSON.parse(text);
+    // text=text.split(/[ /[/,]+/);
+    clearInterval(intervalOwner);
+    var i=text.length-1;
+    while (text.length> 0) {
         var random = Math.floor(Math.random() * 4) + 1;
         var alerts = document.getElementById("alerts");
         var message = document.createElement("div", "id=message");
-        if(random==1){
+        if (random == 1) {
             message.setAttribute("style", "padding: 15px; background-color: #4CAF50; color: white;")
         }
-        if(random==2){
+        if (random == 2) {
             message.setAttribute("style", "padding: 15px; background-color: #f44336; color: white;")
         }
-        if(random==3){
+        if (random == 3) {
             message.setAttribute("style", "padding: 15px; background-color: #2196F3; color: white;")
         }
-        if(random==4){
+        if (random == 4) {
             message.setAttribute("style", "padding: 15px; background-color: #ff9800; color: white;")
         }
 
@@ -322,33 +333,46 @@ function displayalertsMainReferee(){
         btn.setAttribute("style", "  margin-left: 10px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px; cursor: pointer;transition: 0.3s; ")
 
         var times = document.createTextNode("X");
-        var text = document.createTextNode(globalVariable.ownerAlerts.pop());
+        // var text = localStorage.getItem("arrayOfAlert");
+        text = text.split(/[ ","]+/);
+
+
+        var text2 = document.createTextNode(text[i]);
+        if(text2=="]" || (text2=="[")){
+        }
+        else {
+            i--;
+        }
+        text.splice(i, 1);
+
+
+        localStorage.setItem("lengthOfAlerts", text.length);
+
+
+        localStorage.setItem("arrayOfAlert", text);
+
         alerts.appendChild(message);
         message.appendChild(btn);
         btn.appendChild(times);
-        message.appendChild(text);
+        message.appendChild(text2);
         var newLine = document.createElement('br');
         message.appendChild(newLine)
 
-
-
-
     }
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
+
+
 
 
     var close = document.getElementsByClassName("closebtn");
     var i;
 
     for (i = 0; i < close.length; i++) {
-        close[i].onclick = function(){
+        close[i].onclick = function () {
             var div = this.parentElement;
             div.style.opacity = "0";
-            setTimeout(function(){ div.style.display = "none"; }, 600);
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
         }
     }
 

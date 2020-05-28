@@ -20,9 +20,9 @@ function hideAllDives1() {
     addTeamPage.style.display = "none";
 
 }
-var interval;
+var intervalOwner;
 function setIntervals() {
-     interval=setInterval(getOwnerAlerts,1000);
+    intervalOwner=setInterval(getOwnerAlerts,1000);
 
 }
 function opentNewTeam() {
@@ -114,7 +114,10 @@ function displayOwnerAlerts() {
     // var y = document.getElementById("back");
     // var i = localStorage.getItem("lengthOfAlerts")-1;
     var text = localStorage.getItem("arrayOfAlert");
-    clearInterval(interval);
+    text=JSON.parse(text);
+    // text=text.split(/[ /[/,]+/);
+    clearInterval(intervalOwner);
+    var i=text.length-1;
     // while (localStorage.getItem("lengthOfAlerts") > 0) {
     while (text.length> 0) {
         var random = Math.floor(Math.random() * 4) + 1;
@@ -142,17 +145,17 @@ function displayOwnerAlerts() {
 
         var times = document.createTextNode("X");
         // var text = localStorage.getItem("arrayOfAlert");
-        text = text.split(/[ ","]+/);
+        // text = text.split(/[ ","]+/);
 
 
         var text2 = document.createTextNode(text[i]);
-        if(text2=="]" || (text2=="[")){
-        }
-        else {
-            i--;
-        }
+        // if(text2=="]" || (text2=="[")){
+        // }
+        // else {
+        //     i--;
+        // }
         text.splice(i, 1);
-
+        i--;
 
         localStorage.setItem("lengthOfAlerts", text.length);
 
@@ -168,16 +171,7 @@ function displayOwnerAlerts() {
 
     }
 
-        // if (x.style.display === "none") {
-        //     x.style.display = "block";
-        // } else {
-        //     x.style.display = "none";
-        // }
-        // if (y.style.display === "none") {
-        //     y.style.display = "block";
-        // } else {
-        //     y.style.display = "none";
-        // }
+
 
 
         var close = document.getElementsByClassName("closebtn");
