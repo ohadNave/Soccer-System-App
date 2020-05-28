@@ -61,6 +61,16 @@ function displayLoginPage() {
     //     x.style.display = "none";
     // }
 }
+function displayLoginPage_OtherHTMLs() {
+    hideAllDives();
+    window.location.href="login.html";
+    // var x = document.getElementById("Login");
+    // if (x.style.display === "none") {
+    //     x.style.display = "block";
+    // } else {
+    //     x.style.display = "none";
+    // }
+}
 
 
 function loginButton() {
@@ -254,19 +264,15 @@ function subscriberChoose() {
 
 
               if(choice=="FAR"){
-                  localStorage.setItem("choice", "FAR");
                   window.location.href="FAR.html";
              }
               else if(choice=="owner"){
-                  localStorage.setItem("choice", "owner");
                   window.location.href="owner.html";
               }
               else if (choice=="mainReferee"){
-                  localStorage.setItem("choice", "mainReferee");
                    window.location.href="mainReferee.html";
               }
               else if (choice=="lineReferee"){
-                  localStorage.setItem("choice", "lineReferee");
                   window.location.href="lineReferee.html";
               }
 
