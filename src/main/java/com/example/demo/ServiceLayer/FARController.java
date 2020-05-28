@@ -18,13 +18,22 @@ public class FARController {
 
     }
 
-    public Set<League> getLeagues(){
-        Set<League> toReturn = new HashSet<>();
-        List<Object> leaguesId = DBManager.getListOfObjects(League.class,"League");
-        for(Object l: leaguesId){
-            toReturn.add(((League) l));
-        }
-        return toReturn;
+    public String[] getLeagues(){
+//        Set<League> toReturn = new HashSet<>();
+//        List<Object> leaguesId = DBManager.getListOfObjects(League.class,"League");
+//        for(Object l: leaguesId){
+//            toReturn.add(((League) l));
+//        }
+//        return toReturn;
+
+        String [] toReturnCheck = new String[6];
+        toReturnCheck[0]="league1";
+        toReturnCheck[1]="1";
+        toReturnCheck[2]="league2";
+        toReturnCheck[3]="2";
+        toReturnCheck[4]="league3";
+        toReturnCheck[5]="3";
+        return toReturnCheck;
     }
 
 

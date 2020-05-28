@@ -128,10 +128,11 @@ function getAllRelatedGames_makeReport() {
         if (this.readyState === 4 && this.status === 200) {
             // var jsonData = JSON.parse(this);
             var jsonData = (JSON.parse(this.response));
+            // alert(!document.getElementById("relatedGames_makeReport0"));
             if(!document.getElementById("relatedGames_makeReport0")){
-                for (var i = 0; i < jsonData.length; i=i+2) {
+                for (var i = 0; i < jsonData.length-1; i=i+2) {
                     var gameDate = jsonData[i];
-                    alert("game date:"+gameDate);
+                    // alert("game date:"+gameDate);
                     var counter = gameDate;
                     dict_date_matchID[gameDate]=jsonData[i+1];
                     var x = document.getElementById("matches");
@@ -173,8 +174,10 @@ function getTeamsOfGame(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
+            alert("i have a response");
             // var jsonData = JSON.parse(this);
             var jsonData = JSON.parse(this.responseText);
+            alert("passed parsing");
             var firstTeam = jsonData[0];
             makeReport_TeamA=firstTeam;
             var secondTeam = jsonData[1];
@@ -182,8 +185,9 @@ function getTeamsOfGame(){
             dict_teamName_teamID[firstTeam]=jsonData[2];
             dict_teamName_teamID[secondTeam]=jsonData[3];
             if(!document.getElementById("teamsOfGameDiv")){
+                alert("i am in the if statement");
                 var x = document.getElementById("scoreOfTeams");
-                var div = document.getElementById("teamsOfGameDiv");
+                var div = document.createElement("teamsOfGameDiv");
                 var label1 = document.createElement("label1");
                 var t1 = document.createTextNode("score of "+firstTeam+":");
                 label1.setAttribute("for","scoreTeamA");
@@ -215,6 +219,9 @@ function getTeamsOfGame(){
                 div.appendChild(br4);
                 x.appendChild(div);
             }
+        }
+        else{
+            alert("i don't have a response")
         }
 
     };
