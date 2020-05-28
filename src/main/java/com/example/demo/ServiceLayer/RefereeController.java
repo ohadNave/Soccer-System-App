@@ -87,26 +87,29 @@ public class RefereeController {
         return lineReferee.addEventToMatch(matchInt,minuteInGameInt,description,event);
     }
 
-    public Set<Game> getListOfGames(String sid){
-        Set<Game> toReturn = new HashSet<>();
+    public String[] getListOfGames(String sid){
         int intSid = -1;
         try{
             intSid = Integer.parseInt(sid);
         }
         catch (Exception e){
-            return toReturn;
+            return null;
         }
         Subscriber subscriber = (Subscriber) DBManager.getObject(Subscriber.class,intSid);
         if(subscriber == null){
-            return toReturn;
+            return null;
         }
         Referee lineReferee = subscriber.getReferee();
         if(lineReferee == null){
-            return toReturn;
+            return null;
         }
         Set<Game> matches = lineReferee.getMatches();
+        String[] toReturn = new String[matches.size()*2];
+        int i=0;
         for(Game game : matches){
-            toReturn.add((game));
+           toReturn[i]=game.getDate().toString();
+           toReturn[i+1]=""+game.getId();
+           i=i+2;
         }
         return toReturn;
     }
