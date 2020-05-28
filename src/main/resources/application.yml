@@ -1,9 +1,12 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
+
+
     url: jdbc:mysql://localhost/soccer_sys_db?serverTimezone=UTC
+
     username: root
-    password: pass
+    password: STR21
   jpa:
     hibernate:
       ddl-auto: update

@@ -90,11 +90,20 @@ public class ExampleController {
     }
     @RequestMapping("mainReferee/getAlerts/{sid}")
     public Queue<String>  getMainRefereeAlerts(@PathVariable String sid){
+
+ //       System.out.println(sid);
+        RefereeController refereeController = new RefereeController();
+
         return refereeController.getAlerts(sid);
     }
 
     @RequestMapping("lineReferee/getAlerts/{sid}")
     public Queue<String>  getLineRefereeAlerts(@PathVariable String sid){
+
+  //      System.out.println(sid);
+        RefereeController refereeController = new RefereeController();
+
+
         return refereeController.getAlerts(sid);
     }
 

@@ -87,7 +87,9 @@ public class RefereeController {
         return lineReferee.addEventToMatch(matchInt,minuteInGameInt,description,event);
     }
 
+
     public String [] getListOfGames(String sid){
+
         int intSid = -1;
         try{
             intSid = Integer.parseInt(sid);
@@ -107,6 +109,8 @@ public class RefereeController {
         String[] toReturn = new String[matches.size()*2];
         int i=0;
         for(Game game : matches){
+
+    
             toReturn[i]=game.getDate().toString();
             toReturn[i+1]=""+game.getId();
             i=i+2;
