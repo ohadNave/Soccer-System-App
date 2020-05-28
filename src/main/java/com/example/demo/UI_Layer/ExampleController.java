@@ -67,8 +67,8 @@ public class ExampleController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/login")
     public String[] login(@RequestBody loginParameters param){
-        System.out.println("my name is" + param.getUsername());
-        System.out.println("my pass is" + param.getPassword());
+//        System.out.println("my name is" + param.getUsername());
+//        System.out.println("my pass is" + param.getPassword());
        GuestController login= new GuestController();
         return login.logIn(param.getUsername(),param.getPassword());
     }
@@ -84,20 +84,20 @@ public class ExampleController {
 //    *****ALERTS******
     @RequestMapping("owner/getAlerts/{sid}")
     public Queue<String> getOwnerAlerts(@PathVariable String sid){
-        System.out.println(sid);
+//        System.out.println(sid);
        OwnerController getOwnerAlertsController=new OwnerController ();
         return getOwnerAlertsController.getAlerts(sid);
     }
     @RequestMapping("mainReferee/getAlerts/{sid}")
     public Queue<String>  getMainRefereeAlerts(@PathVariable String sid){
-        System.out.println(sid);
+//        System.out.println(sid);
         RefereeController refereeController = new RefereeController();
         return refereeController.getAlerts(sid);
     }
 
     @RequestMapping("lineReferee/getAlerts/{sid}")
     public Queue<String>  getLineRefereeAlerts(@PathVariable String sid){
-        System.out.println(sid);
+//        System.out.println(sid);
         RefereeController refereeController = new RefereeController();
         return refereeController.getAlerts(sid);
     }

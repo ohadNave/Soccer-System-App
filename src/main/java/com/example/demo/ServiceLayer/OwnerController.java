@@ -13,31 +13,31 @@ public class OwnerController {
     public OwnerController(){}
 
     public Queue<String> getAlerts(String sid){
-//        Queue<String> q = new LinkedList<>();
-//        ((LinkedList<String>) q).add("first alertttttttt");
-//        ((LinkedList<String>) q).add("second alertttttttt");
-//        return q;
-        Queue<String> alertsToReturn = new ArrayDeque<>();
-        int sidInt= -1;
-
-        try{
-            sidInt = Integer.parseInt(sid);
-        }
-        catch (Exception e){
-            return null;
-        }
-        Subscriber subscriber = (Subscriber) DBManager.getObject(Subscriber.class,sidInt);
-        if(subscriber == null){
-            return null;
-        }
-
-        if(subscriber.getOwner() == null){
-            return null;
-        }
-        for(Alert a : subscriber.getOwner().getAlerts()){
-            alertsToReturn.add(a.toString());
-        }
-        return alertsToReturn;
+        Queue<String> q = new LinkedList<>();
+        ((LinkedList<String>) q).add("first alertttttttt");
+        ((LinkedList<String>) q).add("second alertttttttt");
+        return q;
+//        Queue<String> alertsToReturn = new ArrayDeque<>();
+//        int sidInt= -1;
+//
+//        try{
+//            sidInt = Integer.parseInt(sid);
+//        }
+//        catch (Exception e){
+//            return null;
+//        }
+//        Subscriber subscriber = (Subscriber) DBManager.getObject(Subscriber.class,sidInt);
+//        if(subscriber == null){
+//            return null;
+//        }
+//
+//        if(subscriber.getOwner() == null){
+//            return null;
+//        }
+//        for(Alert a : subscriber.getOwner().getAlerts()){
+//            alertsToReturn.add(a.toString());
+//        }
+//        return alertsToReturn;
     }
 
     public boolean sendTeamRequest(String teamName , String sid){
