@@ -107,10 +107,10 @@ public class ExampleController {
     }
 
     @RequestMapping("mainReferee/getHistoryAlerts/{sid}")
-    public Queue<String>  getHistoryMainRefereeAlerts(@PathVariable String sid){
+    public List<String>  getHistoryMainRefereeAlerts(@PathVariable String sid){
 //        System.out.println(sid);
         RefereeController refereeController = new RefereeController();
-        return refereeController.getAlerts(sid);
+        return refereeController.getPrevAlerts(sid);
     }
 
     @RequestMapping("lineReferee/getAlerts/{sid}")
@@ -124,10 +124,10 @@ public class ExampleController {
     }
 
     @RequestMapping("lineReferee/getHistoryAlerts/{sid}")
-    public Queue<String>  getHistoryLineRefereeAlerts(@PathVariable String sid){
+    public List<String>  getHistoryLineRefereeAlerts(@PathVariable String sid){
 //        System.out.println(sid);
         RefereeController refereeController = new RefereeController();
-        return refereeController.getAlerts(sid);
+        return refereeController.getPrevAlerts(sid);
     }
 
 
