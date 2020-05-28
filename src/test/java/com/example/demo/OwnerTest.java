@@ -12,10 +12,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.time.Year;
+import java.util.*;
 
 @SpringBootTest
 
@@ -115,8 +113,8 @@ public class OwnerTest {
         owner1.makeOwnerActive();
         Subscriber owner2 = MyFactory.createSubscriber("owner2","1234","a");
         owner2.makeOwnerActive();
-//        Subscriber far = MyFactory.createSubscriber("far","1234","a");
-//        far.makeFARActive();
+        Subscriber far = MyFactory.createSubscriber("far","1234","a");
+        far.makeFARActive();
         Subscriber mainReferee = MyFactory.createSubscriber("main referee","1234","a");
         mainReferee.makeRefereeActive(Certification.BASIC,RefereeRoll.MAIN_REFEREE);
         Subscriber lineReferee1 = MyFactory.createSubscriber("line referee1","1234","a");
@@ -146,6 +144,49 @@ public class OwnerTest {
         league2.startNewSeason(2019,teams);
         league2.startNewSeason(2020,teams);
         league2.startNewSeason(2021,teams);
+
+
+
+
+
+
+
+//        subscriber.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
+    }
+
+    @Test
+    public void test1(){
+//        Subscriber owner1 = MyFactory.createSubscriber("owner5","1234","a");
+//        owner1.makeOwnerActive();
+//        Subscriber owner2 = MyFactory.createSubscriber("owner6","1234","a");
+////        owner2.makeOwnerActive();
+        Subscriber far = MyFactory.createSubscriber("far5","1234","a");
+        far.makeFARActive();
+//        Subscriber mainReferee = MyFactory.createSubscriber("main referee2","1234","a");
+//        mainReferee.makeRefereeActive(Certification.BASIC,RefereeRoll.MAIN_REFEREE);
+//        Subscriber lineReferee1 = MyFactory.createSubscriber("line referee2","1234","a");
+//        lineReferee1.makeRefereeActive(Certification.BASIC,RefereeRoll.MAIN_REFEREE);
+//        Subscriber lineReferee2 = MyFactory.createSubscriber("line referee3","1234","a");
+//        lineReferee2.makeRefereeActive(Certification.BASIC,RefereeRoll.MAIN_REFEREE);
+//
+//        Set<Referee> referees = new HashSet<>();
+//        referees.add(mainReferee.getReferee());
+//        referees.add(lineReferee1.getReferee());
+//        referees.add(lineReferee2.getReferee());
+//
+//        Team team1 = MyFactory.createTeam(owner1.getOwner(),"team3");
+//        Team team2 = MyFactory.createTeam(owner2.getOwner(),"team4");
+//        List<Team> teams = new ArrayList<>();
+//        teams.add(team1);
+//        teams.add(team2);
+//
+//        Random random = new Random();
+//        LocalDate localDate = LocalDate.of( Year.now().getValue() , random.nextInt(12 - 1 + 1) + 1,  random.nextInt(28 - 1 + 1) + 1 );
+//        Game game1 = MyFactory.createGame(localDate, null, null,team1,team2,referees);
+//        random = new Random();
+//        localDate = LocalDate.of( Year.now().getValue() , random.nextInt(12 - 1 + 1) + 1,  random.nextInt(28 - 1 + 1) + 1 );
+//        Game game2 = MyFactory.createGame(localDate, null, null,team2,team1,referees);
+
 
 
 
