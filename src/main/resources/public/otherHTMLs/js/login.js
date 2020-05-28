@@ -61,6 +61,16 @@ function displayLoginPage() {
     //     x.style.display = "none";
     // }
 }
+function displayLoginPage_OtherHTMLs() {
+    hideAllDives();
+    window.location.href="login.html";
+    // var x = document.getElementById("Login");
+    // if (x.style.display === "none") {
+    //     x.style.display = "block";
+    // } else {
+    //     x.style.display = "none";
+    // }
+}
 
 
 function loginButton() {
