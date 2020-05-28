@@ -274,6 +274,8 @@ function makeReport(){
     };
     xhr.send(json);
 }
+
+var mainRefereeAlerts=new Array();
 function getMainRefereeAlerts() {
     var myURL="http://localhost:8080/mainReferee/getAlerts/"+getID();
     var xhttp = new XMLHttpRequest();
@@ -282,8 +284,10 @@ function getMainRefereeAlerts() {
             var jsonData = JSON.parse(this.responseText);
             for (var i = 0; i < jsonData.length; i++) {
                 var alert2 = jsonData[i];
-                globalVariable.ownerAlerts.push(alert2);
-                document.getElementById("badge").innerHTML = globalVariable.ownerAlerts.length;
+                mainRefereeAlerts.push(alert2);
+                document.getElementById("badge").innerHTML = mainRefereeAlerts.length;
+                localStorage.setItem("lengthOfAlerts",lineRefereeAlerts.length);
+                localStorage.setItem("arrayOfAlert",JSON.stringify(lineRefereeAlerts));
 
             }
         }
@@ -408,7 +412,7 @@ function displayalertsMainReferee(){
     var text = localStorage.getItem("arrayOfAlert");
     text=JSON.parse(text);
     // text=text.split(/[ /[/,]+/);
-    clearInterval(intervalOwner);
+    clearInterval(intervalMainReferee);
     var i=text.length-1;
     while (text.length> 0) {
         var random = Math.floor(Math.random() * 4) + 1;
@@ -436,22 +440,22 @@ function displayalertsMainReferee(){
 
         var times = document.createTextNode("X");
         // var text = localStorage.getItem("arrayOfAlert");
-        text = text.split(/[ ","]+/);
+        // text = text.split(/[ ","]+/);
 
 
         var text2 = document.createTextNode(text[i]);
-        if(text2=="]" || (text2=="[")){
-        }
-        else {
-            i--;
-        }
+        // if(text2=="]" || (text2=="[")){
+        // }
+        // else {
+        //     i--;
+        // }
         text.splice(i, 1);
 
 
-        localStorage.setItem("lengthOfAlerts", text.length);
-
-
-        localStorage.setItem("arrayOfAlert", text);
+        // localStorage.setItem("lengthOfAlerts", text.length);
+        //
+        //
+        // localStorage.setItem("arrayOfAlert", text);
 
         alerts.appendChild(message);
         message.appendChild(btn);

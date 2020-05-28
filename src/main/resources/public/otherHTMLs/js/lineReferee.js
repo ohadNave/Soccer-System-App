@@ -274,6 +274,7 @@ function makeReport(){
     xhr.send(json);
 }
 
+var lineRefereeAlerts=new Array();
 function getLineRefereeAlerts() {
     var myURL="http://localhost:8080/lineReferee/getAlerts/"+getID();
     var xhttp = new XMLHttpRequest();
@@ -282,9 +283,10 @@ function getLineRefereeAlerts() {
             var jsonData = JSON.parse(this.responseText);
             for (var i = 0; i < jsonData.length; i++) {
                 var alert2 = jsonData[i];
-                globalVariable.ownerAlerts.push(alert2);
-                document.getElementById("badge").innerHTML = globalVariable.ownerAlerts.length;
-
+               lineRefereeAlerts.push(alert2);
+                document.getElementById("badge").innerHTML = lineRefereeAlerts.length;
+                localStorage.setItem("lengthOfAlerts",lineRefereeAlerts.length);
+                localStorage.setItem("arrayOfAlert",JSON.stringify(lineRefereeAlerts));
             }
         }
 
@@ -386,7 +388,7 @@ function displayalertsLineReferee() {
     var text = localStorage.getItem("arrayOfAlert");
     text=JSON.parse(text);
     // text=text.split(/[ /[/,]+/);
-    clearInterval(intervalOwner);
+    clearInterval(intervalLineReferee);
     var i=text.length-1;
     while (text.length> 0) {
         var random = Math.floor(Math.random() * 4) + 1;
