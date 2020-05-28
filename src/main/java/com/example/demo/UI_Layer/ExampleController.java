@@ -82,6 +82,19 @@ public class ExampleController {
 
 
 //    *****ALERTS******
+@RequestMapping("fan/getAlerts/{sid}")
+public Queue<String> getFanAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+    OwnerController getOwnerAlertsController=new OwnerController ();
+    return getOwnerAlertsController.getAlerts(sid);
+}
+
+    @RequestMapping("fan/getHistoryAlerts/{sid}")
+    public Queue<String> getFanHistoryAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+        OwnerController getOwnerAlertsController=new OwnerController ();
+        return getOwnerAlertsController.getAlerts(sid);
+    }
     @RequestMapping("owner/getAlerts/{sid}")
     public Queue<String> getOwnerAlerts(@PathVariable String sid){
 //        System.out.println(sid);
