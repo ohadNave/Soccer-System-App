@@ -37,6 +37,9 @@ public class Fan extends SystemUser implements Observer, Serializable {
     @OneToMany
     private List<Alert> alerts;
 
+    @ElementCollection
+    private List<String> prevAlerts;
+
 
     public Fan () {
         followingPrivatePages = new HashSet<>();
@@ -44,6 +47,7 @@ public class Fan extends SystemUser implements Observer, Serializable {
         searchHistory = new HashSet<>();
         alerts = new LinkedList<>();
         followingMatches = new HashSet<>();
+        prevAlerts= new ArrayList<>();
     }
 
 
@@ -186,7 +190,13 @@ public class Fan extends SystemUser implements Observer, Serializable {
     }
 
     public List<Alert> getAlerts() {
-        return alerts;
+        List<Alert> newAlert = new ArrayList<>();
+        for (Alert a: alerts){
+            newAlert.add(a);
+            prevAlerts.add(a.toString());
+        }
+        alerts.clear();
+        return newAlert;
     }
 
     public void setAlerts(List<Alert> alerts) {
@@ -211,5 +221,13 @@ public class Fan extends SystemUser implements Observer, Serializable {
 
     public void setSearchHistory(Set<String> searchHistory) {
         this.searchHistory = searchHistory;
+    }
+
+    public List<String> getPrevAlerts() {
+        return prevAlerts;
+    }
+
+    public void setPrevAlerts(List<String> prevAlerts) {
+        this.prevAlerts = prevAlerts;
     }
 }
