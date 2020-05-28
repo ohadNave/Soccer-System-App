@@ -88,12 +88,28 @@ public class ExampleController {
        OwnerController getOwnerAlertsController=new OwnerController ();
         return getOwnerAlertsController.getAlerts(sid);
     }
+
+    @RequestMapping("owner/getHistoryAlerts/{sid}")
+    public Queue<String> getOwnerHistoryAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+        OwnerController getOwnerAlertsController=new OwnerController ();
+        return getOwnerAlertsController.getAlerts(sid);
+    }
+
+
     @RequestMapping("mainReferee/getAlerts/{sid}")
     public Queue<String>  getMainRefereeAlerts(@PathVariable String sid){
 
  //       System.out.println(sid);
         RefereeController refereeController = new RefereeController();
 
+        return refereeController.getAlerts(sid);
+    }
+
+    @RequestMapping("mainReferee/getHistoryAlerts/{sid}")
+    public Queue<String>  getHistoryMainRefereeAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+        RefereeController refereeController = new RefereeController();
         return refereeController.getAlerts(sid);
     }
 
@@ -104,6 +120,13 @@ public class ExampleController {
         RefereeController refereeController = new RefereeController();
 
 
+        return refereeController.getAlerts(sid);
+    }
+
+    @RequestMapping("lineReferee/getHistoryAlerts/{sid}")
+    public Queue<String>  getHistoryLineRefereeAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+        RefereeController refereeController = new RefereeController();
         return refereeController.getAlerts(sid);
     }
 
