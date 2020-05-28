@@ -35,7 +35,7 @@ public class Referee extends SystemUser implements Observer, Serializable {
     }
 
     public void setAttributes(Certification certification, RefereeRoll refereeRoll, int sid){
-       // this.setSid(sid);
+        this.setSid(sid);
         this.setRoll(refereeRoll);
         this.certification = certification;
         matches = new HashSet<>();
@@ -110,13 +110,12 @@ public class Referee extends SystemUser implements Observer, Serializable {
             match.setGameReport(gameReport);
             gameReport.setMatch(match);
             Season season = match.getSeason();
-//            if (homeGoals == awayGoals){
-//                season.getScorePolicy().execute(season, true, homeTeam,awayTeam);
-//            }
-//            else {
-//                season.getScorePolicy().execute(season, false, homeTeam,awayTeam);
-//
-//            }
+            if (homeGoals == awayGoals){
+                season.getIScorePolicy().execute(season, true, homeTeam,awayTeam);
+            }
+            else {
+                season.getIScorePolicy().execute(season, false, homeTeam,awayTeam);
+            }
             return true;
         }
         return false;

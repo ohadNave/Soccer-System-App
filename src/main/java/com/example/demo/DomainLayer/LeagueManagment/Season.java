@@ -51,8 +51,7 @@ public class Season implements Serializable {
 
     @Transient
     private IGamePolicy IGamePolicy;
-
-
+    @Transient
     private IScorePolicy IScorePolicy;
 
 
@@ -125,7 +124,7 @@ public class Season implements Serializable {
     }
 
     public void setIGamePolicy(IGamePolicy IGamePolicy) {
-        if (IGamePolicy instanceof GamePolicy) {
+        if(IGamePolicy instanceof GamePolicy) {
             setGamePolicyEnum(GamePolicyEnum.STANDARD);
             this.IGamePolicy = IGamePolicy;
         } else {
@@ -269,5 +268,7 @@ public class Season implements Serializable {
         Season season = (Season) o;
         return getSeason_id() == season.getSeason_id();
     }
+
+
 
 }
