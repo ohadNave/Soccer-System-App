@@ -1,23 +1,16 @@
 package com.example.demo.ServiceLayer;
+
 import com.example.demo.DomainLayer.Alerts.Alert;
 import com.example.demo.DomainLayer.DBManager;
-import com.example.demo.DomainLayer.Users.Owner;
 import com.example.demo.DomainLayer.Users.Subscriber;
+
 import java.util.ArrayDeque;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class OwnerController {
-
-
-    public OwnerController(){}
+public class FanController {
 
     public Queue<String> getAlerts(String sid){
-//        Queue<String> q = new LinkedList<>();
-//        ((LinkedList<String>) q).add("first alertttttttt");
-//        ((LinkedList<String>) q).add("second alertttttttt");
-//        return q;
         Queue<String> alertsToReturn = new ArrayDeque<>();
         int sidInt= -1;
 
@@ -32,10 +25,10 @@ public class OwnerController {
             return null;
         }
 
-        if(subscriber.getOwner() == null){
+        if(subscriber.getFan()==null){
             return null;
         }
-        for(Alert a : subscriber.getOwner().getAlerts()){
+        for(Alert a : subscriber.getFan().getAlerts()){
             alertsToReturn.add(a.toString());
         }
         return alertsToReturn;
@@ -53,33 +46,10 @@ public class OwnerController {
         if(subscriber == null){
             return null;
         }
-        if(subscriber.getOwner()==null){
+        if(subscriber.getFan()==null){
             return null;
         }
 
-        return subscriber.getOwner().getPrevAlerts();
-    }
-
-    public boolean sendTeamRequest(String teamName , String sid){
-        if(teamName==null){
-            return false;
-        }
-        int intSid=-1;
-
-        try {
-            intSid = Integer.parseInt(sid);
-        }
-        catch (Exception e){
-            return false;
-        }
-        Subscriber subscriber = (Subscriber) DBManager.getObject(Subscriber.class,intSid);
-        if(subscriber==null){
-            return false;
-        }
-        Owner owner = subscriber.getOwner();
-        if(owner==null){
-            return false;
-        }
-        return owner.openTeamRequest(teamName);
+        return subscriber.getFan().getPrevAlerts();
     }
 }

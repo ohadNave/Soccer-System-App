@@ -61,6 +61,16 @@ function displayLoginPage() {
     //     x.style.display = "none";
     // }
 }
+function displayLoginPage_OtherHTMLs() {
+    hideAllDives();
+    window.location.href="login.html";
+    // var x = document.getElementById("Login");
+    // if (x.style.display === "none") {
+    //     x.style.display = "block";
+    // } else {
+    //     x.style.display = "none";
+    // }
+}
 
 
 function loginButton() {
@@ -72,9 +82,9 @@ function loginButton() {
     // data.sid = "1";
     data.username = username.value;
     data.password = password.value;
-    alert("my data is: " + data);
+    // alert("my data is: " + data);
     var json = JSON.stringify(data);
-    alert("my json is:"+json);
+    // alert("my json is:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
@@ -94,7 +104,15 @@ function loginButton() {
                 connected="true";
                 // alert("name");
 
+                if ((jsonData[3]).localeCompare("1") == 0) {//Fan
+                    // alert("i am in FAR if")
+                    localStorage.setItem("fan", true);
+                    // displaySubscriberPage();
+                    // alert("far");
 
+
+
+                }
                 if ((jsonData[4]).localeCompare("1") == 0) {//FAR
                     // alert("i am in FAR if")
                     localStorage.setItem("far", true);
@@ -196,6 +214,16 @@ function displaySubscriberPage() {
         option.appendChild(node);
         choos.appendChild(option);
     }
+    if(localStorage.getItem("fan")=="true"){
+        var choos=document.getElementById("chooseSub");
+        var option = document.createElement("option");
+        option.setAttribute("style", "display: inline-block");
+        option.setAttribute("value","fan");
+        option.setAttribute("id","fan")
+        var node = document.createTextNode("Fan");
+        option.appendChild(node);
+        choos.appendChild(option);
+    }
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -213,7 +241,7 @@ function back() {
     displayOwnerPage()
 
 }
-
+var ownerInterval;
 var clicked=false;
 function displayOwnerPage() {
     hideAllDives();
@@ -242,7 +270,52 @@ function displayOwnerPage() {
     // }
 
     // setInterval(displayalertsOwner,400,clicked==true);
-    setInterval(getOwnerAlerts,1000);
+    // ownerInterval=setInterval(getOwnerAlerts,1000);
+
+
+}
+
+function chooseHistoryAlerts(){
+    if(localStorage.getItem("choice")=="owner"){
+        displayOwnerHistoryAlerts();
+    }
+    else if(localStorage.getItem("choice")=="lineReferee"){
+        displayHistoryAlertsLineReferee();
+    }
+    else if(localStorage.getItem("choice")=="mainReferee"){
+        displayHistoryAlertsMainReferee();
+    }
+    else if(localStorage.getItem("choice")=="fan"){
+        displayFanHistoryAlerts();
+    }
+}
+
+function chooseAlerts() {
+    if(localStorage.getItem("choice")=="owner"){
+        displayOwnerAlerts();
+    }
+    else if(localStorage.getItem("choice")=="lineReferee"){
+        displayalertsLineReferee();
+    }
+    else if(localStorage.getItem("choice")=="mainReferee"){
+        displayalertsMainReferee();
+    }
+    else if(localStorage.getItem("choice")=="fan"){
+        displayFanAlerts();
+    }
+
+}
+function displayHistoryAlerts() {
+
+    window.location.href="Historyalerts.html";
+
+
+}
+
+
+function displayAlerts() {
+
+    window.location.href="alerts.html";
 
 
 }
@@ -250,6 +323,7 @@ function subscriberChoose() {
 
     var e1 = document.getElementById("chooseSub");
     var choice = e1.options[e1.selectedIndex].value;
+    localStorage.setItem("choice",choice);
 
 
 
@@ -264,6 +338,9 @@ function subscriberChoose() {
               }
               else if (choice=="lineReferee"){
                   window.location.href="lineReferee.html";
+              }
+              else if (choice=="fan"){
+                  window.location.href="Fan.html";
               }
 
 

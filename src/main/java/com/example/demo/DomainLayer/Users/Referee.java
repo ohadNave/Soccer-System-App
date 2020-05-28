@@ -30,6 +30,7 @@ public class Referee extends SystemUser implements Observer, Serializable {
     @ElementCollection
     private List<String> prevAlerts;
 
+
     public Referee() {
         this.alerts = new LinkedList<>();
     }
@@ -185,7 +186,7 @@ public class Referee extends SystemUser implements Observer, Serializable {
         List<Alert> newAlert = new ArrayList<>();
         for (Alert a: alerts){
             newAlert.add(a);
-            prevAlerts.add(alerts.toString());
+            prevAlerts.add(a.toString());
         }
         alerts.clear();
         return newAlert;
@@ -210,6 +211,14 @@ public class Referee extends SystemUser implements Observer, Serializable {
             matches.add(((Game) o));
         }
         return matches;
+    }
+
+    public List<String> getPrevAlerts() {
+        return prevAlerts;
+    }
+
+    public void setPrevAlerts(List<String> prevAlerts) {
+        this.prevAlerts = prevAlerts;
     }
 
 //    public boolean startMatch(Game m1){
@@ -244,15 +253,6 @@ public class Referee extends SystemUser implements Observer, Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(super.hashCode(), roll);
-    }
-
-
-    public List<String> getPrevAlerts() {
-        return prevAlerts;
-    }
-
-    public void setPrevAlerts(List<String> prevAlerts) {
-        this.prevAlerts = prevAlerts;
     }
 }
 

@@ -22,9 +22,9 @@ import java.util.*;
 @RestController
 public class ExampleController {
 //    ******ADD SCORE POLICY*******
-
+    RefereeController refereeController = new RefereeController();
     @RequestMapping("/addScorePolicy/getLeagueNames")
-    public Set<League> getLeaguesNames_scorePolicy(){
+    public String[] getLeaguesNames_scorePolicy(){
      //   System.out.println("i'm in java function");
         FARController farController = new FARController();
         return farController.getLeagues();
@@ -46,7 +46,7 @@ public class ExampleController {
 
 //    ******ADD PLACEMENT POLICY*******
     @RequestMapping("/addPlacementPolicy/getLeagueNames")
-    public Set<League> getLeaguesNames_placementPolicy(){
+    public String[] getLeaguesNames_placementPolicy(){
         //   System.out.println("i'm in java function");
         FARController farController = new FARController();
         return farController.getLeagues();
@@ -65,10 +65,16 @@ public class ExampleController {
         return farController.setLeagueGameSchedulerPolicy(param.getSid(),param.getLeagueID(),param.getPlacementPolicy());
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/applyPlacementPolicy")
+    public boolean applyPlacementPolicy(@RequestBody setPlacementParameters param){
+        FARController farController = new FARController();
+        return farController.activeGameSchedulerPolicy(param.getSid(),param.getLeagueID());
+    }
+
     @RequestMapping(method = RequestMethod.POST, value = "/login")
     public String[] login(@RequestBody loginParameters param){
-        System.out.println("my name is" + param.getUsername());
-        System.out.println("my pass is" + param.getPassword());
+//        System.out.println("my name is" + param.getUsername());
+//        System.out.println("my pass is" + param.getPassword());
        GuestController login= new GuestController();
         return login.logIn(param.getUsername(),param.getPassword());
     }
@@ -82,53 +88,94 @@ public class ExampleController {
 
 
 //    *****ALERTS******
+@RequestMapping("fan/getAlerts/{sid}")
+public Queue<String> getFanAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+    OwnerController getOwnerAlertsController=new OwnerController ();
+    return getOwnerAlertsController.getAlerts(sid);
+}
+
+    @RequestMapping("fan/getHistoryAlerts/{sid}")
+    public Queue<String> getFanHistoryAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+        OwnerController getOwnerAlertsController=new OwnerController ();
+        return getOwnerAlertsController.getAlerts(sid);
+    }
     @RequestMapping("owner/getAlerts/{sid}")
     public Queue<String> getOwnerAlerts(@PathVariable String sid){
-        System.out.println(sid);
+//        System.out.println(sid);
        OwnerController getOwnerAlertsController=new OwnerController ();
         return getOwnerAlertsController.getAlerts(sid);
     }
+
+    @RequestMapping("owner/getHistoryAlerts/{sid}")
+    public Queue<String> getOwnerHistoryAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+        OwnerController getOwnerAlertsController=new OwnerController ();
+        return getOwnerAlertsController.getAlerts(sid);
+    }
+
+
     @RequestMapping("mainReferee/getAlerts/{sid}")
     public Queue<String>  getMainRefereeAlerts(@PathVariable String sid){
-        System.out.println(sid);
+
+ //       System.out.println(sid);
         RefereeController refereeController = new RefereeController();
+
         return refereeController.getAlerts(sid);
+    }
+
+    @RequestMapping("mainReferee/getHistoryAlerts/{sid}")
+    public List<String>  getHistoryMainRefereeAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+        RefereeController refereeController = new RefereeController();
+        return refereeController.getPrevAlerts(sid);
     }
 
     @RequestMapping("lineReferee/getAlerts/{sid}")
     public Queue<String>  getLineRefereeAlerts(@PathVariable String sid){
-        System.out.println(sid);
+
+  //      System.out.println(sid);
         RefereeController refereeController = new RefereeController();
+
+
         return refereeController.getAlerts(sid);
+    }
+
+    @RequestMapping("lineReferee/getHistoryAlerts/{sid}")
+    public List<String>  getHistoryLineRefereeAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+        RefereeController refereeController = new RefereeController();
+        return refereeController.getPrevAlerts(sid);
     }
 
 
 //    *****ADD EVENT******
     @RequestMapping("/getListOfGames/{subscriberID}")
-    public Set<Game>  getPossibleGames(@PathVariable String subscriberID){
+    public String []  getPossibleGames(@PathVariable String subscriberID){
 //     System.out.println("the name i get is "+leagueName);
-       RefereeController refereeController = new RefereeController();
-       return refereeController.getListOfGames(subscriberID);
+//       RefereeController refereeController = new RefereeController();
+        return refereeController.getListOfGames(subscriberID);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/addEvent")
     public boolean addEvent(@RequestBody addEventParameters param){
-        RefereeController refereeController = new RefereeController();
+     //   RefereeController refereeController = new RefereeController();
         return refereeController.addEvent(param.getSid(),param.getMatchId(), param.getMinuteInGame(),param.getDescription(),param.getEventType());
     }
 
 
 //    *****MAKE REPORT****
     @RequestMapping("/getTeamsInGame/{matchID}")
-    public String[] getTeamsOfGame(@PathVariable String matchID){
+    public String[] getTeamsInGame(@PathVariable String matchID){
     //     System.out.println("the name i get is "+leagueName);
-        RefereeController refereeController = new RefereeController();
+      //  RefereeController refereeController = new RefereeController();
         return refereeController.getTeamsNames(matchID);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/makeReport")
     public boolean makeReport(@RequestBody makeReportParameters param){
-        RefereeController refereeController = new RefereeController();
+       // RefereeController refereeController = new RefereeController();
         return refereeController.makeReport(param.getSid(),param.getMid(),param.getWinnerTeamID(),param.getLoosingTeamID(),param.getScoreWinnerTeam(),param.getScoreLoosingTeam());
     }
 

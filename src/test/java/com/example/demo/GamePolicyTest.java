@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.DomainLayer.Alerts.Alert;
+import com.example.demo.DomainLayer.Alerts.TeamIsNowNotActiveAlert;
 import com.example.demo.DomainLayer.DBManager;
 import com.example.demo.DomainLayer.Enums.Certification;
 import com.example.demo.DomainLayer.Enums.LeagueLevel;
@@ -137,5 +139,27 @@ public class GamePolicyTest {
         Referee referee1 = s6.getReferee();
         Referee referee2 = s7.getReferee();
         Referee referee3 = s8.getReferee();
+    }
+
+
+    @Test
+    public void testAlerts(){
+        Subscriber s6 = DBManager.getByUserName("referee - 1");
+        List<Alert> list = new ArrayList<>();
+        Team team = MyFactory.createTeam(DBManager.getByUserName("owner4 - user").getOwner(),"chen");
+        Alert alert = MyFactory.createTeamIsNowNotActiveAlert(team);
+        list.add(alert);
+
+        s6.getReferee().setAlerts(list);
+//        Subscriber s7 = DBManager.getByUserName("referee - 2");
+//        Subscriber s8 = DBManager.getByUserName("referee - 3");
+//
+//        Game game = (Game) DBManager.getObject(Game.class,2);
+//
+//        game.changeMatchDate(LocalDate.now());
+//
+//        Referee referee1 = s6.getReferee();
+//        Referee referee2 = s7.getReferee();
+//        Referee referee3 = s8.getReferee();
     }
 }

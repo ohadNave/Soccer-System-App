@@ -1,86 +1,16 @@
-var teamName;
-
-var ownerAlerts= new Array();
-
-// localStorage.setItem("listAlerts",globalVariable.ownerAlerts);
-
-function displayAddTeam() {
-    hideAllDives1();
-    var x = document.getElementById("addTeamPage");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-function hideAllDives1() {
-    var ownerPage = document.getElementById("mainOwnerPage");
-    var addTeamPage = document.getElementById("addTeamPage");
-    ownerPage.style.display = "none";
-    addTeamPage.style.display = "none";
-
-}
-var intervalOwner;
+var intervalFan;
 function setIntervals() {
-    getOwnerHistoryAlerts();
-    intervalOwner=setInterval(getOwnerAlerts,1000);
+    getFanHistoryAlerts();
+    intervalFan=setInterval(getFanAlerts,1000);
 
 }
-function opentNewTeam() {
-    var url = "http://localhost:8080/owner/openNewTeam";
-    teamName = document.getElementById("teamName");
-    var data = {};
-    data.sid = localStorage.getItem("sid");
-    data.teamName =teamName.value;
-
-    var json = JSON.stringify(data);
-    // alert("my json is:"+json);
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    xhr.onload = function () {
-        // alert("i get a response")
-        if (xhr.readyState == 4 && xhr.status == "200") {
-            // alert("i have a response:"+this.responseText);
-            var jsonData = JSON.parse(this.responseText);
+var fanAlerts= new Array();
 
 
-            if(jsonData==true){
-                alert("The request was successfully passed")
-            }
-            else {
-                alert("The request failed, please enter a new name!")
 
-            }
-
-        }
-        ;
-
-    }
-    xhr.send(json);
-
-
-}
-var HttpClient = function() {
-    this.get = function(aUrl, aCallback) {
-        var anHttpRequest = new XMLHttpRequest();
-        anHttpRequest.onreadystatechange = function() {
-            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                aCallback(anHttpRequest.responseText);
-        }
-        anHttpRequest.open( "GET", aUrl, true );
-        anHttpRequest.send( null );
-    }
-}
-
-function back() {
-    clearInterval(getOwnerAlerts);
-    displayOwnerPage()
-
-}
-var ownerHistoryAlerts=new Array();
-function getOwnerHistoryAlerts() {
-    var myURL="http://localhost:8080/owner/getHistoryAlerts/"+localStorage.getItem("sid");
+var fanHistoryAlerts=new Array();
+function getFanHistoryAlerts() {
+    var myURL="http://localhost:8080/fan/getHistoryAlerts/"+localStorage.getItem("sid");
     var xhttp = new XMLHttpRequest();
     // console.log(localStorage.getItem("sid"))
     xhttp.onreadystatechange = function() {
@@ -88,11 +18,11 @@ function getOwnerHistoryAlerts() {
             var jsonData = JSON.parse(this.responseText);
             for (var i = 0; i < jsonData.length; i++) {
                 var alertHistory = jsonData[i];
-                ownerHistoryAlerts.push(alertHistory);
+                fanHistoryAlerts.push(alertHistory);
                 // document.getElementById("badge").innerHTML = ownerAlerts.length;
                 // localStorage.setItem("lengthOfAlerts",ownerAlerts.length);
             }
-            localStorage.setItem("HistoryArrayOfAlert",JSON.stringify(ownerHistoryAlerts));
+            localStorage.setItem("HistoryArrayOfAlert",JSON.stringify(fanHistoryAlerts));
 
         }
 
@@ -100,20 +30,20 @@ function getOwnerHistoryAlerts() {
     xhttp.open("GET", myURL, true);
     xhttp.send();
 }
-function getOwnerAlerts() {
+function getFanAlerts() {
 
-    var myURL="http://localhost:8080/owner/getAlerts/"+localStorage.getItem("sid");
+    var myURL="http://localhost:8080/fan/getAlerts/"+localStorage.getItem("sid");
     var xhttp = new XMLHttpRequest();
-    console.log(localStorage.getItem("sid"))
+    // console.log(localStorage.getItem("sid"))
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             var jsonData = JSON.parse(this.responseText);
             for (var i = 0; i < jsonData.length; i++) {
                 var alert2 = jsonData[i];
-                ownerAlerts.push(alert2);
-                document.getElementById("badge").innerHTML = ownerAlerts.length;
-                localStorage.setItem("lengthOfAlerts",ownerAlerts.length);
-                localStorage.setItem("arrayOfAlert",JSON.stringify(ownerAlerts));
+                fanAlerts.push(alert2);
+                document.getElementById("badge").innerHTML = fanAlerts.length;
+                localStorage.setItem("lengthOfAlerts",fanAlerts.length);
+                localStorage.setItem("arrayOfAlert",JSON.stringify(fanAlerts));
 
 
             }
@@ -136,7 +66,7 @@ function displayalertsOwner() {
 //     window.location.href = "Historyalerts.html";
 // }
 
-function displayOwnerHistoryAlerts(){
+function displayFanHistoryAlerts(){
     var x = document.getElementById("alerts");
     // var y = document.getElementById("back");
     // var i = localStorage.getItem("lengthOfAlerts")-1;
@@ -217,7 +147,7 @@ function displayOwnerHistoryAlerts(){
 
 }
 
-function displayOwnerAlerts() {
+function displayFanAlerts() {
     var x = document.getElementById("alerts");
     // var y = document.getElementById("back");
     // var i = localStorage.getItem("lengthOfAlerts")-1;
@@ -282,18 +212,18 @@ function displayOwnerAlerts() {
 
 
 
-        var close = document.getElementsByClassName("closebtn");
-        var i;
+    var close = document.getElementsByClassName("closebtn");
+    var i;
 
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
-                var div = this.parentElement;
-                div.style.opacity = "0";
-                setTimeout(function () {
-                    div.style.display = "none";
-                }, 600);
-            }
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
         }
+    }
 
 
 }

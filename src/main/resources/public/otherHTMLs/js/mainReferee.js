@@ -8,7 +8,7 @@ var globalVariable={
     ownerAlerts: new Array()
 };
 function getID() {
-    return globalVariable.sid;
+    return localStorage.getItem("sid");
 }
 function displayAddEvent() {
     hideAllDives();
@@ -51,18 +51,18 @@ function hideAllDives() {
 
 // *****ADD EVENT*****
 function getAllRelatedGames() {
-    var myURL="http://localhost:8080/getListOfGames/"+getID();
+    var myURL="/getListOfGames/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             // var jsonData = JSON.parse(this);
+            alert(this.response);
             var jsonData = (JSON.parse(this.response));
             if(!document.getElementById("relatedGames0")){
-                for (var i = 0; i < jsonData.length; i++) {
-                    var gameDate = (jsonData[i].date).substring(0,(jsonData[i].date).length-19);
+                for (var i = 0; i < jsonData.length-1; i=i+2) {
+                    var gameDate = jsonData[i];
                     var counter = gameDate;
-                    dict_date_matchID[gameDate]=jsonData[i].matchId;
-                    alert("match ID in dictionary is:"+jsonData[i].matchId);
+                    dict_date_matchID[gameDate]=jsonData[i+1]
                     var x = document.getElementById("optionalGames");
                     var option = document.createElement("option");
                     option.setAttribute("id", "relatedGames"+i);
@@ -82,7 +82,7 @@ function getAllRelatedGames() {
 
 function addEvent() {
     // Post a user
-    var url = "http://localhost:8080/addEvent";
+    var url = "/addEvent";
 
     var data = {};
 
@@ -122,23 +122,25 @@ function addEvent() {
 
 // ****MAKE REPORT****
 function getAllRelatedGames_makeReport() {
-    var myURL="http://localhost:8080/getListOfGames/"+getID();
+    var myURL="/getListOfGames/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             // var jsonData = JSON.parse(this);
             var jsonData = (JSON.parse(this.response));
+            // alert(!document.getElementById("relatedGames_makeReport0"));
             if(!document.getElementById("relatedGames_makeReport0")){
-                for (var i = 0; i < jsonData.length; i++) {
-                    var gameDate = (jsonData[i].date).substring(0,(jsonData[i].date).length-19);
+                for (var i = 0; i < jsonData.length-1; i=i+2) {
+                    var gameDate = jsonData[i];
+                    // alert("game date:"+gameDate);
                     var counter = gameDate;
-                    dict_date_matchID[gameDate]=jsonData[i].matchId;
+                    dict_date_matchID[gameDate]=jsonData[i+1];
                     var x = document.getElementById("matches");
                     var option = document.createElement("option");
                     option.setAttribute("id", "relatedGames_makeReport"+i);
                     option.text = counter;
                     if(i===0){
-                        makeReport_selectedGame=jsonData[i].matchId;
+                        makeReport_selectedGame=jsonData[i+1];
                     }
                     x.add(option);
                 }
@@ -166,14 +168,16 @@ function getTeamsOfGame(){
     var e1 = document.getElementById("matches");
     var game = e1.options[e1.selectedIndex].value;
     makeReport_selectedGame = dict_date_matchID[game];
-    alert("the user chose:"+makeReport_selectedGame);
-    var myURL="http://localhost:8080/getTeamsInGame/"+makeReport_selectedGame;
-    alert("mu url is:"+myURL);
+    // alert("the user chose:"+makeReport_selectedGame);
+    var myURL="/getTeamsInGame/"+makeReport_selectedGame;
+    // alert("mu url is:"+myURL);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
+            alert("i have a response");
             // var jsonData = JSON.parse(this);
             var jsonData = JSON.parse(this.responseText);
+            alert("passed parsing");
             var firstTeam = jsonData[0];
             makeReport_TeamA=firstTeam;
             var secondTeam = jsonData[1];
@@ -181,8 +185,9 @@ function getTeamsOfGame(){
             dict_teamName_teamID[firstTeam]=jsonData[2];
             dict_teamName_teamID[secondTeam]=jsonData[3];
             if(!document.getElementById("teamsOfGameDiv")){
+                alert("i am in the if statement");
                 var x = document.getElementById("scoreOfTeams");
-                var div = document.getElementById("teamsOfGameDiv");
+                var div = document.createElement("teamsOfGameDiv");
                 var label1 = document.createElement("label1");
                 var t1 = document.createTextNode("score of "+firstTeam+":");
                 label1.setAttribute("for","scoreTeamA");
@@ -215,6 +220,9 @@ function getTeamsOfGame(){
                 x.appendChild(div);
             }
         }
+        else{
+            alert("i don't have a response")
+        }
 
     };
     xhttp.open("GET", myURL, true);
@@ -234,7 +242,7 @@ function makeReport_moveBackFromChoosingTeamsToChoosingGame(){
 
 function makeReport(){
     // Post a user
-    var url = "http://localhost:8080/makeReport";
+    var url = "/makeReport";
 
     var data = {};
 
@@ -257,7 +265,7 @@ function makeReport(){
         data.scoreLoosingTeam=scoreTeamA;
     }
     var json = JSON.stringify(data);
-    alert("details of report are:"+json);
+    // alert("details of report are:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
@@ -273,16 +281,20 @@ function makeReport(){
     };
     xhr.send(json);
 }
+
+var mainRefereeAlerts=new Array();
 function getMainRefereeAlerts() {
-    var myURL="http://localhost:8080/mainReferee/getAlerts/"+getID();
+    var myURL="/getAlerts/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             var jsonData = JSON.parse(this.responseText);
             for (var i = 0; i < jsonData.length; i++) {
                 var alert2 = jsonData[i];
-                globalVariable.ownerAlerts.push(alert2);
-                document.getElementById("badge").innerHTML = globalVariable.ownerAlerts.length;
+                mainRefereeAlerts.push(alert2);
+                document.getElementById("badge").innerHTML = mainRefereeAlerts.length;
+                localStorage.setItem("lengthOfAlerts",lineRefereeAlerts.length);
+                localStorage.setItem("arrayOfAlert",JSON.stringify(lineRefereeAlerts));
 
             }
         }
@@ -291,26 +303,58 @@ function getMainRefereeAlerts() {
     xhttp.open("GET", myURL, true);
     xhttp.send();
 }
+var mainRefereeHistoryAlerts=new Array();
 
-function displayalertsMainReferee(){
-    hideAllDives();
+function getHistoryMainRefereeAlerts() {
+    var myURL="http://localhost:8080/mainReferee/getHistoryAlerts/"+getID();
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            var jsonData = JSON.parse(this.responseText);
+            for (var i = 0; i < jsonData.length; i++) {
+                var alert2 = jsonData[i];
+                mainRefereeHistoryAlerts.push(alert2);
+                // document.getElementById("badge").innerHTML = globalVariable.ownerAlerts.length;
+
+            }
+            localStorage.setItem("HistoryArrayOfAlert",JSON.stringify(mainRefereeHistoryAlerts));;
+        }
+
+    };
+    xhttp.open("GET", myURL, true);
+    xhttp.send();
+}
+
+var intervalMainReferee;
+function setIntervals() {
+    getHistoryMainRefereeAlerts();
+    intervalMainReferee=setInterval(getMainRefereeAlerts,1000);
+
+}
+
+function displayHistoryAlertsMainReferee(){
     var x = document.getElementById("alerts");
-
-
-    while (globalVariable.ownerAlerts.length > 0) {
+    // var y = document.getElementById("back");
+    // var i = localStorage.getItem("lengthOfAlerts")-1;
+    var text = localStorage.getItem("HistoryArrayOfAlert");
+    text=JSON.parse(text);
+    // text=text.split(/[ /[/,]+/);
+    // clearInterval(intervalOwner);
+    var i=text.length-1;
+    while (text.length> 0) {
         var random = Math.floor(Math.random() * 4) + 1;
         var alerts = document.getElementById("alerts");
         var message = document.createElement("div", "id=message");
-        if(random==1){
+        if (random == 1) {
             message.setAttribute("style", "padding: 15px; background-color: #4CAF50; color: white;")
         }
-        if(random==2){
+        if (random == 2) {
             message.setAttribute("style", "padding: 15px; background-color: #f44336; color: white;")
         }
-        if(random==3){
+        if (random == 3) {
             message.setAttribute("style", "padding: 15px; background-color: #2196F3; color: white;")
         }
-        if(random==4){
+        if (random == 4) {
             message.setAttribute("style", "padding: 15px; background-color: #ff9800; color: white;")
         }
 
@@ -322,33 +366,126 @@ function displayalertsMainReferee(){
         btn.setAttribute("style", "  margin-left: 10px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px; cursor: pointer;transition: 0.3s; ")
 
         var times = document.createTextNode("X");
-        var text = document.createTextNode(globalVariable.ownerAlerts.pop());
+        // var text = localStorage.getItem("arrayOfAlert");
+        // text = text.split(/[ ","]+/);
+
+
+        var text2 = document.createTextNode(text[i]);
+        // if(text2=="]" || (text2=="[")){
+        // }
+        // else {
+        //     i--;
+        // }
+        text.splice(i, 1);
+
+
+        // localStorage.setItem("lengthOfAlerts", text.length);
+
+
+        // localStorage.setItem("arrayOfAlert", text);
+
         alerts.appendChild(message);
         message.appendChild(btn);
         btn.appendChild(times);
-        message.appendChild(text);
+        message.appendChild(text2);
         var newLine = document.createElement('br');
         message.appendChild(newLine)
 
-
-
-
     }
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
+
+
 
 
     var close = document.getElementsByClassName("closebtn");
     var i;
 
     for (i = 0; i < close.length; i++) {
-        close[i].onclick = function(){
+        close[i].onclick = function () {
             var div = this.parentElement;
             div.style.opacity = "0";
-            setTimeout(function(){ div.style.display = "none"; }, 600);
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
+        }
+    }
+
+}
+
+
+function displayalertsMainReferee(){
+    var x = document.getElementById("alerts");
+    // var y = document.getElementById("back");
+    // var i = localStorage.getItem("lengthOfAlerts")-1;
+    var text = localStorage.getItem("arrayOfAlert");
+    text=JSON.parse(text);
+    // text=text.split(/[ /[/,]+/);
+    clearInterval(intervalMainReferee);
+    var i=text.length-1;
+    while (text.length> 0) {
+        var random = Math.floor(Math.random() * 4) + 1;
+        var alerts = document.getElementById("alerts");
+        var message = document.createElement("div", "id=message");
+        if (random == 1) {
+            message.setAttribute("style", "padding: 15px; background-color: #4CAF50; color: white;")
+        }
+        if (random == 2) {
+            message.setAttribute("style", "padding: 15px; background-color: #f44336; color: white;")
+        }
+        if (random == 3) {
+            message.setAttribute("style", "padding: 15px; background-color: #2196F3; color: white;")
+        }
+        if (random == 4) {
+            message.setAttribute("style", "padding: 15px; background-color: #ff9800; color: white;")
+        }
+
+        var btn = document.createElement("span");
+        btn.setAttribute("class", "closebtn");
+        btn.setAttribute("onmouseover", "this.style.color='black'");
+        btn.setAttribute("onmouseout", "this.style.color='white'");
+        // btn.setAttribute("onclick", "hideDiv()");
+        btn.setAttribute("style", "  margin-left: 10px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px; cursor: pointer;transition: 0.3s; ")
+
+        var times = document.createTextNode("X");
+        // var text = localStorage.getItem("arrayOfAlert");
+        // text = text.split(/[ ","]+/);
+
+
+        var text2 = document.createTextNode(text[i]);
+        // if(text2=="]" || (text2=="[")){
+        // }
+        // else {
+        //     i--;
+        // }
+        text.splice(i, 1);
+
+
+        // localStorage.setItem("lengthOfAlerts", text.length);
+        //
+        //
+        // localStorage.setItem("arrayOfAlert", text);
+
+        alerts.appendChild(message);
+        message.appendChild(btn);
+        btn.appendChild(times);
+        message.appendChild(text2);
+        var newLine = document.createElement('br');
+        message.appendChild(newLine)
+
+    }
+
+
+
+
+    var close = document.getElementsByClassName("closebtn");
+    var i;
+
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
         }
     }
 

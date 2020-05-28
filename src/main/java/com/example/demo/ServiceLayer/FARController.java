@@ -18,11 +18,15 @@ public class FARController {
 
     }
 
-    public Set<League> getLeagues(){
-        Set<League> toReturn = new HashSet<>();
+    public String[] getLeagues(){
+
         List<Object> leaguesId = DBManager.getListOfObjects(League.class,"League");
+        String[] toReturn = new String[leaguesId.size()*2];
+        int i=0;
         for(Object l: leaguesId){
-            toReturn.add(((League) l));
+            toReturn[i] = ((League) l).getName();
+            toReturn[i+1] = ""+((League) l).getLid();
+            i=i+2;
         }
         return toReturn;
     }
@@ -64,6 +68,8 @@ public class FARController {
         return far.activateGameSchedulePolicyForLeague(leagueIdInt);
     }
 
+
+
     public boolean setLeagueScorePolicy(String sid , String leagueId, String scorePolicy){
 
         int sidInt=-1;
@@ -101,6 +107,43 @@ public class FARController {
         toReturn[3]=""+registrationRequest.getReq_id();
         return toReturn;
 
+    }
+
+    public String[] getGamesForLeague(String leagueId){
+        if(leagueId==null){
+            return null;
+        }
+        int leagueInt =-1;
+        try{
+            leagueInt = Integer.parseInt(leagueId);
+        }
+        catch (Exception e){
+            return null;
+        }
+        League league = ((League) DBManager.getObject(League.class, leagueInt));
+        if(league==null){
+            return null;
+        }
+        Set<Season>seasons = league.getSeasons();
+        Set<Game>games = new HashSet<>();
+        for(Season s: seasons){
+            if(s.getYear()==league.getCurrent_year()){
+                games=s.getMatches();
+            }
+        }
+        String[] toReturn = new String[games.size()*3];
+        int i=0;
+        for(Game game: games){
+            Team team1 = (Team) DBManager.getObject(Team.class,game.getTeam_home_id());
+            Team team2 = (Team) DBManager.getObject(Team.class,game.getTeam_away_id());
+            if(team1!=null && team2!=null){
+                toReturn[i] = game.getDate().toString();
+                toReturn[i+1] = team1.getName();
+                toReturn[i+2]= team2.getName();
+                i=i+3;
+            }
+        }
+        return toReturn;
     }
 
     public boolean handleRegistrationRequest(String sid,String regId, boolean approved){

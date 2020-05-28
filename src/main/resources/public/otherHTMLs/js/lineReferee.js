@@ -8,7 +8,7 @@ var globalVariable={
     ownerAlerts: new Array()
 };
 function getID() {
-    return globalVariable.sid;
+    return localStorage.getItem("sid");
 }
 function displayAddEvent() {
     hideAllDives();
@@ -51,7 +51,7 @@ function hideAllDives() {
 
 // *****ADD EVENT*****
 function getAllRelatedGames() {
-    var myURL="http://localhost:8080/getListOfGames/"+getID();
+    var myURL="/getListOfGames/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -82,7 +82,7 @@ function getAllRelatedGames() {
 
 function addEvent() {
     // Post a user
-    var url = "http://localhost:8080/addEvent";
+    var url = "/addEvent";
 
     var data = {};
 
@@ -122,7 +122,7 @@ function addEvent() {
 
 // ****MAKE REPORT****
 function getAllRelatedGames_makeReport() {
-    var myURL="http://localhost:8080/getListOfGames/"+getID();
+    var myURL="/getListOfGames/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -167,7 +167,7 @@ function getTeamsOfGame(){
     var game = e1.options[e1.selectedIndex].value;
     makeReport_selectedGame = dict_date_matchID[game];
     alert("the user chose:"+makeReport_selectedGame);
-    var myURL="http://localhost:8080/getTeamsInGame/"+makeReport_selectedGame;
+    var myURL="/getTeamsInGame/"+makeReport_selectedGame;
     alert("mu url is:"+myURL);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -234,7 +234,7 @@ function makeReport_moveBackFromChoosingTeamsToChoosingGame(){
 
 function makeReport(){
     // Post a user
-    var url = "http://localhost:8080/makeReport";
+    var url = "/makeReport";
 
     var data = {};
 
@@ -274,17 +274,19 @@ function makeReport(){
     xhr.send(json);
 }
 
+var lineRefereeAlerts=new Array();
 function getLineRefereeAlerts() {
-    var myURL="http://localhost:8080/lineReferee/getAlerts/"+globalVariable.sid;
+    var myURL="/lineReferee/getAlerts/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             var jsonData = JSON.parse(this.responseText);
             for (var i = 0; i < jsonData.length; i++) {
                 var alert2 = jsonData[i];
-                globalVariable.ownerAlerts.push(alert2);
-                document.getElementById("badge").innerHTML = globalVariable.ownerAlerts.length;
-
+               lineRefereeAlerts.push(alert2);
+                document.getElementById("badge").innerHTML = lineRefereeAlerts.length;
+                localStorage.setItem("lengthOfAlerts",lineRefereeAlerts.length);
+                localStorage.setItem("arrayOfAlert",JSON.stringify(lineRefereeAlerts));
             }
         }
 
@@ -293,25 +295,36 @@ function getLineRefereeAlerts() {
     xhttp.send();
 }
 
-function displayalertsLineReferee(){
-    hideAllDives();
+
+var intervalLineReferee;
+function setIntervals() {
+    intervalLineReferee=setInterval(getLineRefereeAlerts,1000);
+
+}
+
+function displayHistoryAlertsLineReferee() {
     var x = document.getElementById("alerts");
-
-
-    while (globalVariable.ownerAlerts.length > 0) {
+    // var y = document.getElementById("back");
+    // var i = localStorage.getItem("lengthOfAlerts")-1;
+    var text = localStorage.getItem("HistoryArrayOfAlert");
+    text=JSON.parse(text);
+    // text=text.split(/[ /[/,]+/);
+    // clearInterval(intervalOwner);
+    var i=text.length-1;
+    while (text.length> 0) {
         var random = Math.floor(Math.random() * 4) + 1;
         var alerts = document.getElementById("alerts");
         var message = document.createElement("div", "id=message");
-        if(random==1){
+        if (random == 1) {
             message.setAttribute("style", "padding: 15px; background-color: #4CAF50; color: white;")
         }
-        if(random==2){
+        if (random == 2) {
             message.setAttribute("style", "padding: 15px; background-color: #f44336; color: white;")
         }
-        if(random==3){
+        if (random == 3) {
             message.setAttribute("style", "padding: 15px; background-color: #2196F3; color: white;")
         }
-        if(random==4){
+        if (random == 4) {
             message.setAttribute("style", "padding: 15px; background-color: #ff9800; color: white;")
         }
 
@@ -323,33 +336,125 @@ function displayalertsLineReferee(){
         btn.setAttribute("style", "  margin-left: 10px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px; cursor: pointer;transition: 0.3s; ")
 
         var times = document.createTextNode("X");
-        var text = document.createTextNode(globalVariable.ownerAlerts.pop());
+        // var text = localStorage.getItem("arrayOfAlert");
+        // text = text.split(/[ ","]+/);
+
+
+        var text2 = document.createTextNode(text[i]);
+        // if(text2=="]" || (text2=="[")){
+        // }
+        // else {
+        //     i--;
+        // }
+        text.splice(i, 1);
+
+
+        // localStorage.setItem("lengthOfAlerts", text.length);
+        //
+        //
+        // localStorage.setItem("arrayOfAlert", text);
+
         alerts.appendChild(message);
         message.appendChild(btn);
         btn.appendChild(times);
-        message.appendChild(text);
+        message.appendChild(text2);
         var newLine = document.createElement('br');
         message.appendChild(newLine)
 
-
-
-
     }
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
+
+
 
 
     var close = document.getElementsByClassName("closebtn");
     var i;
 
     for (i = 0; i < close.length; i++) {
-        close[i].onclick = function(){
+        close[i].onclick = function () {
             var div = this.parentElement;
             div.style.opacity = "0";
-            setTimeout(function(){ div.style.display = "none"; }, 600);
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
+        }
+    }
+
+}
+
+function displayalertsLineReferee() {
+    var x = document.getElementById("alerts");
+    // var y = document.getElementById("back");
+    // var i = localStorage.getItem("lengthOfAlerts")-1;
+    var text = localStorage.getItem("arrayOfAlert");
+    text=JSON.parse(text);
+    // text=text.split(/[ /[/,]+/);
+    clearInterval(intervalLineReferee);
+    var i=text.length-1;
+    while (text.length> 0) {
+        var random = Math.floor(Math.random() * 4) + 1;
+        var alerts = document.getElementById("alerts");
+        var message = document.createElement("div", "id=message");
+        if (random == 1) {
+            message.setAttribute("style", "padding: 15px; background-color: #4CAF50; color: white;")
+        }
+        if (random == 2) {
+            message.setAttribute("style", "padding: 15px; background-color: #f44336; color: white;")
+        }
+        if (random == 3) {
+            message.setAttribute("style", "padding: 15px; background-color: #2196F3; color: white;")
+        }
+        if (random == 4) {
+            message.setAttribute("style", "padding: 15px; background-color: #ff9800; color: white;")
+        }
+
+        var btn = document.createElement("span");
+        btn.setAttribute("class", "closebtn");
+        btn.setAttribute("onmouseover", "this.style.color='black'");
+        btn.setAttribute("onmouseout", "this.style.color='white'");
+        // btn.setAttribute("onclick", "hideDiv()");
+        btn.setAttribute("style", "  margin-left: 10px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px; cursor: pointer;transition: 0.3s; ")
+
+        var times = document.createTextNode("X");
+        // var text = localStorage.getItem("arrayOfAlert");
+        text = text.split(/[ ","]+/);
+
+
+        var text2 = document.createTextNode(text[i]);
+        if(text2=="]" || (text2=="[")){
+        }
+        else {
+            i--;
+        }
+        text.splice(i, 1);
+
+
+        localStorage.setItem("lengthOfAlerts", text.length);
+
+
+        localStorage.setItem("arrayOfAlert", text);
+
+        alerts.appendChild(message);
+        message.appendChild(btn);
+        btn.appendChild(times);
+        message.appendChild(text2);
+        var newLine = document.createElement('br');
+        message.appendChild(newLine)
+
+    }
+
+
+
+
+    var close = document.getElementsByClassName("closebtn");
+    var i;
+
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
         }
     }
 

@@ -37,6 +37,25 @@ public class RefereeController {
         return alertsToReturn;
     }
 
+    public List<String> getPrevAlerts(String sid){
+        int sidInt= -1;
+        try{
+            sidInt = Integer.parseInt(sid);
+        }
+        catch (Exception e){
+            return null;
+        }
+        Subscriber subscriber = (Subscriber) DBManager.getObject(Subscriber.class,sidInt);
+        if(subscriber == null){
+            return null;
+        }
+        if(subscriber.getReferee()==null){
+            return null;
+        }
+
+        return subscriber.getReferee().getPrevAlerts();
+    }
+
     public boolean addEvent(String sid, String matchId, String minuteInGame, String description, String eventType){
         int matchInt=-1;
         int minuteInGameInt=-1;
@@ -85,27 +104,35 @@ public class RefereeController {
         return lineReferee.addEventToMatch(matchInt,minuteInGameInt,description,event);
     }
 
-    public Set<Game> getListOfGames(String sid){
-        Set<Game> toReturn = new HashSet<>();
+
+    public String [] getListOfGames(String sid){
+
         int intSid = -1;
         try{
             intSid = Integer.parseInt(sid);
         }
         catch (Exception e){
-            return toReturn;
+            return null;
         }
         Subscriber subscriber = (Subscriber) DBManager.getObject(Subscriber.class,intSid);
         if(subscriber == null){
-            return toReturn;
+            return null;
         }
         Referee lineReferee = subscriber.getReferee();
         if(lineReferee == null){
-            return toReturn;
+            return null;
         }
         Set<Game> matches = lineReferee.getMatches();
+        String[] toReturn = new String[matches.size()*2];
+        int i=0;
         for(Game game : matches){
-            toReturn.add((game));
+
+    
+            toReturn[i]=game.getDate().toString();
+            toReturn[i+1]=""+game.getId();
+            i=i+2;
         }
+
         return toReturn;
     }
 
