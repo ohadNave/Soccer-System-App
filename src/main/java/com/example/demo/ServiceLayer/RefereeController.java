@@ -39,6 +39,25 @@ public class RefereeController {
         return alertsToReturn;
     }
 
+    public List<String> getPrevAlerts(String sid){
+        int sidInt= -1;
+        try{
+            sidInt = Integer.parseInt(sid);
+        }
+        catch (Exception e){
+            return null;
+        }
+        Subscriber subscriber = (Subscriber) DBManager.getObject(Subscriber.class,sidInt);
+        if(subscriber == null){
+            return null;
+        }
+        if(subscriber.getReferee()==null){
+            return null;
+        }
+
+        return subscriber.getReferee().getPrevAlerts();
+    }
+
     public boolean addEvent(String sid, String matchId, String minuteInGame, String description, String eventType){
         int matchInt=-1;
         int minuteInGameInt=-1;
