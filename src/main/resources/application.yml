@@ -3,7 +3,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost/soccer_sys_db?serverTimezone=UTC
     username: root
-    password: STR21
+    password: pass
   jpa:
     hibernate:
       ddl-auto: update
