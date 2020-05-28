@@ -22,7 +22,7 @@ import java.util.*;
 @RestController
 public class ExampleController {
 //    ******ADD SCORE POLICY*******
-
+    RefereeController refereeController = new RefereeController();
     @RequestMapping("/addScorePolicy/getLeagueNames")
     public Set<League> getLeaguesNames_scorePolicy(){
      //   System.out.println("i'm in java function");
@@ -67,8 +67,8 @@ public class ExampleController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/login")
     public String[] login(@RequestBody loginParameters param){
-        System.out.println("my name is" + param.getUsername());
-        System.out.println("my pass is" + param.getPassword());
+//        System.out.println("my name is" + param.getUsername());
+//        System.out.println("my pass is" + param.getPassword());
        GuestController login= new GuestController();
         return login.logIn(param.getUsername(),param.getPassword());
     }
@@ -90,30 +90,35 @@ public class ExampleController {
     }
     @RequestMapping("mainReferee/getAlerts/{sid}")
     public Queue<String>  getMainRefereeAlerts(@PathVariable String sid){
+
  //       System.out.println(sid);
         RefereeController refereeController = new RefereeController();
+
         return refereeController.getAlerts(sid);
     }
 
     @RequestMapping("lineReferee/getAlerts/{sid}")
     public Queue<String>  getLineRefereeAlerts(@PathVariable String sid){
+
   //      System.out.println(sid);
         RefereeController refereeController = new RefereeController();
+
+
         return refereeController.getAlerts(sid);
     }
 
 
 //    *****ADD EVENT******
     @RequestMapping("/getListOfGames/{subscriberID}")
-    public Set<Game>  getPossibleGames(@PathVariable String subscriberID){
+    public String []  getPossibleGames(@PathVariable String subscriberID){
 //     System.out.println("the name i get is "+leagueName);
-       RefereeController refereeController = new RefereeController();
+//       RefereeController refereeController = new RefereeController();
        return refereeController.getListOfGames(subscriberID);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/addEvent")
     public boolean addEvent(@RequestBody addEventParameters param){
-        RefereeController refereeController = new RefereeController();
+     //   RefereeController refereeController = new RefereeController();
         return refereeController.addEvent(param.getSid(),param.getMatchId(), param.getMinuteInGame(),param.getDescription(),param.getEventType());
     }
 
@@ -122,13 +127,13 @@ public class ExampleController {
     @RequestMapping("/getTeamsInGame/{matchID}")
     public String[] getTeamsOfGame(@PathVariable String matchID){
     //     System.out.println("the name i get is "+leagueName);
-        RefereeController refereeController = new RefereeController();
+      //  RefereeController refereeController = new RefereeController();
         return refereeController.getTeamsNames(matchID);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/makeReport")
     public boolean makeReport(@RequestBody makeReportParameters param){
-        RefereeController refereeController = new RefereeController();
+       // RefereeController refereeController = new RefereeController();
         return refereeController.makeReport(param.getSid(),param.getMid(),param.getWinnerTeamID(),param.getLoosingTeamID(),param.getScoreWinnerTeam(),param.getScoreLoosingTeam());
     }
 

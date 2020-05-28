@@ -14,7 +14,7 @@ var globalVariable={
     ownerAlerts: new Array()
 };
 function getID() {
-    return globalVariable.sid;
+    return localStorage.getItem("sid");
 }
 function displayAddScorePolicy() {
     hideAllDives();
@@ -78,6 +78,7 @@ function addScorePolicy_showLeague() {
         if(!document.getElementById("LeagueOptions_scorePolicy0")) {
             for (var i = 0; i < jsonData.length; i++) {
                 var counter = jsonData[i];
+                alert("my league name is:"+jsonData[i].name+",and my lid is:"+jsonData[i].lid);
                 dict_leagueName_leagueID[jsonData[i].name] = jsonData[i].lid;
                 //alert(counter.name);
                 var x = document.getElementById("leagues");
@@ -393,83 +394,83 @@ function rejectTeamRequest(){
     };
     xhr.send(json);
 }
-function getOwnerAlerts() {
-    var myURL="http://localhost:8080/owner/getAlerts/"+globalVariable.sid;
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            var jsonData = JSON.parse(this.responseText);
-            for (var i = 0; i < jsonData.length; i++) {
-                var alert2 = jsonData[i];
-                globalVariable.ownerAlerts.push(alert2);
-                document.getElementById("badge").innerHTML = globalVariable.ownerAlerts.length;
-
-            }
-        }
-
-    };
-    xhttp.open("GET", myURL, true);
-    xhttp.send();
-}
-
-function displayalertsOwner(){
-    hideAllDives();
-    var x = document.getElementById("alerts");
-
-
-    while (globalVariable.ownerAlerts.length > 0) {
-        var random = Math.floor(Math.random() * 4) + 1;
-        var alerts = document.getElementById("alerts");
-        var message = document.createElement("div", "id=message");
-        if(random==1){
-            message.setAttribute("style", "padding: 15px; background-color: #4CAF50; color: white;")
-        }
-        if(random==2){
-            message.setAttribute("style", "padding: 15px; background-color: #f44336; color: white;")
-        }
-        if(random==3){
-            message.setAttribute("style", "padding: 15px; background-color: #2196F3; color: white;")
-        }
-        if(random==4){
-            message.setAttribute("style", "padding: 15px; background-color: #ff9800; color: white;")
-        }
-
-        var btn = document.createElement("span");
-        btn.setAttribute("class", "closebtn");
-        btn.setAttribute("onmouseover", "this.style.color='black'");
-        btn.setAttribute("onmouseout", "this.style.color='white'");
-        // btn.setAttribute("onclick", "hideDiv()");
-        btn.setAttribute("style", "  margin-left: 10px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px; cursor: pointer;transition: 0.3s; ")
-
-        var times = document.createTextNode("X");
-        var text = document.createTextNode(globalVariable.ownerAlerts.pop());
-        alerts.appendChild(message);
-        message.appendChild(btn);
-        btn.appendChild(times);
-        message.appendChild(text);
-        var newLine = document.createElement('br');
-        message.appendChild(newLine)
-
-
-
-
-    }
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-
-
-    var close = document.getElementsByClassName("closebtn");
-    var i;
-
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function(){
-            var div = this.parentElement;
-            div.style.opacity = "0";
-            setTimeout(function(){ div.style.display = "none"; }, 600);
-        }
-    }
-
-}
+// function getOwnerAlerts() {
+// //     var myURL="http://localhost:8080/owner/getAlerts/"+globalVariable.sid;
+// //     var xhttp = new XMLHttpRequest();
+// //     xhttp.onreadystatechange = function() {
+// //         if (this.readyState === 4 && this.status === 200) {
+// //             var jsonData = JSON.parse(this.responseText);
+// //             for (var i = 0; i < jsonData.length; i++) {
+// //                 var alert2 = jsonData[i];
+// //                 globalVariable.ownerAlerts.push(alert2);
+// //                 document.getElementById("badge").innerHTML = globalVariable.ownerAlerts.length;
+// //
+// //             }
+// //         }
+// //
+// //     };
+// //     xhttp.open("GET", myURL, true);
+// //     xhttp.send();
+// // }
+// //
+// // function displayalertsOwner(){
+// //     hideAllDives();
+// //     var x = document.getElementById("alerts");
+// //
+// //
+// //     while (globalVariable.ownerAlerts.length > 0) {
+// //         var random = Math.floor(Math.random() * 4) + 1;
+// //         var alerts = document.getElementById("alerts");
+// //         var message = document.createElement("div", "id=message");
+// //         if(random==1){
+// //             message.setAttribute("style", "padding: 15px; background-color: #4CAF50; color: white;")
+// //         }
+// //         if(random==2){
+// //             message.setAttribute("style", "padding: 15px; background-color: #f44336; color: white;")
+// //         }
+// //         if(random==3){
+// //             message.setAttribute("style", "padding: 15px; background-color: #2196F3; color: white;")
+// //         }
+// //         if(random==4){
+// //             message.setAttribute("style", "padding: 15px; background-color: #ff9800; color: white;")
+// //         }
+// //
+// //         var btn = document.createElement("span");
+// //         btn.setAttribute("class", "closebtn");
+// //         btn.setAttribute("onmouseover", "this.style.color='black'");
+// //         btn.setAttribute("onmouseout", "this.style.color='white'");
+// //         // btn.setAttribute("onclick", "hideDiv()");
+// //         btn.setAttribute("style", "  margin-left: 10px; color: white; font-weight: bold; float: right; font-size: 22px; line-height: 20px; cursor: pointer;transition: 0.3s; ")
+// //
+// //         var times = document.createTextNode("X");
+// //         var text = document.createTextNode(globalVariable.ownerAlerts.pop());
+// //         alerts.appendChild(message);
+// //         message.appendChild(btn);
+// //         btn.appendChild(times);
+// //         message.appendChild(text);
+// //         var newLine = document.createElement('br');
+// //         message.appendChild(newLine)
+// //
+// //
+// //
+// //
+// //     }
+// //     if (x.style.display === "none") {
+// //         x.style.display = "block";
+// //     } else {
+// //         x.style.display = "none";
+// //     }
+// //
+// //
+// //     var close = document.getElementsByClassName("closebtn");
+// //     var i;
+// //
+// //     for (i = 0; i < close.length; i++) {
+// //         close[i].onclick = function(){
+// //             var div = this.parentElement;
+// //             div.style.opacity = "0";
+// //             setTimeout(function(){ div.style.display = "none"; }, 600);
+// //         }
+// //     }
+// //
+// // }
