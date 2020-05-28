@@ -51,7 +51,7 @@ function hideAllDives() {
 
 // *****ADD EVENT*****
 function getAllRelatedGames() {
-    var myURL="http://localhost:8080/getListOfGames/"+getID();
+    var myURL="/getListOfGames/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -82,7 +82,7 @@ function getAllRelatedGames() {
 
 function addEvent() {
     // Post a user
-    var url = "http://localhost:8080/addEvent";
+    var url = "/addEvent";
 
     var data = {};
 
@@ -122,7 +122,7 @@ function addEvent() {
 
 // ****MAKE REPORT****
 function getAllRelatedGames_makeReport() {
-    var myURL="http://localhost:8080/getListOfGames/"+getID();
+    var myURL="/getListOfGames/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -167,9 +167,9 @@ function getTeamsOfGame(){
     var e1 = document.getElementById("matches");
     var game = e1.options[e1.selectedIndex].value;
     makeReport_selectedGame = dict_date_matchID[game];
-    alert("the user chose:"+makeReport_selectedGame);
-    var myURL="http://localhost:8080/getTeamsInGame/"+makeReport_selectedGame;
-    alert("mu url is:"+myURL);
+    // alert("the user chose:"+makeReport_selectedGame);
+    var myURL="/getTeamsInGame/"+makeReport_selectedGame;
+    // alert("mu url is:"+myURL);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -235,7 +235,7 @@ function makeReport_moveBackFromChoosingTeamsToChoosingGame(){
 
 function makeReport(){
     // Post a user
-    var url = "http://localhost:8080/makeReport";
+    var url = "/makeReport";
 
     var data = {};
 
@@ -258,7 +258,7 @@ function makeReport(){
         data.scoreLoosingTeam=scoreTeamA;
     }
     var json = JSON.stringify(data);
-    alert("details of report are:"+json);
+    // alert("details of report are:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
@@ -275,7 +275,7 @@ function makeReport(){
     xhr.send(json);
 }
 function getMainRefereeAlerts() {
-    var myURL="http://localhost:8080/mainReferee/getAlerts/"+getID();
+    var myURL="/getAlerts/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {

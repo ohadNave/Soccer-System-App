@@ -71,14 +71,14 @@ function hideAllDives() {
 
 function addScorePolicy_showLeague() {
     //alert("i enter to get function")
-    var theurl = "http://localhost:8080/addScorePolicy/getLeagueNames";
+    var theurl = "/addScorePolicy/getLeagueNames";
     var client = new HttpClient();
     client.get(theurl, function (response) {
         var jsonData = JSON.parse(response);
         if(!document.getElementById("LeagueOptions_scorePolicy0")) {
             for (var i = 0; i < jsonData.length; i++) {
                 var counter = jsonData[i];
-                alert("my league name is:"+jsonData[i].name+",and my lid is:"+jsonData[i].lid);
+                // alert("my league name is:"+jsonData[i].name+",and my lid is:"+jsonData[i].lid);
                 dict_leagueName_leagueID[jsonData[i].name] = jsonData[i].lid;
                 //alert(counter.name);
                 var x = document.getElementById("leagues");
@@ -91,13 +91,13 @@ function addScorePolicy_showLeague() {
                 x.add(option);
             }
         }
-        alert("my dictionary is:"+dict_leagueName_leagueID);
+        // alert("my dictionary is:"+dict_leagueName_leagueID);
     });
 }
 
 function addPlacementPolicy_showLeague() {
     //alert("i enter to get function")
-    var theurl = "http://localhost:8080/addPlacementPolicy/getLeagueNames";
+    var theurl = "/addPlacementPolicy/getLeagueNames";
     var client = new HttpClient();
     client.get(theurl, function (response) {
         var jsonData = JSON.parse(response);
@@ -116,7 +116,7 @@ function addPlacementPolicy_showLeague() {
                 x.add(option);
             }
         }
-        alert("my dictionary is:"+dict_leagueName_leagueID);
+        // alert("my dictionary is:"+dict_leagueName_leagueID);
     });
 }
 var HttpClient = function() {
@@ -187,8 +187,8 @@ function moveBackToChooseLeague_fromChooseYear_PlacementPolicy() {
 }
 function addScorePolicy_getPossibleYearsOfLeague() {
     updateScorePolicy_leagueName();
-    var myURL="http://localhost:8080/addScorePolicy/getPossibleYears/"+dict_leagueName_leagueID[scorePolicy_leagueName];
-    alert("i'm in addScorePolicy_getPossibleYearsOfLeague, my url is:"+myURL);
+    var myURL="/addScorePolicy/getPossibleYears/"+dict_leagueName_leagueID[scorePolicy_leagueName];
+    // alert("i'm in addScorePolicy_getPossibleYearsOfLeague, my url is:"+myURL);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -216,8 +216,8 @@ function addScorePolicy_getPossibleYearsOfLeague() {
 
 function addPlacementPolicy_getPossibleYearsOfLeague() {
     updatePlacementPolicy_leagueName();
-    var myURL="http://localhost:8080/addPlacementPolicy/getPossibleYears/"+dict_leagueName_leagueID_placementPolicy[placementPolicy_leagueName];
-    alert("i'm in addPlacementPolicy_getPossibleYearsOfLeague, my url is:"+myURL);
+    var myURL="/addPlacementPolicy/getPossibleYears/"+dict_leagueName_leagueID_placementPolicy[placementPolicy_leagueName];
+    // alert("i'm in addPlacementPolicy_getPossibleYearsOfLeague, my url is:"+myURL);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -262,14 +262,14 @@ function updateYearAndPolicy_PlacementPolicy() {
 function updateScorePolicyInDB() {
     updateYearAndPolicy();
     // Post a user
-    var url = "http://localhost:8080/addScorePolicy";
+    var url = "/addScorePolicy";
     var data = {};
     data.sid = getID();
     data.leagueID  = dict_leagueName_leagueID[scorePolicy_leagueName];
     // data.year = scorePolicy_year;
     data.scorePolicy = scorePolicy_policy;
     var json = JSON.stringify(data);
-    alert("check id:"+json);
+    // alert("check id:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
@@ -285,17 +285,19 @@ function updateScorePolicyInDB() {
     };
     xhr.send(json);
 }
+
+
 function updatePlacementPolicyInDB() {
     updateYearAndPolicy_PlacementPolicy();
     // Post a user
-    var url = "http://localhost:8080/addPlacementPolicy";
+    var url = "/addPlacementPolicy";
     var data = {};
     data.sid = getID();
     data.leagueID  = dict_leagueName_leagueID_placementPolicy[placementPolicy_leagueName];
     // data.year = placementPolicy_year;
     data.scorePolicy = placementPolicy_policy;
     var json = JSON.stringify(data);
-    alert("data i sent is:"+json);
+    // alert("data i sent is:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
@@ -311,10 +313,36 @@ function updatePlacementPolicyInDB() {
     };
     xhr.send(json);
 }
+function applyPlacementPolicyInDB() {
+    updateYearAndPolicy_PlacementPolicy();
+    // Post a user
+    var url = "/applyPlacementPolicy";
+    var data = {};
+    data.sid = getID();
+    data.leagueID  = dict_leagueName_leagueID_placementPolicy[placementPolicy_leagueName];
+    // data.year = placementPolicy_year;
+    data.scorePolicy = placementPolicy_policy;
+    var json = JSON.stringify(data);
+    // alert("data i sent is:"+json);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+    xhr.onload = function () {
+        if (xhr.readyState == 4 && xhr.status == "200") {
+            if (xhr.responseText == "true") {
+                alert("applied placement policy successfully!");
+                displayMainFarPage();
+            } else {
+                alert("error:" + xhr.responseText);
+            }
+        }
+    };
+    xhr.send(json);
+}
 
 function checkTeamsRequest_showRequest() {
-    var myURL="http://localhost:8080/nextTeamRequest";
-    alert("i'm in addPlacementPolicy_getPossibleYearsOfLeague, my url is:"+myURL);
+    var myURL="/nextTeamRequest";
+    // alert("i'm in addPlacementPolicy_getPossibleYearsOfLeague, my url is:"+myURL);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -346,14 +374,14 @@ function checkTeamsRequest_showRequest() {
 }
 
 function approveTeamRequest() {
-    var url = "http://localhost:8080/approveRequest";
+    var url = "/approveRequest";
     var data = {};
     data.sid = getID();
     data.booleanVar  = true;
     data.regID= teamRequest_RegistrationID;
 
     var json = JSON.stringify(data);
-    alert("data i sent is:"+json);
+    // alert("data i sent is:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
@@ -371,14 +399,14 @@ function approveTeamRequest() {
 }
 
 function rejectTeamRequest(){
-    var url = "http://localhost:8080/rejectRequest";
+    var url = "/rejectRequest";
     var data = {};
     data.sid = getID();
     data.booleanVar  = false;
     data.regID= teamRequest_RegistrationID;
 
     var json = JSON.stringify(data);
-    alert("data i sent is:"+json);
+    // alert("data i sent is:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
