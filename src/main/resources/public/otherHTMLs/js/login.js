@@ -247,6 +247,18 @@ function displayOwnerPage() {
 
 }
 
+function chooseHistoryAlerts(){
+    if(localStorage.getItem("choice")=="owner"){
+        displayOwnerHistoryAlerts();
+    }
+    else if(localStorage.getItem("choice")=="lineReferee"){
+        displayHistoryAlertsLineReferee();
+    }
+    else if(localStorage.getItem("choice")=="mainReferee"){
+        displayHistoryAlertsMainReferee();
+    }
+}
+
 function chooseAlerts() {
     if(localStorage.getItem("choice")=="owner"){
         displayOwnerAlerts();
@@ -257,6 +269,12 @@ function chooseAlerts() {
     else if(localStorage.getItem("choice")=="mainReferee"){
         displayalertsMainReferee();
     }
+
+}
+function displayHistoryAlerts() {
+
+    window.location.href="Historyalerts.html";
+
 
 }
 
