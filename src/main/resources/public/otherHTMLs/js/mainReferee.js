@@ -56,13 +56,13 @@ function getAllRelatedGames() {
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             // var jsonData = JSON.parse(this);
+            alert(this.response);
             var jsonData = (JSON.parse(this.response));
             if(!document.getElementById("relatedGames0")){
-                for (var i = 0; i < jsonData.length; i++) {
-                    var gameDate = (jsonData[i].date).substring(0,(jsonData[i].date).length-19);
+                for (var i = 0; i < jsonData.length-1; i=i+2) {
+                    var gameDate = jsonData[i];
                     var counter = gameDate;
-                    dict_date_matchID[gameDate]=jsonData[i].matchId;
-                    alert("match ID in dictionary is:"+jsonData[i].matchId);
+                    dict_date_matchID[gameDate]=jsonData[i+1]
                     var x = document.getElementById("optionalGames");
                     var option = document.createElement("option");
                     option.setAttribute("id", "relatedGames"+i);
@@ -129,16 +129,17 @@ function getAllRelatedGames_makeReport() {
             // var jsonData = JSON.parse(this);
             var jsonData = (JSON.parse(this.response));
             if(!document.getElementById("relatedGames_makeReport0")){
-                for (var i = 0; i < jsonData.length; i++) {
-                    var gameDate = (jsonData[i].date).substring(0,(jsonData[i].date).length-19);
+                for (var i = 0; i < jsonData.length; i=i+2) {
+                    var gameDate = jsonData[i];
+                    alert("game date:"+gameDate);
                     var counter = gameDate;
-                    dict_date_matchID[gameDate]=jsonData[i].matchId;
+                    dict_date_matchID[gameDate]=jsonData[i+1];
                     var x = document.getElementById("matches");
                     var option = document.createElement("option");
                     option.setAttribute("id", "relatedGames_makeReport"+i);
                     option.text = counter;
                     if(i===0){
-                        makeReport_selectedGame=jsonData[i].matchId;
+                        makeReport_selectedGame=jsonData[i+1];
                     }
                     x.add(option);
                 }
