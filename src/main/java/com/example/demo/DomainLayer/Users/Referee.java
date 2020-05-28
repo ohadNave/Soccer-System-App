@@ -187,7 +187,7 @@ public class Referee extends SystemUser implements Observer, Serializable {
         List<Alert> newAlert = new ArrayList<>();
         for (Alert a: alerts){
             newAlert.add(a);
-            prevAlerts.add(alerts.toString());
+            prevAlerts.add(a.toString());
         }
         alerts.clear();
         return newAlert;
