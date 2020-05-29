@@ -70,7 +70,7 @@ public class MyFactory {
             Subscriber subscriber = new Subscriber();
             subscriber.setAttributes(userName,password,name);
             DBManager.saveObject(subscriber);
-            eventLogger.info("A new Subscriber created, id: " + subscriber.getId());
+            eventLogger.info("A new Subscriber created, id: " + subscriber.getUserName());
             return subscriber;
         }
       return null;

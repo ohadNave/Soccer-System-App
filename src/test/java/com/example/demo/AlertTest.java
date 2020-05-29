@@ -133,6 +133,8 @@ public class AlertTest {
         fr1.addEventToMatch(m1.getId(),23,"Barda gets a red card", EventType.RedCard);
 
     }
+
+
     @Test
     public void fanGameEndedAlertTest() {
         Subscriber sf = DBManager.getByUserName("Fan123");

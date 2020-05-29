@@ -21,7 +21,6 @@ function getFanHistoryAlerts() {
                 // localStorage.setItem("lengthOfAlerts",ownerAlerts.length);
             }
             localStorage.setItem("HistoryArrayOfAlertFan",JSON.stringify(fanHistoryAlerts));
-
         }
 
     };
@@ -198,10 +197,10 @@ function displayFanAlerts() {
         text.splice(i, 1);
         i--;
 
-        localStorage.setItem("lengthOfAlerts", text.length);
-
-
-        localStorage.setItem("arrayOfAlert", text);
+        // localStorage.setItem("lengthOfAlerts", text.length);
+        //
+        //
+        // localStorage.setItem("arrayOfAlert", text);
 
         alerts.appendChild(message);
         message.appendChild(btn);

@@ -7,7 +7,7 @@
     <persistence-unit name="my_persistence_unit">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <properties>
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost/soccer_sys_db?serverTimezone=UTC"/>
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value="STR21"/>
