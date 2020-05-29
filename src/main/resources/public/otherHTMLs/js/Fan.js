@@ -22,7 +22,6 @@ function getFanHistoryAlerts() {
                 // localStorage.setItem("lengthOfAlerts",ownerAlerts.length);
             }
             localStorage.setItem("HistoryArrayOfAlertFan",JSON.stringify(fanHistoryAlerts));
-
         }
 
     };
@@ -36,9 +35,11 @@ function getFanAlerts() {
     // console.log(localStorage.getItem("sid"))
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
+
             // alert("my answer is:" + this.responseText);
             var jsonData = JSON.parse(this.responseText);
             // alert("my json is:" + jsonData);
+
             if(jsonData.length==0){
                 document.getElementById("badge").innerHTML = fanAlerts.length;
                 localStorage.setItem("lengthOfAlerts",fanAlerts.length);
@@ -204,6 +205,10 @@ function displayFanAlerts() {
         // localStorage.setItem("lengthOfAlerts", text.length);
 
 
+
+
+        //
+        //
         // localStorage.setItem("arrayOfAlert", text);
 
         alerts.appendChild(message);

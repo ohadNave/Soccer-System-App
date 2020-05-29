@@ -4,6 +4,7 @@ import com.example.demo.DomainLayer.Alerts.Alert;
 import com.example.demo.DomainLayer.DBManager;
 import com.example.demo.DomainLayer.Enums.Certification;
 import com.example.demo.DomainLayer.Enums.EventType;
+import com.example.demo.DomainLayer.Enums.MatchStatus;
 import com.example.demo.DomainLayer.Enums.RefereeRoll;
 import com.example.demo.DomainLayer.LeagueManagment.*;
 import com.example.demo.DomainLayer.MyFactory;
@@ -36,7 +37,7 @@ public class Referee extends SystemUser implements Observer, Serializable {
     }
 
     public void setAttributes(Certification certification, RefereeRoll refereeRoll, int sid){
-       // this.setSid(sid);
+        this.setSid(sid);
         this.setRoll(refereeRoll);
         this.certification = certification;
         matches = new HashSet<>();
@@ -112,13 +113,12 @@ public class Referee extends SystemUser implements Observer, Serializable {
             match.setGameReport(gameReport);
             gameReport.setMatch(match);
             Season season = match.getSeason();
-//            if (homeGoals == awayGoals){
-//                season.getScorePolicy().execute(season, true, homeTeam,awayTeam);
-//            }
-//            else {
-//                season.getScorePolicy().execute(season, false, homeTeam,awayTeam);
-//
-//            }
+            if (homeGoals == awayGoals){
+                season.getIScorePolicy().execute(season, true, homeTeam,awayTeam);
+            }
+            else {
+                season.getIScorePolicy().execute(season, false, homeTeam,awayTeam);
+            }
             return true;
         }
         return false;
@@ -221,13 +221,14 @@ public class Referee extends SystemUser implements Observer, Serializable {
         this.prevAlerts = prevAlerts;
     }
 
-//    public boolean startMatch(Game m1){
-//        if(m1.getStatus()==MatchStatus.YET_TO_COME) {
-//            m1.setStatus(MatchStatus.IN_PROGRESS);
-//            return true;
-//        }
-//        return false;
-//    }
+
+    public boolean startMatch(Game m1){
+        if(m1.getStatus()== MatchStatus.YET_TO_COME) {
+            m1.setStatus(MatchStatus.IN_PROGRESS);
+            return true;
+        }
+        return false;
+    }
 //
 //    public boolean endMatch(Game m1){
 //        if(m1.getStatus()==MatchStatus.IN_PROGRESS) {
@@ -250,9 +251,9 @@ public class Referee extends SystemUser implements Observer, Serializable {
         return getSid() == referee.getSid();
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), roll);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(super.hashCode(), roll);
+//    }
 }
 

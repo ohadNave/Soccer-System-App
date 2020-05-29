@@ -10,6 +10,7 @@ import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.FAR;
 import com.example.demo.DomainLayer.Users.Referee;
 import com.example.demo.DomainLayer.Users.Subscriber;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -37,6 +38,13 @@ public class EventTest {
         Subscriber sr1 = MyFactory.createSubscriber("ref1","none","none");
         Subscriber sr2 = MyFactory.createSubscriber("ref2","none","none");
         Subscriber sr3= MyFactory.createSubscriber("ref3","none","none");
+
+        Assertions.assertNotNull(s2);
+        Assertions.assertNotNull(s3);
+        Assertions.assertNotNull(s4);
+        Assertions.assertNotNull(sr1);
+        Assertions.assertNotNull(sr2);
+        Assertions.assertNotNull(sr3);
 
 
         s2.makeOwnerActive();
@@ -82,8 +90,9 @@ public class EventTest {
         referees.add(fr3);
 
         League leagueFromDB = ((League) DBManager.getObject(League.class, 1));
-        //Set<Season> seasons = leagueFromDB.getSeasons();
+        Assertions.assertNotNull(leagueFromDB);
         Season currSeason = (Season) DBManager.getObject(Season.class, 1);
+        Assertions.assertNotNull(currSeason);
 
         Field f1 = MyFactory.createField("Terner");
         Field f2 = MyFactory.createField("Vasermil");

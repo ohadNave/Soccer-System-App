@@ -34,12 +34,12 @@
         <!-- Log everything in Spring Core -->
         <Logger name="com.example.demo" level="debug" additivity="false">
             <AppenderRef ref="Console" />
-            <AppenderRef ref="File" />
+            <AppenderRef ref="event" />
         </Logger>
 
         <Root level="error">
             <AppenderRef ref="Console" />
-            <AppenderRef ref="File" />
+            <AppenderRef ref="error" />
         </Root>
 
     </Loggers>

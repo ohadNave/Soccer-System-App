@@ -9,6 +9,7 @@ import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.FAR;
 import com.example.demo.DomainLayer.Users.Referee;
 import com.example.demo.DomainLayer.Users.Subscriber;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -27,7 +28,7 @@ public class MatchTest {
         Subscriber s1 = MyFactory.createSubscriber("ohad-far2","s","ohad");
         s1.makeFARActive();
         FAR far = s1.getFar();
-        far.initializeLeague(LeagueLevel.PremierLeague,"La-Liga");
+        far.initializeLeague(LeagueLevel.PremierLeague,"LaLiga");
 
         //create owners
         Subscriber s2 = MyFactory.createSubscriber("owner1","none","none");
@@ -58,9 +59,9 @@ public class MatchTest {
 
 
         //create referees
-        Subscriber sr1 = MyFactory.createSubscriber("ref1","none","none");
-        Subscriber sr2 = MyFactory.createSubscriber("ref2","none","none");
-        Subscriber sr3= MyFactory.createSubscriber("ref3","none","none");
+        Subscriber sr1 = MyFactory.createSubscriber("refe1","none","none");
+        Subscriber sr2 = MyFactory.createSubscriber("refe2","none","none");
+        Subscriber sr3= MyFactory.createSubscriber("refe3","none","none");
         sr1.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
         sr2.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
         sr3.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
@@ -74,6 +75,9 @@ public class MatchTest {
         referees.add(fr3);
 
         League leagueFromDB = ((League) DBManager.getObject(League.class, 1));
+
+        Assertions.assertNotNull(leagueFromDB);
+
         Set<Season> seasons = leagueFromDB.getSeasons();
         Season currSeason = seasons.iterator().next();
 

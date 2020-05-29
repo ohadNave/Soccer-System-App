@@ -5,6 +5,7 @@ import com.example.demo.DomainLayer.LeagueManagment.Team;
 import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.FAR;
 import com.example.demo.DomainLayer.Users.Subscriber;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
@@ -20,9 +21,9 @@ public class TeamTest {
         FAR far = sub_far.getFar();
         Subscriber sub_owner = MyFactory.createSubscriber("owner2 - new team","a","b");
         sub_owner.makeOwnerActive();
-//        sub_owner.getOwner().openTeamRequest("MTA");
-//        far.handleRequest(DBManager.getNextRequest(),true);
-//        Assert.isNull(sub_owner.getOwner().getTeam(),"Test Passed");
+        sub_owner.getOwner().openTeamRequest("MTA");
+        far.handleRequest(DBManager.getNextRequest(),true);
+        Assertions.assertTrue(far.handleRequest(DBManager.getNextRequest(),true));
     }
 
 
