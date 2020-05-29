@@ -1,7 +1,5 @@
 package com.example.demo.ServiceLayer;
 
-
-
 import com.example.demo.DomainLayer.Alerts.Alert;
 import com.example.demo.DomainLayer.DBManager;
 import com.example.demo.DomainLayer.Enums.EventType;
@@ -37,6 +35,25 @@ public class RefereeController {
             alertsToReturn.add(a.toString());
         }
         return alertsToReturn;
+    }
+
+    public List<String> getPrevAlerts(String sid){
+        int sidInt= -1;
+        try{
+            sidInt = Integer.parseInt(sid);
+        }
+        catch (Exception e){
+            return null;
+        }
+        Subscriber subscriber = (Subscriber) DBManager.getObject(Subscriber.class,sidInt);
+        if(subscriber == null){
+            return null;
+        }
+        if(subscriber.getReferee()==null){
+            return null;
+        }
+
+        return subscriber.getReferee().getPrevAlerts();
     }
 
     public boolean addEvent(String sid, String matchId, String minuteInGame, String description, String eventType){
@@ -88,6 +105,7 @@ public class RefereeController {
     }
 
     public String [] getListOfGames(String sid){
+
         int intSid = -1;
         try{
             intSid = Integer.parseInt(sid);
@@ -107,6 +125,8 @@ public class RefereeController {
         String[] toReturn = new String[matches.size()*2];
         int i=0;
         for(Game game : matches){
+
+    
             toReturn[i]=game.getDate().toString();
             toReturn[i+1]=""+game.getId();
             i=i+2;

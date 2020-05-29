@@ -104,7 +104,15 @@ function loginButton() {
                 connected="true";
                 // alert("name");
 
+                if ((jsonData[3]).localeCompare("1") == 0) {//Fan
+                    // alert("i am in FAR if")
+                    localStorage.setItem("fan", true);
+                    // displaySubscriberPage();
+                    // alert("far");
 
+
+
+                }
                 if ((jsonData[4]).localeCompare("1") == 0) {//FAR
                     // alert("i am in FAR if")
                     localStorage.setItem("far", true);
@@ -206,6 +214,16 @@ function displaySubscriberPage() {
         option.appendChild(node);
         choos.appendChild(option);
     }
+    if(localStorage.getItem("fan")=="true"){
+        var choos=document.getElementById("chooseSub");
+        var option = document.createElement("option");
+        option.setAttribute("style", "display: inline-block");
+        option.setAttribute("value","fan");
+        option.setAttribute("id","fan")
+        var node = document.createTextNode("Fan");
+        option.appendChild(node);
+        choos.appendChild(option);
+    }
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
@@ -257,6 +275,22 @@ function displayOwnerPage() {
 
 }
 
+function chooseHistoryAlerts(){
+    if(localStorage.getItem("choice")=="owner"){
+        displayOwnerHistoryAlerts();
+    }
+    else if(localStorage.getItem("choice")=="lineReferee"){
+        displayHistoryAlertsLineReferee();
+    }
+    else if(localStorage.getItem("choice")=="mainReferee"){
+        getHistoryMainRefereeAlerts();
+        displayHistoryAlertsMainReferee();
+    }
+    else if(localStorage.getItem("choice")=="fan"){
+        displayFanHistoryAlerts();
+    }
+}
+
 function chooseAlerts() {
     if(localStorage.getItem("choice")=="owner"){
         displayOwnerAlerts();
@@ -267,13 +301,22 @@ function chooseAlerts() {
     else if(localStorage.getItem("choice")=="mainReferee"){
         displayalertsMainReferee();
     }
+    else if(localStorage.getItem("choice")=="fan"){
+        displayFanAlerts();
+    }
+
+}
+function displayHistoryAlerts() {
+
+    window.location.href="Historyalerts.html";
+
 
 }
 
 
 function displayAlerts() {
 
-    window.location.href="alerts.html";
+    document.location.href="alerts.html";
 
 
 }
@@ -296,6 +339,9 @@ function subscriberChoose() {
               }
               else if (choice=="lineReferee"){
                   window.location.href="lineReferee.html";
+              }
+              else if (choice=="fan"){
+                  window.location.href="Fan.html";
               }
 
 

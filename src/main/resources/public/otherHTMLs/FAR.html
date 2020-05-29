@@ -13,19 +13,6 @@
 	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FreeHTML5.co" />
 
-  <!-- 
-	//////////////////////////////////////////////////////
-
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
-
-	//////////////////////////////////////////////////////
-	 -->
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -74,7 +61,7 @@
 					<ul>
 						<li><a href="about.html">About</a></li>
 						<li><a href="contact.html">Contact</a></li>
-						<li class="cta"><a href="#">Get started</a></li>
+						<li class="cta"><a href="index.html">Log Out</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -189,7 +176,7 @@
 		<div id="addPlacementPolicy"  style="display:none">
 			<div class="fh5co-light-grey-section" style="padding: 100px 100px;">
 				<div class="container">
-					<h1>please choose the needed details:</h1>
+					<!--<h1>please choose the needed details:</h1>-->
 					<div class="row">
 						<form id="addPlacementPolicy_chooseLeague">
 							<label for="leagues1">Choose league:</label>
@@ -217,7 +204,11 @@
 							<br>
 							<input type="button" value="back" onclick="moveBackToChooseLeague_fromChooseYear_PlacementPolicy()">
 							<input type="button" value="change policy" onclick="updatePlacementPolicyInDB()">
-							<input type="button" value="apply policy" onclick="applyPlacementPolicyInDB()">
+							<input type="button" value="apply policy and show it" onclick="applyPlacementPolicyInDB()">
+						</form>
+
+						<form id="showPlacement" style="display: none">
+							<input type="button" value="back to far page" onclick="displayMainFarPage()">
 						</form>
 					</div>
 				</div>
@@ -235,8 +226,8 @@
 						<div id="RequestDetails" style="font-size: larger"></div>
                         <div style="padding:  0px 0px 0px 50px">
                             <input onclick="displayMainFarPage()" type="button" value="back">
-                            <input onclick="approveTeamRequest()" type="button" value="approve">
-                            <input onclick="rejectTeamRequest()" type="button" value="reject">
+                            <input id="approve" onclick="approveTeamRequest()" type="button" value="approve">
+                            <input id="reject" onclick="rejectTeamRequest()" type="button" value="reject">
                         </div>
 					</form>
 				</div>
@@ -255,7 +246,7 @@
 			<!--</div>-->
 		<!--</div>-->
 	
-	<footer id="fh5co-footer" role="contentinfo">
+	<footer id="fh5co-footer" role="contentinfo" style=" display:none">
 	
 		<div class="container">
 			<div class="col-md-3 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
@@ -288,13 +279,7 @@
 					<li><a href="#"><i class="icon-google-plus"></i></a></li>
 					<li><a href="#"><i class="icon-instagram"></i></a></li>
 				</ul>
-			</div>
-			
-			
-			<div class="col-md-12 fh5co-copyright text-center">
-				<p>&copy; 2016 Free HTML5 template. All Rights Reserved. <span>Designed with <i class="icon-heart"></i> by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Colored Icons by <a href="https://dribbble.com/TrinhHo" target="_blank">Trinh Ho</a> Demo Images by <a href="http://unsplash.com/" target="_blank">Unsplash</a></span></p>	
-			</div>
-			
+			</div>	
 		</div>
 	</footer>
 	</div>

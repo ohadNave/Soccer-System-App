@@ -13,20 +13,6 @@
     <meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
     <meta name="author" content="FreeHTML5.co" />
 
-    <!--
-      //////////////////////////////////////////////////////
-
-      FREE HTML5 TEMPLATE
-      DESIGNED & DEVELOPED by FreeHTML5.co
-
-      Website: 		http://freehtml5.co/
-      Email: 			info@freehtml5.co
-      Twitter: 		http://twitter.com/fh5co
-      Facebook: 		https://www.facebook.com/fh5co
-
-      //////////////////////////////////////////////////////
-       -->
-
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content=""/>
     <meta property="og:image" content=""/>
@@ -62,8 +48,7 @@
     <![endif]-->
 
 </head>
-<body>
-
+<body onload="setIntervals()">
 
 <div id="fh5co-page">
     <header id="fh5co-header" role="banner">
@@ -72,62 +57,112 @@
                 <h1><a href="index.html">Teammates</a></h1>
                 <nav role="navigation">
                     <ul>
-                        <li><a href="mainReferee.html">Work</a></li>
-                        <li class="active"><a href="FAR.html">Services</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li class="cta"><a href="#">Get started</a></li>
+                        <li class="cta"><a href="index.html">Log Out</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-<!--start of page-->
-    <div id="addScorePolicy">
+
+    <aside id="fh5co-hero" class="js-fullheight">
+        <div class="flexslider js-fullheight">
+            <ul class="slides">
+                <li style="background-image: url(images/referee.jpg);">
+                    <div class="overlay-gradient"></div>
+                    <div class="container">
+                        <div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
+                            <div class="slider-text-inner">
+                                <h2></h2>
+                                <p class="fh5co-lead"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <button id="alertButton" style=" margin-left: 25px; float: left; border: none; background-color: #27E1CE; padding: 20px 40px; color: white; border-radius: 10px;" type="button" onClick= "displayAlerts()">
+        <span>Inbox</span>
+        <span id="badge" style="
+							top: 120px;
+							left: 120px;
+							padding: 5px 10px;
+							border-radius: 50%;
+							background-color: red;
+							color: white;"></span>
+    </button>
+
+    <button id="HistoryAlertButton" style=" margin-left: 25px; float: left; border: none; background-color: #27E1CE; padding: 20px 40px; color: white; border-radius: 10px;" type="button" onClick= "displayHistoryAlerts()">
+        <span>HistoryInbox</span>
+        <!--        <span id="badgeHistory" style="-->
+        <!--							top: 120px;-->
+        <!--							left: 120px;-->
+        <!--							padding: 5px 10px;-->
+        <!--							border-radius: 50%;-->
+        <!--							background-color: red;-->
+        <!--							color: white;"></span>-->
+    </button>
+
+    <div id="alerts"  style="display: none;text-align: center; "> <h4>list of alerts!</h4>
+        <br>
+    </div>
+    <!--start owner page-->
+    <div id="mainFanPage">
         <div id="fh5co-work-section" class="fh5co-light-grey-section">
             <div class="container">
-                <h1>please choose the needed details:</h1>
+                <h1>hello Fan, what would you like to do?</h1>
                 <div class="row">
-                    <form>
-                        <label for="league">Choose league:</label>
-                        <select id="league">
-                            <option value="LigatAl">ליגת על</option>
-                            <option value="LigatAlufot">ליגת אלופות</option>
-                        </select>
-                        <br>
-                        <br>
-                        <label for="year">Choose a year:</label>
-                        <select id="year">
-                            <option value="2012">2012</option>
-                            <option value="2013">2013</option>
-                            <option value="2014">2014</option>
-                            <option value="2015">2015</option>
-                            <option value="2016">2016</option>
-                            <option value="2017">2017</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                        </select>
-                        <br>
-                        <br>
-                        <label for="scorePolicy">Choose a score policy:</label>
-                        <select id="scorePolicy">
-                            <option value="policyA">policyA</option>
-                            <option value="policyB">policyB</option>
-                        </select>
-                        <br>
-                        <br>
-                        <input type="submit" value="change policy">
-                    </form>
+<!--                    <div class="col-md-4 animate-box">-->
+<!--                        <a onclick="displayAddTeam()" class="item-grid text-center">-->
+<!--                            <div class="image" style="background-image: url(images/image_1.jpg)"></div>-->
+<!--                            <div class="v-align">-->
+<!--                                <div class="v-align-middle">-->
+<!--                                    <h3 class="title">Open A New Team</h3>-->
+<!--                                    <h5 class="category"></h5>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
     </div>
-<!--end of page-->
+    <!--end owner page-->
 
-    <div class="fh5co-cta" style="background-image: url(images/slide_1.jpg);">
+    <!--start add event page-->
+    <div id="addTeamPage" style="display: none" >
+        <div id="fh5co-work-section2" class="fh5co-light-grey-section" style="padding: 100px 100px">
+            <div class="container">
+                <div class="row">
+                    <div id="ownerPage">
+                        <h4 style="text-align: center;">
+                            To open a new team add the name and click on "Open a new team":
+                            <br>
+                            <br>
+                            <label for="teamName">Team Name: </label>
+                            <input type="text" id="teamName" name="teamName">
+                            <br>
+                            <br>
+                            <button class="teamButton" style="display: inline-block" type="button" onclick="opentNewTeam()">Open a new  team!</button>
+                            <br>
+                            <br>
+                            <br>
+                        </h4>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end add event page-->
+
+
+    <!--end of makeReport page-->
+
+    <div class="fh5co-cta" style="background-image: url(images/slide_1.jpg); display:none;">
         <div class="overlay"></div>
         <div class="container">
             <div class="col-md-12 text-center animate-box">
@@ -137,13 +172,14 @@
         </div>
     </div>
 
-    <footer id="fh5co-footer" role="contentinfo">
+
+    <footer id="fh5co-footer" role="contentinfo" style="display: none;">
 
         <div class="container">
             <div class="col-md-3 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
                 <h3>About Us</h3>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-                <p><a href="#" class="btn btn-primary btn-outline with-arrow btn-sm">I'm button <i class="icon-arrow-right"></i></a></p>
+                <p><a href="#" class="btn btn-primary btn-outline with-arrow btn-sm">Join Us <i class="icon-arrow-right"></i></a></p>
             </div>
             <div class="col-md-6 col-md-push-1 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
                 <h3>Our Services</h3>
@@ -174,7 +210,7 @@
 
 
             <div class="col-md-12 fh5co-copyright text-center">
-                <p>&copy; 2016 Free HTML5 template. All Rights Reserved. <span>Designed with <i class="icon-heart"></i> by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Colored Icons by <a href="https://dribbble.com/TrinhHo" target="_blank">Trinh Ho</a> Demo Images by <a href="http://unsplash.com/" target="_blank">Unsplash</a></span></p>
+                <p>&copy; 2016 Free HTML5 template. All Rights Reserved. <span>Designed with <i class="icon-heart"></i> by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images by <a href="http://unsplash.com/" target="_blank">Unsplash</a></span></p>
             </div>
 
         </div>
@@ -193,10 +229,12 @@
 <!-- Flexslider -->
 <script src="js/jquery.flexslider-min.js"></script>
 <!-- Stellar -->
-<script src="js/jquery.stellar.min.js"></script>
+<!--<script src="js/jquery.stellar.min.js"></script>-->
 
 <!-- MAIN JS -->
 <script src="js/main.js"></script>
+<script src="js/login.js"></script>
+<script src="js/Fan.js"></script>
 
 </body>
 </html>

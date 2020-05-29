@@ -37,6 +37,9 @@ public class Fan extends SystemUser implements Observer, Serializable {
     @OneToMany
     private List<Alert> alerts;
 
+    @ElementCollection
+    private List<String> prevAlerts;
+
 
     public Fan () {
         followingPrivatePages = new HashSet<>();
@@ -44,6 +47,7 @@ public class Fan extends SystemUser implements Observer, Serializable {
         searchHistory = new HashSet<>();
         alerts = new LinkedList<>();
         followingMatches = new HashSet<>();
+        prevAlerts= new ArrayList<>();
     }
 
 
@@ -59,13 +63,12 @@ public class Fan extends SystemUser implements Observer, Serializable {
      * Adding this fan as a new observer of the argument private page in order to take care of future alerts.
      */
     public boolean followPage(PrivatePage privatePage){
-      //  if(DBManagerStub.getPrivatePage(pid) != null){
+        if( privatePage != null ){
             followingPrivatePages.add(privatePage);
-         //   DBManagerStub.getPrivatePage(pid).addFollower(getSid());
             eventLogger.info( " the fan: "+getSid() + " started to follow the page: "+ privatePage.getPageId());
             return true;
-    //    }
-    //    return false;
+        }
+        return false;
     }
 
     /**
@@ -133,10 +136,9 @@ public class Fan extends SystemUser implements Observer, Serializable {
     @Override
     public void update(Observable o, Object arg) {
         if (o != null && arg != null) {
-
                 // FOR MATCH ADD EVENT ALERT(foul/goal..) or MATCH ENDED ALERT(3:0 Real Madrid - Barcelona..) or MATCH DATE CHANGED ALERT.
                 if (o instanceof Game) {
-                    if (this.followingMatches != null && this.followingMatches.contains(((Game) o).getId())) {
+                    if (this.followingMatches != null && this.followingMatches.contains(((Game) o))) {
                         handleAlert(((Alert) arg));
                     }
                 }
@@ -186,7 +188,13 @@ public class Fan extends SystemUser implements Observer, Serializable {
     }
 
     public List<Alert> getAlerts() {
-        return alerts;
+        List<Alert> newAlert = new ArrayList<>();
+        for (Alert a: alerts){
+            newAlert.add(a);
+            prevAlerts.add(a.toString());
+        }
+        alerts.clear();
+        return newAlert;
     }
 
     public void setAlerts(List<Alert> alerts) {
@@ -211,5 +219,13 @@ public class Fan extends SystemUser implements Observer, Serializable {
 
     public void setSearchHistory(Set<String> searchHistory) {
         this.searchHistory = searchHistory;
+    }
+
+    public List<String> getPrevAlerts() {
+        return prevAlerts;
+    }
+
+    public void setPrevAlerts(List<String> prevAlerts) {
+        this.prevAlerts = prevAlerts;
     }
 }

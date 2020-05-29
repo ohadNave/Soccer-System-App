@@ -70,6 +70,12 @@ public class ExampleController {
         FARController farController = new FARController();
         return farController.activeGameSchedulerPolicy(param.getSid(),param.getLeagueID());
     }
+    @RequestMapping("/showPlacementPolicy/{sid}")
+    public String[] showPlacementPolicy(@PathVariable String sid){
+        //   System.out.println("i'm in java function");
+        FARController farController = new FARController();
+        return farController.getGamesForLeague(sid);
+    }
 
     @RequestMapping(method = RequestMethod.POST, value = "/login")
     public String[] login(@RequestBody loginParameters param){
@@ -88,20 +94,65 @@ public class ExampleController {
 
 
 //    *****ALERTS******
+@RequestMapping("fan/getAlerts/{sid}")
+public Queue<String> getFanAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+    OwnerController getOwnerAlertsController=new OwnerController ();
+    return getOwnerAlertsController.getAlerts(sid);
+}
+
+    @RequestMapping("fan/getHistoryAlerts/{sid}")
+    public Queue<String> getFanHistoryAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+        OwnerController getOwnerAlertsController=new OwnerController ();
+        return getOwnerAlertsController.getAlerts(sid);
+    }
     @RequestMapping("owner/getAlerts/{sid}")
     public Queue<String> getOwnerAlerts(@PathVariable String sid){
 //        System.out.println(sid);
        OwnerController getOwnerAlertsController=new OwnerController ();
         return getOwnerAlertsController.getAlerts(sid);
     }
+
+    @RequestMapping("owner/getHistoryAlerts/{sid}")
+    public Queue<String> getOwnerHistoryAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+        OwnerController getOwnerAlertsController=new OwnerController ();
+        return getOwnerAlertsController.getAlerts(sid);
+    }
+
+
     @RequestMapping("mainReferee/getAlerts/{sid}")
     public Queue<String>  getMainRefereeAlerts(@PathVariable String sid){
+
+ //       System.out.println(sid);
+        RefereeController refereeController = new RefereeController();
+
         return refereeController.getAlerts(sid);
+    }
+
+    @RequestMapping("mainReferee/getHistoryAlerts/{sid}")
+    public List<String>  getHistoryMainRefereeAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+        RefereeController refereeController = new RefereeController();
+        return refereeController.getPrevAlerts(sid);
     }
 
     @RequestMapping("lineReferee/getAlerts/{sid}")
     public Queue<String>  getLineRefereeAlerts(@PathVariable String sid){
+
+  //      System.out.println(sid);
+        RefereeController refereeController = new RefereeController();
+
+
         return refereeController.getAlerts(sid);
+    }
+
+    @RequestMapping("LineReferee/getHistoryAlerts/{sid}")
+    public List<String>  getHistoryLineRefereeAlerts(@PathVariable String sid){
+//        System.out.println(sid);
+        RefereeController refereeController = new RefereeController();
+        return refereeController.getPrevAlerts(sid);
     }
 
 

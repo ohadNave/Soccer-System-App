@@ -1,6 +1,7 @@
 package com.example.demo.DomainLayer;
 
 import com.example.demo.DataLayer.DaoMySQL;
+import com.example.demo.DomainLayer.Alerts.Alert;
 import com.example.demo.DomainLayer.Request.RegistrationRequest;
 import com.example.demo.DomainLayer.Users.*;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class DBManager {
         }
     }
 
-    public static void saveObject(Object o){
+    public static synchronized void saveObject(Object o){
         try{
             daoMySQL.save(o);
             String objName = o.getClass().getName();
@@ -44,7 +45,7 @@ public class DBManager {
         }
     }
 
-    public static void updateObject(Object o){
+    public static synchronized void updateObject(Object o){
         try{
             String objName = o.getClass().getName();
             daoMySQL.update(o);

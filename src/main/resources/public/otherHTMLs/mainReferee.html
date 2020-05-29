@@ -13,19 +13,6 @@
 	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FreeHTML5.co" />
 
-  <!-- 
-	//////////////////////////////////////////////////////
-
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
-
-	//////////////////////////////////////////////////////
-	 -->
 
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
@@ -63,7 +50,7 @@
 
 	</head>
 
-	<body onload="intervalMainReferee()">
+	<body onload="setIntervals()">
 
 	<div id="fh5co-page">
 	<header id="fh5co-header" role="banner">
@@ -74,7 +61,7 @@
 					<ul>
 						<li><a href="about.html">About</a></li>
 						<li><a href="contact.html">Contact</a></li>
-						<li class="cta"><a href="#">Get started</a></li>
+						<li class="cta"><a href="index.html">Log Out</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -110,6 +97,17 @@
 							color: white;"></span>
 	</button>
 
+		<button id="HistoryAlertButton" style=" margin-left: 25px; float: left; border: none; background-color: #27E1CE; padding: 20px 40px; color: white; border-radius: 10px;" type="button" onClick= "displayHistoryAlerts()">
+			<span>HistoryInbox</span>
+			<!--        <span id="badgeHistory" style="-->
+			<!--							top: 120px;-->
+			<!--							left: 120px;-->
+			<!--							padding: 5px 10px;-->
+			<!--							border-radius: 50%;-->
+			<!--							background-color: red;-->
+			<!--							color: white;"></span>-->
+		</button>
+
 	<div id="alerts"  style="display: none;text-align: center; "> <h4>list of alerts!</h4>
 		<br>
 	</div>
@@ -117,7 +115,7 @@
 <div id="mainRefereePage">
 	<div id="fh5co-work-section" class="fh5co-light-grey-section">
 		<div class="container">
-			<h1>hello referee, what would you like to do?</h1>
+			<h1>Hello Referee, what would you like to do?</h1>
 			<div class="row">
 				<div class="col-md-4 animate-box">
 					<a onclick="displayAddEvent()" class="item-grid text-center">
@@ -229,7 +227,7 @@
 	</div>
 <!--end of makeReport page-->
 
-	<div class="fh5co-cta" style="background-image: url(images/slide_1.jpg);">
+	<div class="fh5co-cta" style="background-image: url(images/slide_1.jpg); display: none;">
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="col-md-12 text-center animate-box">
@@ -240,7 +238,7 @@
 	</div>
 
 	
-	<footer id="fh5co-footer" role="contentinfo">
+	<footer id="fh5co-footer" role="contentinfo" style="display: none;">
 	
 		<div class="container">
 			<div class="col-md-3 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
@@ -275,10 +273,6 @@
 				</ul>
 			</div>
 			
-			
-			<div class="col-md-12 fh5co-copyright text-center">
-				<p>&copy; 2016 Free HTML5 template. All Rights Reserved. <span>Designed with <i class="icon-heart"></i> by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images by <a href="http://unsplash.com/" target="_blank">Unsplash</a></span></p>	
-			</div>
 			
 		</div>
 	</footer>

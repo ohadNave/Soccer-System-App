@@ -28,10 +28,14 @@ public class Owner extends SystemUser implements Observer, Serializable {
     @Column(name = "alert")
     private List<Alert> alerts;
 
+    @ElementCollection
+    private List<String> prevAlerts;
+
 
     public Owner() {
         owners = new HashSet<>();
         alerts = new ArrayList<>();
+        prevAlerts= new ArrayList<>();
     }
 
 
@@ -470,11 +474,25 @@ public class Owner extends SystemUser implements Observer, Serializable {
     }
 
     public List<Alert> getAlerts() {
-        return alerts;
+        List<Alert> newAlert = new ArrayList<>();
+        for (Alert a: alerts){
+            newAlert.add(a);
+            prevAlerts.add(a.toString());
+        }
+        alerts.clear();
+        return newAlert;
     }
 
     public void setAlerts(List<Alert> alerts) {
         this.alerts = alerts;
+    }
+
+    public List<String> getPrevAlerts() {
+        return prevAlerts;
+    }
+
+    public void setPrevAlerts(List<String> prevAlerts) {
+        this.prevAlerts = prevAlerts;
     }
 
     public void setTeam(Team team) {

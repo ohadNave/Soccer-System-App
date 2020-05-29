@@ -33,7 +33,6 @@ public class GamePolicy implements IGamePolicy {
                 }
             }
             season.setMatches(matches);
-
             return true;
         }
         return false;

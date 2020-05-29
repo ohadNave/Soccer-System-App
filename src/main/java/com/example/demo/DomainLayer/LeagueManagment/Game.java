@@ -10,12 +10,15 @@ import com.example.demo.DomainLayer.Enums.MatchStatus;
 import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.Fan;
 import com.example.demo.DomainLayer.Users.Referee;
+import org.springframework.transaction.annotation.Transactional;
+import sun.security.pkcs11.Secmod;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 @Entity
 public class Game extends Observable implements ISubjectMatch, Serializable {
@@ -68,7 +71,6 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
             r.addGame(this);
         }
     }
-
 
 
     /**
@@ -144,10 +146,11 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
      */
     @Override
     public void notifyReferees(Alert newAlert) {
-        for (Referee r : referee){
-//            DBManager.detachObject(r);
+        CopyOnWriteArraySet<Referee> tempReferee = new CopyOnWriteArraySet<>(referee);
+        for (Referee r: tempReferee){
             r.update(this,newAlert);
         }
+        setReferee(tempReferee);
     }
 
     /**
@@ -155,6 +158,7 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
      * @param newAlert - GameEventAlert/MatchHasEndedAlert.
      */
     @Override
+    @Transactional
     public void notifyMatchFollowers(Alert newAlert) {
         for (Fan fan : match_followers){
             fan.update(this,newAlert);
