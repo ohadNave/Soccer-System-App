@@ -189,6 +189,7 @@ public class MyFactory {
     public static GameEventAlert createGameEventAlert(int minute, GameEvent event){
         GameEventAlert gameEventAlert = new GameEventAlert();
         gameEventAlert.setAttributes(minute,event);
+        DBManager.saveObject(gameEventAlert);
         return gameEventAlert;
     }
 

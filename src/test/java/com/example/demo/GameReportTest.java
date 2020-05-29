@@ -24,7 +24,7 @@ import java.util.Set;
 public class GameReportTest {
 
     @Test
-    public void addGameReportTest(){
+    public void createGameReportTest(){
         Subscriber s1 = MyFactory.createSubscriber("ohad-far2","s","ohad");
         s1.makeFARActive();
         FAR far = s1.getFar();
@@ -47,8 +47,6 @@ public class GameReportTest {
         sr2.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
         sr3.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
 
-
-
         Team team2 = MyFactory.createTeam(s2.getOwner(),"RMA");
         Team team3 = MyFactory.createTeam(s3.getOwner(),"BAR");
         Team team4 = MyFactory.createTeam(s4.getOwner(),"ATM");
@@ -63,16 +61,7 @@ public class GameReportTest {
         team_ids.add(team3.getTid());
         team_ids.add(team4.getTid());
 
-
-//		IMatchPolicy aPolicy = new MatchPolicy();
-//		ScorePolicy scorePolicy = new ScorePolicyA();
-
         far.initializeSeasonForLeague(1,2020, team_ids);
-
-
-        //create referees
-
-
         Referee fr1 = sr1.getReferee();
         Referee fr2 = sr2.getReferee();
         Referee fr3 = sr3.getReferee();
@@ -100,11 +89,9 @@ public class GameReportTest {
 
         Game g1 = matches.iterator().next();
 
-
         fr1.addEventToMatch(g1.getId(),10,"Barda gets a yellow card", EventType.YellowCard);
         fr1.addEventToMatch(g1.getId(),23,"Barda gets a red card", EventType.RedCard);
         fr1.addEventToMatch(m1.getId(),55,"Melikson scores", EventType.Goal);
-
 
         fr1.createGameReport(m1.getId(),team2,team3,1,0);
     }

@@ -11,12 +11,9 @@ import javax.persistence.OneToOne;
     @OneToOne
     private GameEvent event;
 
-
     public void setAttributes(int minute, GameEvent event) {
         this.event = event;
     }
-
-
 
     public GameEvent getEvent() {
         return event;

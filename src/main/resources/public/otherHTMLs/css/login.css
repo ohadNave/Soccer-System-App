@@ -27,10 +27,8 @@ input[type="radio"] {
 
 button{
     background-color:palegreen;
-    padding-right: 40px;
-    padding-left: 50px;
-    margin-left: 44%;
-
+    position: fixed;
+    left: 47%;
 }
 .alertButton {
     background-color: #555;

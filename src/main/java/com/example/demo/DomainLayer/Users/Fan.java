@@ -63,13 +63,12 @@ public class Fan extends SystemUser implements Observer, Serializable {
      * Adding this fan as a new observer of the argument private page in order to take care of future alerts.
      */
     public boolean followPage(PrivatePage privatePage){
-      //  if(DBManagerStub.getPrivatePage(pid) != null){
+        if( privatePage != null ){
             followingPrivatePages.add(privatePage);
-         //   DBManagerStub.getPrivatePage(pid).addFollower(getSid());
             eventLogger.info( " the fan: "+getSid() + " started to follow the page: "+ privatePage.getPageId());
             return true;
-    //    }
-    //    return false;
+        }
+        return false;
     }
 
     /**
@@ -137,10 +136,9 @@ public class Fan extends SystemUser implements Observer, Serializable {
     @Override
     public void update(Observable o, Object arg) {
         if (o != null && arg != null) {
-
                 // FOR MATCH ADD EVENT ALERT(foul/goal..) or MATCH ENDED ALERT(3:0 Real Madrid - Barcelona..) or MATCH DATE CHANGED ALERT.
                 if (o instanceof Game) {
-                    if (this.followingMatches != null && this.followingMatches.contains(((Game) o).getId())) {
+                    if (this.followingMatches != null && this.followingMatches.contains(((Game) o))) {
                         handleAlert(((Alert) arg));
                     }
                 }

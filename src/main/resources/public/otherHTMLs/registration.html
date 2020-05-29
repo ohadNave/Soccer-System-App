@@ -75,12 +75,12 @@
             <h1><a href="index.html">SoccerSystem</a></h1>
             <nav role="navigation">
                 <ul>
-                    <li><a href="work.html">Work</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <!-- <li><a href="work.html">Work</a></li> -->
+                    <!-- <li><a href="services.html">Services</a></li>
                     <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="about.html">About</a></li> -->
                     <li><a href="contact.html">Contact</a></li>
-                    <li class="cta"><a href="#">Get started</a></li>
+                    <!-- <li class="cta"><a href="#">Get started</a></li> -->
                 </ul>
             </nav>
         </div>
@@ -96,10 +96,9 @@
     <br>
     Please enter the details below:
 </h3>
-<label for="username">UserName: </label>
+<label for="username">User Name: </label>
 <input type="text" id="username" oninput="validUserName()">
-<p id="demo"></p>
-
+<!-- <p id="demo"></p> -->
 <script>
     function validUserName() {
         let x = document.getElementById("username").value;
@@ -110,15 +109,11 @@
     }
 </script>
 
-
-
-<br>
 <br>
 <label for="pwd">Password:</label>
 <input type="password" id="pwd" name="pwd" >
 <br>
-<br>
-<label for="pwd2">Password:</label>
+<label for="pwd2">Confirm password:</label>
 <input type="password" id="pwd2"  oninput="validPassword()">
 
 <script>
@@ -136,13 +131,12 @@
 
 
 <br>
-<br>
 <label for="name">Name: </label>
 <input type="text" id="name" name="name">
 <br>
-<br>
-<button type="button">Register!</button>
-
+<div id="register_btn" style ="color:black;">
+    <button type="button">Register!</button>
+</div>
 <br>
 <br>
 <br>

@@ -104,7 +104,6 @@ public class RefereeController {
         return lineReferee.addEventToMatch(matchInt,minuteInGameInt,description,event);
     }
 
-
     public String [] getListOfGames(String sid){
 
         int intSid = -1;
