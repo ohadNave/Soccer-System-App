@@ -49,7 +49,7 @@ function opentNewTeam() {
                 alert("The request was successfully passed")
             }
             else {
-                alert("The request failed, please enter a new name!")
+                alert("Team name is exist, please enter a new name");
 
             }
 
@@ -92,12 +92,12 @@ function getOwnerHistoryAlerts() {
                 // document.getElementById("badge").innerHTML = ownerAlerts.length;
                 // localStorage.setItem("lengthOfAlerts",ownerAlerts.length);
             }
-            localStorage.setItem("HistoryArrayOfAlert",JSON.stringify(ownerHistoryAlerts));
+            localStorage.setItem("HistoryArrayOfAlertOwner",JSON.stringify(ownerHistoryAlerts));
 
         }
 
     };
-    xhttp.open("GET", myURL, true);
+    xhttp.open("GET", myURL, false);
     xhttp.send();
 }
 function getOwnerAlerts() {
@@ -111,12 +111,14 @@ function getOwnerAlerts() {
             for (var i = 0; i < jsonData.length; i++) {
                 var alert2 = jsonData[i];
                 ownerAlerts.push(alert2);
-                document.getElementById("badge").innerHTML = ownerAlerts.length;
+                // document.getElementById("badge").innerHTML = ownerAlerts.length;
                 localStorage.setItem("lengthOfAlerts",ownerAlerts.length);
-                localStorage.setItem("arrayOfAlert",JSON.stringify(ownerAlerts));
 
 
             }
+            document.getElementById("badge").innerHTML = ownerAlerts.length;
+            localStorage.setItem("arrayOfAlertOwner",JSON.stringify(ownerAlerts));
+
         }
 
     };
@@ -140,7 +142,7 @@ function displayOwnerHistoryAlerts(){
     var x = document.getElementById("alerts");
     // var y = document.getElementById("back");
     // var i = localStorage.getItem("lengthOfAlerts")-1;
-    var textHistory = localStorage.getItem("HistoryArrayOfAlert");
+    var textHistory = localStorage.getItem("HistoryArrayOfAlertOwner");
     textHistory=JSON.parse(textHistory);
     // text=text.split(/[ /[/,]+/);
     // clearInterval(intervalOwner);
@@ -221,7 +223,7 @@ function displayOwnerAlerts() {
     var x = document.getElementById("alerts");
     // var y = document.getElementById("back");
     // var i = localStorage.getItem("lengthOfAlerts")-1;
-    var text = localStorage.getItem("arrayOfAlert");
+    var text = localStorage.getItem("arrayOfAlertOwner");
     text=JSON.parse(text);
     // text=text.split(/[ /[/,]+/);
     clearInterval(intervalOwner);
