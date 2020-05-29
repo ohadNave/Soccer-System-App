@@ -294,12 +294,10 @@ function getMainRefereeAlerts() {
                 var alert2 = jsonData[i];
                 mainRefereeAlerts.push(alert2);
                 document.getElementById("badge").innerHTML = mainRefereeAlerts.length;
-                localStorage.setItem("lengthOfAlerts",lineRefereeAlerts.length);
-                localStorage.setItem("arrayOfAlert",JSON.stringify(lineRefereeAlerts));
-
+                localStorage.setItem("lengthOfAlerts",mainRefereeAlerts.length);
+                localStorage.setItem("arrayOfAlert",JSON.stringify(mainRefereeAlerts));
             }
         }
-
     };
     xhttp.open("GET", myURL, true);
     xhttp.send();
