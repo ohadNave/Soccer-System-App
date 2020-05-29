@@ -290,14 +290,21 @@ function getMainRefereeAlerts() {
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             var jsonData = JSON.parse(this.responseText);
+            if( jsonData.length==0){
+                document.getElementById("badge").innerHTML = mainRefereeAlerts.length;
+                localStorage.setItem("lengthOfAlerts",mainRefereeAlerts.length);
+                localStorage.setItem("arrayOfAlertMainReferee",JSON.stringify(mainRefereeAlerts));
+            }
             for (var i = 0; i < jsonData.length; i++) {
                 var alert2 = jsonData[i];
                 mainRefereeAlerts.push(alert2);
                 document.getElementById("badge").innerHTML = mainRefereeAlerts.length;
                 localStorage.setItem("lengthOfAlerts",mainRefereeAlerts.length);
-                localStorage.setItem("arrayOfAlert",JSON.stringify(mainRefereeAlerts));
+                localStorage.setItem("arrayOfAlertMainReferee",JSON.stringify(mainRefereeAlerts));
+
             }
         }
+
     };
     xhttp.open("GET", myURL, true);
     xhttp.send();
@@ -316,7 +323,7 @@ function getHistoryMainRefereeAlerts() {
                 // document.getElementById("badge").innerHTML = globalVariable.ownerAlerts.length;
 
             }
-            localStorage.setItem("HistoryArrayOfAlert",JSON.stringify(mainRefereeHistoryAlerts));;
+            localStorage.setItem("HistoryArrayOfAlertMainReferee",JSON.stringify(mainRefereeHistoryAlerts));;
         }
 
     };
@@ -326,8 +333,10 @@ function getHistoryMainRefereeAlerts() {
 
 var intervalMainReferee;
 function setIntervals() {
-    getHistoryMainRefereeAlerts();
+    // getMainRefereeAlerts();
     intervalMainReferee=setInterval(getMainRefereeAlerts,20000);
+    // getHistoryMainRefereeAlerts();
+
 
 }
 
@@ -335,7 +344,7 @@ function displayHistoryAlertsMainReferee(){
     var x = document.getElementById("alerts");
     // var y = document.getElementById("back");
     // var i = localStorage.getItem("lengthOfAlerts")-1;
-    var text = localStorage.getItem("HistoryArrayOfAlert");
+    var text = localStorage.getItem("HistoryArrayOfAlertMainReferee");
     text=JSON.parse(text);
     // text=text.split(/[ /[/,]+/);
     // clearInterval(intervalOwner);
@@ -370,12 +379,13 @@ function displayHistoryAlertsMainReferee(){
 
 
         var text2 = document.createTextNode(text[i]);
-        // if(text2=="]" || (text2=="[")){
-        // }
-        // else {
-        //     i--;
-        // }
+
+
+
+
         text.splice(i, 1);
+        i--;
+
 
 
         // localStorage.setItem("lengthOfAlerts", text.length);
@@ -415,7 +425,7 @@ function displayalertsMainReferee(){
     var x = document.getElementById("alerts");
     // var y = document.getElementById("back");
     // var i = localStorage.getItem("lengthOfAlerts")-1;
-    var text = localStorage.getItem("arrayOfAlert");
+    var text = localStorage.getItem("arrayOfAlertMainReferee");
     text=JSON.parse(text);
     // text=text.split(/[ /[/,]+/);
     clearInterval(intervalMainReferee);
@@ -452,10 +462,11 @@ function displayalertsMainReferee(){
         var text2 = document.createTextNode(text[i]);
         // if(text2=="]" || (text2=="[")){
         // }
-        // else {
-        //     i--;
-        // }
+
+
+
         text.splice(i, 1);
+        i--;
 
 
         // localStorage.setItem("lengthOfAlerts", text.length);

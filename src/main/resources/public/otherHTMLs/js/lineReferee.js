@@ -274,6 +274,28 @@ function makeReport(){
     xhr.send(json);
 }
 
+var LineRefereeHistoryAlerts=new Array();
+function getHistoryLineRefereeAlerts() {
+    var myURL="http://localhost:8080/LineReferee/getHistoryAlerts/"+getID();
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            var jsonData = JSON.parse(this.responseText);
+            for (var i = 0; i < jsonData.length; i++) {
+                var alert2 = jsonData[i];
+                LineRefereeHistoryAlerts.push(alert2);
+                // document.getElementById("badge").innerHTML = globalVariable.ownerAlerts.length;
+
+            }
+            localStorage.setItem("HistoryArrayOfAlertLineReferee",JSON.stringify(LineRefereeHistoryAlerts));;
+        }
+
+    };
+    xhttp.open("GET", myURL, true);
+    xhttp.send();
+}
+
+
 var lineRefereeAlerts=new Array();
 function getLineRefereeAlerts() {
     var myURL="/lineReferee/getAlerts/"+getID();
@@ -286,7 +308,7 @@ function getLineRefereeAlerts() {
                lineRefereeAlerts.push(alert2);
                 document.getElementById("badge").innerHTML = lineRefereeAlerts.length;
                 localStorage.setItem("lengthOfAlerts",lineRefereeAlerts.length);
-                localStorage.setItem("arrayOfAlert",JSON.stringify(lineRefereeAlerts));
+                localStorage.setItem("arrayOfAlertLineReferee",JSON.stringify(lineRefereeAlerts));
             }
         }
 
@@ -298,7 +320,9 @@ function getLineRefereeAlerts() {
 
 var intervalLineReferee;
 function setIntervals() {
+
     intervalLineReferee=setInterval(getLineRefereeAlerts,1000);
+    getHistoryLineRefereeAlerts();
 
 }
 
@@ -306,7 +330,7 @@ function displayHistoryAlertsLineReferee() {
     var x = document.getElementById("alerts");
     // var y = document.getElementById("back");
     // var i = localStorage.getItem("lengthOfAlerts")-1;
-    var text = localStorage.getItem("HistoryArrayOfAlert");
+    var text = localStorage.getItem("HistoryArrayOfAlertLineReferee");
     text=JSON.parse(text);
     // text=text.split(/[ /[/,]+/);
     // clearInterval(intervalOwner);
@@ -343,10 +367,11 @@ function displayHistoryAlertsLineReferee() {
         var text2 = document.createTextNode(text[i]);
         // if(text2=="]" || (text2=="[")){
         // }
-        // else {
-        //     i--;
-        // }
+
+
+
         text.splice(i, 1);
+        i--;
 
 
         // localStorage.setItem("lengthOfAlerts", text.length);
@@ -385,7 +410,7 @@ function displayalertsLineReferee() {
     var x = document.getElementById("alerts");
     // var y = document.getElementById("back");
     // var i = localStorage.getItem("lengthOfAlerts")-1;
-    var text = localStorage.getItem("arrayOfAlert");
+    var text = localStorage.getItem("arrayOfAlertLineReferee");
     text=JSON.parse(text);
     // text=text.split(/[ /[/,]+/);
     clearInterval(intervalLineReferee);
@@ -420,18 +445,18 @@ function displayalertsLineReferee() {
 
 
         var text2 = document.createTextNode(text[i]);
-        if(text2=="]" || (text2=="[")){
-        }
-        else {
-            i--;
-        }
+        // if(text2=="]" || (text2=="[")){
+        // }
+        // else {
+        //     i--;
+        // }
         text.splice(i, 1);
 
 
-        localStorage.setItem("lengthOfAlerts", text.length);
-
-
-        localStorage.setItem("arrayOfAlert", text);
+        // localStorage.setItem("lengthOfAlerts", text.length);
+        //
+        //
+        // localStorage.setItem("arrayOfAlert", text);
 
         alerts.appendChild(message);
         message.appendChild(btn);
