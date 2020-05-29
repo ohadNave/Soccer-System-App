@@ -1,0 +1,17 @@
+2020-May-27 17:45:25 PM [main] ERROR errorLogger - database lost connection
+2020-May-27 17:45:25 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-27 17:45:25 PM [main] ERROR errorLogger - database lost connection
+2020-May-27 17:45:25 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-27 17:45:25 PM [main] ERROR errorLogger - database lost connection
+2020-May-27 17:45:25 PM [main] ERROR errorLogger - javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: com.example.demo.DomainLayer.LeagueManagment.League
+2020-May-27 17:52:27 PM [main] ERROR errorLogger - database lost connection
+2020-May-27 17:52:27 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-27 17:52:27 PM [main] ERROR errorLogger - database lost connection
+2020-May-27 17:52:27 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-27 17:52:27 PM [main] ERROR errorLogger - database lost connection
+2020-May-27 17:52:27 PM [main] ERROR errorLogger - javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: com.example.demo.DomainLayer.LeagueManagment.League
+2020-May-27 18:32:28 PM [http-nio-8080-exec-8] ERROR errorLogger - database lost connection
+2020-May-27 18:32:28 PM [http-nio-8080-exec-8] ERROR errorLogger - java.util.ConcurrentModificationException
+2020-May-27 18:55:08 PM [http-nio-8080-exec-9] ERROR errorLogger - database lost connection
+2020-May-27 18:55:08 PM [http-nio-8080-exec-9] ERROR errorLogger - java.util.ConcurrentModificationException
+2020-May-28 18:11:09 PM [http-nio-8080-exec-10] ERROR errorLogger - A Game Scheduler policy was failed to activate set to league by FAR: 1
