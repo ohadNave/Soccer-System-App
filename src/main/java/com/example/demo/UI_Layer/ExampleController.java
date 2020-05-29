@@ -142,7 +142,7 @@ public Queue<String> getFanAlerts(@PathVariable String sid){
         return refereeController.getAlerts(sid);
     }
 
-    @RequestMapping("lineReferee/getHistoryAlerts/{sid}")
+    @RequestMapping("LineReferee/getHistoryAlerts/{sid}")
     public List<String>  getHistoryLineRefereeAlerts(@PathVariable String sid){
 //        System.out.println(sid);
         RefereeController refereeController = new RefereeController();
