@@ -1,0 +1,364 @@
+2020-May-27 15:27:58 PM [main] ERROR errorLogger - database lost connection
+2020-May-27 15:27:58 PM [main] ERROR errorLogger - javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: could not execute statement
+2020-May-28 18:33:18 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:33:18 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-28 18:40:24 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:40:24 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-28 18:42:50 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:50 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:51 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:52 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:53 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:53 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:53 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:53 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:53 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:53 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:53 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:53 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:53 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:53 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:54 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:42:55 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:22 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:22 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:36 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:36 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:36 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:36 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:36 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:36 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:36 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:36 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:37 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:37 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:37 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:37 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:37 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:37 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:37 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:37 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:37 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:37 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:37 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:37 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:38 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:44:39 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:28 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:28 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:30 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:31 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:32 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:33 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:34 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 18:45:35 PM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-28 19:09:04 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 19:09:04 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-28 19:09:51 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 19:09:51 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-28 19:13:54 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 19:13:54 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-28 19:18:30 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 19:18:30 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-28 19:21:05 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 19:21:05 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-28 19:42:18 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 19:42:18 PM [main] ERROR errorLogger - javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2020-May-28 19:42:18 PM [main] ERROR errorLogger - database lost connection
+2020-May-28 19:42:18 PM [main] ERROR errorLogger - javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2020-May-29 01:06:10 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:06:10 AM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-29 01:06:40 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:06:40 AM [main] ERROR errorLogger - javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2020-May-29 01:08:20 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:08:20 AM [main] ERROR errorLogger - javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2020-May-29 01:10:24 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:10:24 AM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:10:43 AM [main] ERROR errorLogger - java.lang.IllegalStateException: Transaction already active
+2020-May-29 01:14:31 AM [main] ERROR errorLogger - database lost connection
+2020-May-29 01:14:31 AM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-29 15:18:11 PM [http-nio-8080-exec-8] ERROR errorLogger - database lost connection
+2020-May-29 15:18:11 PM [http-nio-8080-exec-8] ERROR errorLogger - javax.persistence.EntityExistsException: A different object with the same identifier value was already associated with the session : [com.example.demo.DomainLayer.Request.TeamRequest#1]
+2020-May-29 18:26:03 PM [main] ERROR errorLogger - database lost connection
+2020-May-29 18:26:03 PM [main] ERROR errorLogger - javax.persistence.RollbackException: Error while committing the transaction
+2020-May-29 18:26:03 PM [main] ERROR errorLogger - database lost connection
+2020-May-29 18:26:03 PM [main] ERROR errorLogger - javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: com.example.demo.DomainLayer.LeagueManagment.Field
+2020-May-29 18:26:03 PM [main] ERROR errorLogger - database lost connection
+2020-May-29 18:26:03 PM [main] ERROR errorLogger - javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: com.example.demo.DomainLayer.LeagueManagment.Field
