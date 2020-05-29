@@ -60,9 +60,9 @@ public class OwnerController {
         return subscriber.getOwner().getPrevAlerts();
     }
 
-    public boolean sendTeamRequest(String teamName , String sid){
-        if(teamName==null){
-            return false;
+    public String sendTeamRequest(String teamName , String sid){
+        if(teamName==null || teamName.length()==0){
+            return "-1";
         }
         int intSid=-1;
 
@@ -70,16 +70,19 @@ public class OwnerController {
             intSid = Integer.parseInt(sid);
         }
         catch (Exception e){
-            return false;
+            return "-2";
         }
         Subscriber subscriber = (Subscriber) DBManager.getObject(Subscriber.class,intSid);
         if(subscriber==null){
-            return false;
+            return "-2";
         }
         Owner owner = subscriber.getOwner();
         if(owner==null){
-            return false;
+            return "-2";
         }
-        return owner.openTeamRequest(teamName);
+        if(owner.openTeamRequest(teamName)){
+            return "1";
+        }
+        return "0";
     }
 }

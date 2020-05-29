@@ -45,13 +45,22 @@ function opentNewTeam() {
             var jsonData = JSON.parse(this.responseText);
 
 
-            if(jsonData==true){
-                alert("The request was successfully passed")
+            if(jsonData=="-2"){
+                alert("Error")
             }
-            else {
-                alert("Team name is exist, please enter a new name");
+            else if(jsonData=="-1"){
+                alert("Team name is incorrect, please enter a new name");
 
             }
+            else if(jsonData=="0"){
+                alert("Team name is already exist, please enter a new name");
+
+            }
+            else if(jsonData=="1"){
+                alert("The request passed successfully");
+
+            }
+
 
         }
         ;

@@ -30,7 +30,7 @@ var globalVariable={
 //
 // }
 function hideAllDives() {
-    var choosing = document.getElementById("choosing");
+    // var choosing = document.getElementById("choosing");
     // var ownerpage = document.getElementById("ownerPage");
     // var loginpage = document.getElementById("Login");
     var main=document.getElementById("main");
@@ -38,7 +38,7 @@ function hideAllDives() {
     var backSubscriberPage=document.getElementById("backToChoosePage");
     var buttonAlert=document.getElementById("alertButton");
     var backOwnerPage=document.getElementById("back");
-    choosing.style.display = "none";
+    // choosing.style.display = "none";
     // ownerpage.style.display = "none";
     // loginpage.style.display = "none";
     main.style.display="none";
