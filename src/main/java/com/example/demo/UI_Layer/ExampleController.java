@@ -77,7 +77,7 @@ public class ExampleController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/owner/openNewTeam")
-    public boolean openTeamRequest(@RequestBody openNewTeanParameters param){
+    public String openTeamRequest(@RequestBody openNewTeanParameters param){
        OwnerController teamRequestController = new OwnerController();
         System.out.println(param.getTeamName()+" "+param.getSid());
         return teamRequestController.sendTeamRequest(param.getTeamName(),param.getSid());
@@ -106,10 +106,10 @@ public Queue<String> getFanAlerts(@PathVariable String sid){
     }
 
     @RequestMapping("owner/getHistoryAlerts/{sid}")
-    public Queue<String> getOwnerHistoryAlerts(@PathVariable String sid){
+    public List<String> getOwnerHistoryAlerts(@PathVariable String sid){
 //        System.out.println(sid);
-        OwnerController getOwnerAlertsController=new OwnerController ();
-        return getOwnerAlertsController.getAlerts(sid);
+        OwnerController ownerController=new OwnerController ();
+        return ownerController.getPrevAlerts(sid);
     }
 
 

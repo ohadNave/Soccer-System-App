@@ -454,10 +454,17 @@ public class Owner extends SystemUser implements Observer, Serializable {
      * In case of an owner who would like to register a new team to system.
      */
     public boolean openTeamRequest(String teamName){
-        if( this.team == null && DBManager.checkTeamName(teamName)){
-            MyFactory.createTeamRequest(teamName, this.getSid());
-            eventLogger.info("A new team request was created by sid : "+ getSid() + ", team name: " + teamName);
-            return true;
+        if( this.team == null){
+            try{
+                if(DBManager.checkTeamName(teamName)){
+                    MyFactory.createTeamRequest(teamName, this.getSid());
+                    eventLogger.info("A new team request was created by sid : "+ getSid() + ", team name: " + teamName);
+                    return true;
+                }
+            }
+            catch (Exception e){
+                return false;
+            }
         }
         System.out.println("same team name or no current team for owner");
         return false;
