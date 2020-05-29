@@ -1,7 +1,7 @@
 var intervalFan;
 function setIntervals() {
-    getFanHistoryAlerts();
     intervalFan=setInterval(getFanAlerts,1000);
+    getFanHistoryAlerts();
 
 }
 var fanAlerts= new Array();
@@ -22,7 +22,7 @@ function getFanHistoryAlerts() {
                 // document.getElementById("badge").innerHTML = ownerAlerts.length;
                 // localStorage.setItem("lengthOfAlerts",ownerAlerts.length);
             }
-            localStorage.setItem("HistoryArrayOfAlert",JSON.stringify(fanHistoryAlerts));
+            localStorage.setItem("HistoryArrayOfAlertFan",JSON.stringify(fanHistoryAlerts));
 
         }
 
@@ -38,12 +38,17 @@ function getFanAlerts() {
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             var jsonData = JSON.parse(this.responseText);
+            if(jsonData.length==0){
+                document.getElementById("badge").innerHTML = fanAlerts.length;
+                localStorage.setItem("lengthOfAlerts",fanAlerts.length);
+                localStorage.setItem("arrayOfAlert",JSON.stringify(fanAlerts));
+            }
             for (var i = 0; i < jsonData.length; i++) {
                 var alert2 = jsonData[i];
                 fanAlerts.push(alert2);
                 document.getElementById("badge").innerHTML = fanAlerts.length;
                 localStorage.setItem("lengthOfAlerts",fanAlerts.length);
-                localStorage.setItem("arrayOfAlert",JSON.stringify(fanAlerts));
+                localStorage.setItem("arrayOfAlertFan",JSON.stringify(fanAlerts));
 
 
             }
@@ -70,7 +75,7 @@ function displayFanHistoryAlerts(){
     var x = document.getElementById("alerts");
     // var y = document.getElementById("back");
     // var i = localStorage.getItem("lengthOfAlerts")-1;
-    var textHistory = localStorage.getItem("HistoryArrayOfAlert");
+    var textHistory = localStorage.getItem("HistoryArrayOfAlertFan");
     textHistory=JSON.parse(textHistory);
     // text=text.split(/[ /[/,]+/);
     // clearInterval(intervalOwner);
@@ -151,7 +156,7 @@ function displayFanAlerts() {
     var x = document.getElementById("alerts");
     // var y = document.getElementById("back");
     // var i = localStorage.getItem("lengthOfAlerts")-1;
-    var text = localStorage.getItem("arrayOfAlert");
+    var text = localStorage.getItem("arrayOfAlertFan");
     text=JSON.parse(text);
     // text=text.split(/[ /[/,]+/);
     clearInterval(intervalOwner);

@@ -283,6 +283,7 @@ function chooseHistoryAlerts(){
         displayHistoryAlertsLineReferee();
     }
     else if(localStorage.getItem("choice")=="mainReferee"){
+        getHistoryMainRefereeAlerts();
         displayHistoryAlertsMainReferee();
     }
     else if(localStorage.getItem("choice")=="fan"){
@@ -315,7 +316,7 @@ function displayHistoryAlerts() {
 
 function displayAlerts() {
 
-    window.location.href="alerts.html";
+    document.location.href="alerts.html";
 
 
 }
