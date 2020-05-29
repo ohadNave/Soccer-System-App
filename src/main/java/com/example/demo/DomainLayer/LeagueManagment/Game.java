@@ -82,7 +82,7 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
             game_events.add(event);
             GameEventAlert gameEventAlert = MyFactory.createGameEventAlert(event.getMinute_in_game(),event);
             notifyMatchFollowers(gameEventAlert);
-            DBManager.updateObject(event);
+           // DBManager.updateObject(event);
             return true;
         }
         return false;
@@ -133,8 +133,7 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
     public boolean endMatch(GameReport gameReport){
         if (status == MatchStatus.IN_PROGRESS ){
             this.status = MatchStatus.FINISHED;
-            MatchEndedAlert matchHasEndedAlert = new MatchEndedAlert();
-            matchHasEndedAlert.setAttributes(gameReport);
+            MatchEndedAlert matchHasEndedAlert = MyFactory.createMatchEndedAlert(gameReport);
             notifyMatchFollowers(matchHasEndedAlert);
             return true;
         }

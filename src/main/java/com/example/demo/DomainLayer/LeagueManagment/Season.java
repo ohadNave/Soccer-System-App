@@ -92,6 +92,7 @@ public class Season implements Serializable {
         if( teams != null ){
             for(int i = 0 ; i < teams.size() ; i++){
                 teams_league.add(teams.get(i));
+                team_scores.add(teams.get(i).getTid());
                 TeamBySeason teamBySeason = MyFactory.createTeamBySeason(teams.get(i), year );
             }
             return true;
@@ -124,7 +125,7 @@ public class Season implements Serializable {
     }
 
     public void setIGamePolicy(IGamePolicy IGamePolicy) {
-        if (IGamePolicy instanceof GamePolicy) {
+        if(IGamePolicy instanceof GamePolicy) {
             setGamePolicyEnum(GamePolicyEnum.STANDARD);
             this.IGamePolicy = IGamePolicy;
         } else {
@@ -268,5 +269,7 @@ public class Season implements Serializable {
         Season season = (Season) o;
         return getSeason_id() == season.getSeason_id();
     }
+
+
 
 }
