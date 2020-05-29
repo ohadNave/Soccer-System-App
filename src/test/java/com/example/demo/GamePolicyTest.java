@@ -142,6 +142,7 @@ public class GamePolicyTest {
     }
 
 
+    //Gal And Chen tests
     @Test
     public void testAlerts(){
         Subscriber s6 = DBManager.getByUserName("referee - 1");

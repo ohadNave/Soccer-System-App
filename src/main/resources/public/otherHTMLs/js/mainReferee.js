@@ -4,6 +4,7 @@ var makeReport_TeamA;
 var makeReport_TeamB;
 var dict_teamName_teamID={};
 var dict_date_matchID={};
+
 var globalVariable={
     ownerAlerts: new Array()
 };
@@ -284,7 +285,7 @@ function makeReport(){
 
 var mainRefereeAlerts=new Array();
 function getMainRefereeAlerts() {
-    var myURL="/getAlerts/"+getID();
+    var myURL="/mainReferee/getAlerts/"+ getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -328,7 +329,7 @@ function getHistoryMainRefereeAlerts() {
 var intervalMainReferee;
 function setIntervals() {
     getHistoryMainRefereeAlerts();
-    intervalMainReferee=setInterval(getMainRefereeAlerts,1000);
+    intervalMainReferee=setInterval(getMainRefereeAlerts,20000);
 
 }
 
