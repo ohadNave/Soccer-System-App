@@ -327,7 +327,7 @@ function getHistoryMainRefereeAlerts() {
         }
 
     };
-    xhttp.open("GET", myURL, true);
+    xhttp.open("GET", myURL, false);
     xhttp.send();
 }
 

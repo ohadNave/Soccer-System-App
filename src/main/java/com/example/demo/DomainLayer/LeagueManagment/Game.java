@@ -73,7 +73,6 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
     }
 
 
-
     /**
      * UC 10.3
      * has to add timer*****

@@ -54,9 +54,6 @@ public class MatchTest {
         team_ids.add(team4.getTid());
 
 
-//		IMatchPolicy aPolicy = new MatchPolicy();
-//		ScorePolicy scorePolicy = new ScorePolicyA();
-
         far.initializeSeasonForLeague(1,2020, team_ids);
 
 
@@ -91,10 +88,6 @@ public class MatchTest {
         matches.add(m2);
 
         currSeason.setMatches(matches);
-        System.out.println("asd");
-        DBManager.updateObject(s1);
-
-
     }
 
 }

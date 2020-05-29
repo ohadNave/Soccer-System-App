@@ -287,6 +287,7 @@ function chooseHistoryAlerts(){
         displayHistoryAlertsMainReferee();
     }
     else if(localStorage.getItem("choice")=="fan"){
+        getFanHistoryAlerts();
         displayFanHistoryAlerts();
     }
 }
@@ -325,9 +326,6 @@ function subscriberChoose() {
     var e1 = document.getElementById("chooseSub");
     var choice = e1.options[e1.selectedIndex].value;
     localStorage.setItem("choice",choice);
-
-
-
               if(choice=="FAR"){
                   window.location.href="FAR.html";
              }

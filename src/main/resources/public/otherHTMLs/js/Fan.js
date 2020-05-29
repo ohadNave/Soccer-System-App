@@ -1,8 +1,6 @@
 var intervalFan;
 function setIntervals() {
-    intervalFan=setInterval(getFanAlerts,1000);
-    getFanHistoryAlerts();
-
+    intervalFan=setInterval(getFanAlerts,20000);
 }
 var fanAlerts= new Array();
 
@@ -27,7 +25,7 @@ function getFanHistoryAlerts() {
         }
 
     };
-    xhttp.open("GET", myURL, true);
+    xhttp.open("GET", myURL, false);
     xhttp.send();
 }
 function getFanAlerts() {
@@ -37,7 +35,9 @@ function getFanAlerts() {
     // console.log(localStorage.getItem("sid"))
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
+            alert("my answer is:" + this.responseText);
             var jsonData = JSON.parse(this.responseText);
+            alert("my json is:" + jsonData);
             if(jsonData.length==0){
                 document.getElementById("badge").innerHTML = fanAlerts.length;
                 localStorage.setItem("lengthOfAlerts",fanAlerts.length);
