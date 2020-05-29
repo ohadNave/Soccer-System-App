@@ -3191,3 +3191,10 @@
 2020-May-29 19:46:32 PM [http-nio-8080-exec-6] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
 2020-May-29 19:53:25 PM [main] INFO  eventLogger - Starting spring boot application
 2020-May-29 19:54:14 PM [http-nio-8080-exec-9] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-29 20:00:50 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-29 20:02:00 PM [http-nio-8080-exec-10] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-29 20:06:21 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-29 20:07:01 PM [http-nio-8080-exec-9] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-29 20:16:51 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-29 20:20:22 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-29 20:21:17 PM [main] INFO  eventLogger - Starting spring boot application

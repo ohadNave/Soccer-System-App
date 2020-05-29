@@ -93,10 +93,10 @@ public Queue<String> getFanAlerts(@PathVariable String sid){
 }
 
     @RequestMapping("fan/getHistoryAlerts/{sid}")
-    public Queue<String> getFanHistoryAlerts(@PathVariable String sid){
+    public List<String> getFanHistoryAlerts(@PathVariable String sid){
 //        System.out.println(sid);
         FanController getFanAlertsController=new FanController ();
-        return getFanAlertsController.getAlerts(sid);
+        return getFanAlertsController.getPrevAlerts(sid);
     }
     @RequestMapping("owner/getAlerts/{sid}")
     public Queue<String> getOwnerAlerts(@PathVariable String sid){
