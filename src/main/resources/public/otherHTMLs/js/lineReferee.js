@@ -291,7 +291,7 @@ function getHistoryLineRefereeAlerts() {
         }
 
     };
-    xhttp.open("GET", myURL, true);
+    xhttp.open("GET", myURL, false);
     xhttp.send();
 }
 
@@ -306,10 +306,13 @@ function getLineRefereeAlerts() {
             for (var i = 0; i < jsonData.length; i++) {
                 var alert2 = jsonData[i];
                lineRefereeAlerts.push(alert2);
-                document.getElementById("badge").innerHTML = lineRefereeAlerts.length;
+                // document.getElementById("badge").innerHTML = lineRefereeAlerts.length;
                 localStorage.setItem("lengthOfAlerts",lineRefereeAlerts.length);
-                localStorage.setItem("arrayOfAlertLineReferee",JSON.stringify(lineRefereeAlerts));
+                // localStorage.setItem("arrayOfAlertLineReferee",JSON.stringify(lineRefereeAlerts));
             }
+            document.getElementById("badge").innerHTML = lineRefereeAlerts.length;
+            localStorage.setItem("arrayOfAlertLineReferee",JSON.stringify(lineRefereeAlerts));
+
         }
 
     };
@@ -322,7 +325,7 @@ var intervalLineReferee;
 function setIntervals() {
 
     intervalLineReferee=setInterval(getLineRefereeAlerts,1000);
-    getHistoryLineRefereeAlerts();
+    // getHistoryLineRefereeAlerts();
 
 }
 

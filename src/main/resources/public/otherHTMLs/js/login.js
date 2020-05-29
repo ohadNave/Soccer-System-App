@@ -30,7 +30,7 @@ var globalVariable={
 //
 // }
 function hideAllDives() {
-    var choosing = document.getElementById("choosing");
+    // var choosing = document.getElementById("choosing");
     // var ownerpage = document.getElementById("ownerPage");
     // var loginpage = document.getElementById("Login");
     var main=document.getElementById("main");
@@ -38,7 +38,7 @@ function hideAllDives() {
     var backSubscriberPage=document.getElementById("backToChoosePage");
     var buttonAlert=document.getElementById("alertButton");
     var backOwnerPage=document.getElementById("back");
-    choosing.style.display = "none";
+    // choosing.style.display = "none";
     // ownerpage.style.display = "none";
     // loginpage.style.display = "none";
     main.style.display="none";
@@ -113,6 +113,10 @@ function loginButton() {
 
 
                 }
+                else {
+                    localStorage.setItem("fan", false);
+
+                }
                 if ((jsonData[4]).localeCompare("1") == 0) {//FAR
                     // alert("i am in FAR if")
                     localStorage.setItem("far", true);
@@ -121,12 +125,21 @@ function loginButton() {
 
 
 
-                } if ((jsonData[5]).localeCompare("1") == 0) {//lineReferee
+                }
+                else {
+                    localStorage.setItem("far", false);
+
+                }
+                if ((jsonData[5]).localeCompare("1") == 0) {//lineReferee
                     localStorage.setItem("lineReferee", true);
                     // displaySubscriberPage();
                     // alert("lineReferee");
 
 
+
+                }
+                else {
+                    localStorage.setItem("lineReferee", false);
 
                 }
                 if ((jsonData[6]).localeCompare("1") == 0) {//mainReferee
@@ -136,11 +149,19 @@ function loginButton() {
 
 
                 }
+                else {
+                    localStorage.setItem("mainReferee", false);
+
+                }
                 if ((jsonData[7]).localeCompare("1") == 0) {//owner
                     localStorage.setItem("owner", true);                     // displaySubscriberPage();
                     // alert("owner");
 
 
+
+                }
+                else {
+                    localStorage.setItem("owner", false);
 
                 }
                 directSubscriberChoose();
@@ -277,9 +298,11 @@ function displayOwnerPage() {
 
 function chooseHistoryAlerts(){
     if(localStorage.getItem("choice")=="owner"){
+        getOwnerHistoryAlerts();
         displayOwnerHistoryAlerts();
     }
     else if(localStorage.getItem("choice")=="lineReferee"){
+        getHistoryLineRefereeAlerts();
         displayHistoryAlertsLineReferee();
     }
     else if(localStorage.getItem("choice")=="mainReferee"){
@@ -287,6 +310,7 @@ function chooseHistoryAlerts(){
         displayHistoryAlertsMainReferee();
     }
     else if(localStorage.getItem("choice")=="fan"){
+        getFanHistoryAlerts();
         displayFanHistoryAlerts();
     }
 }
@@ -325,9 +349,6 @@ function subscriberChoose() {
     var e1 = document.getElementById("chooseSub");
     var choice = e1.options[e1.selectedIndex].value;
     localStorage.setItem("choice",choice);
-
-
-
               if(choice=="FAR"){
                   window.location.href="FAR.html";
              }

@@ -70,7 +70,7 @@ public class MyFactory {
             Subscriber subscriber = new Subscriber();
             subscriber.setAttributes(userName,password,name);
             DBManager.saveObject(subscriber);
-            eventLogger.info("A new Subscriber created, id: " + subscriber.getId());
+            eventLogger.info("A new Subscriber created, id: " + subscriber.getUserName());
             return subscriber;
         }
       return null;
@@ -118,7 +118,7 @@ public class MyFactory {
     public static GameEvent createEvent(int minuteInGame, String description, EventType eventType){
         GameEvent eventi = new GameEvent();
         eventi.setAttributes(minuteInGame,description,eventType);
-        DBManager.saveObject(eventi);
+        //DBManager.saveObject(eventi);
         eventLogger.info("A new Game Event created, id: " + eventi.getEid());
         return eventi;
     }
@@ -203,6 +203,7 @@ public class MyFactory {
     public static MatchEndedAlert createMatchEndedAlert(GameReport gameReport){
         MatchEndedAlert matchEndedAlert = new MatchEndedAlert();
         matchEndedAlert.setAttributes(gameReport);
+        DBManager.updateObject(matchEndedAlert);
         return matchEndedAlert;
     }
 

@@ -5,10 +5,7 @@ package com.example.demo.UI_Layer;
 
 import com.example.demo.DomainLayer.LeagueManagment.Game;
 import com.example.demo.DomainLayer.LeagueManagment.League;
-import com.example.demo.ServiceLayer.FARController;
-import com.example.demo.ServiceLayer.GuestController;
-import com.example.demo.ServiceLayer.OwnerController;
-import com.example.demo.ServiceLayer.RefereeController;
+import com.example.demo.ServiceLayer.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -86,7 +83,7 @@ public class ExampleController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/owner/openNewTeam")
-    public boolean openTeamRequest(@RequestBody openNewTeanParameters param){
+    public String openTeamRequest(@RequestBody openNewTeanParameters param){
        OwnerController teamRequestController = new OwnerController();
         System.out.println(param.getTeamName()+" "+param.getSid());
         return teamRequestController.sendTeamRequest(param.getTeamName(),param.getSid());
@@ -97,15 +94,15 @@ public class ExampleController {
 @RequestMapping("fan/getAlerts/{sid}")
 public Queue<String> getFanAlerts(@PathVariable String sid){
 //        System.out.println(sid);
-    OwnerController getOwnerAlertsController=new OwnerController ();
-    return getOwnerAlertsController.getAlerts(sid);
+    FanController getFanAlertsController=new FanController ();
+    return getFanAlertsController.getAlerts(sid);
 }
 
     @RequestMapping("fan/getHistoryAlerts/{sid}")
-    public Queue<String> getFanHistoryAlerts(@PathVariable String sid){
+    public List<String> getFanHistoryAlerts(@PathVariable String sid){
 //        System.out.println(sid);
-        OwnerController getOwnerAlertsController=new OwnerController ();
-        return getOwnerAlertsController.getAlerts(sid);
+        FanController getFanAlertsController=new FanController ();
+        return getFanAlertsController.getPrevAlerts(sid);
     }
     @RequestMapping("owner/getAlerts/{sid}")
     public Queue<String> getOwnerAlerts(@PathVariable String sid){
@@ -115,10 +112,10 @@ public Queue<String> getFanAlerts(@PathVariable String sid){
     }
 
     @RequestMapping("owner/getHistoryAlerts/{sid}")
-    public Queue<String> getOwnerHistoryAlerts(@PathVariable String sid){
+    public List<String> getOwnerHistoryAlerts(@PathVariable String sid){
 //        System.out.println(sid);
-        OwnerController getOwnerAlertsController=new OwnerController ();
-        return getOwnerAlertsController.getAlerts(sid);
+        OwnerController ownerController=new OwnerController ();
+        return ownerController.getPrevAlerts(sid);
     }
 
 
