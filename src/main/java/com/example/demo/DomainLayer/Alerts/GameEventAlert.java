@@ -2,13 +2,14 @@ package com.example.demo.DomainLayer.Alerts;
 
 import com.example.demo.DomainLayer.LeagueManagment.GameEvent;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 @Entity
     public class GameEventAlert extends Alert {
 
-    @OneToOne
+    @OneToOne (cascade = CascadeType.ALL)
     private GameEvent event;
 
     public void setAttributes(int minute, GameEvent event) {

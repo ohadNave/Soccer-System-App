@@ -68,10 +68,9 @@ public class Subscriber implements Serializable {
 
     public boolean makeCoachNotActive(){
         if( coach != null){
-            if(coach.deleteDB(this.id)){
-                coach=null;
-                return true;
-            }
+            coach=null;
+            DBManager.updateObject(this);
+            return true;
         }
         return false;
     }

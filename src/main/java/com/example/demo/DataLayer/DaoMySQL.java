@@ -8,6 +8,8 @@ import javax.persistence.*;
 import java.sql.SQLException;
 import java.util.List;
 
+import static com.example.demo.DemoApplication.errorLogger;
+
 
 public class DaoMySQL implements Dao<Object> {
 
@@ -23,9 +25,14 @@ public class DaoMySQL implements Dao<Object> {
 
     @Override
     public List<Object> getAll(Class classType,String table) {
-        TypedQuery<Object> query = entityManager.createQuery("SELECT C FROM " + table + " C" , classType);
-        List<Object> list = query.getResultList();
-        return list;
+        try {
+            TypedQuery<Object> query = entityManager.createQuery("SELECT C FROM " + table + " C", classType);
+            List<Object> list = query.getResultList();
+            return list;
+        }catch (Exception e) {
+            errorLogger.error("unable to find table");
+            return null;
+        }
     }
 
 
@@ -42,7 +49,6 @@ public class DaoMySQL implements Dao<Object> {
         }
         catch (RuntimeException e) {
             entityManager.getTransaction().rollback();
-            throw e;
         }
 
 //
@@ -68,7 +74,6 @@ public class DaoMySQL implements Dao<Object> {
         }
         catch (RuntimeException e) {
             entityManager.getTransaction().rollback();
-            throw e;
         }
 //
 ////        if(!entityManager.getTransaction().isActive()) {
@@ -86,9 +91,8 @@ public class DaoMySQL implements Dao<Object> {
             entityManager.detach(o);
             entityManager.getTransaction().commit();
         }
-               catch (RuntimeException e) {
+        catch (RuntimeException e) {
             entityManager.getTransaction().rollback();
-            throw e;
         }
     }
 
@@ -101,21 +105,33 @@ public class DaoMySQL implements Dao<Object> {
 
 
     public Subscriber getSubscriber(String typed_username, String typed_pass) {
-        Object subscriber = entityManager.createQuery(
-                "SELECT C FROM Subscriber C WHERE C.userName LIKE : userName AND C.password LIKE : password " )
-                .setParameter("userName",typed_username)
-                .setParameter("password",typed_pass)
-                .getSingleResult();
-        return ((Subscriber) subscriber);
+        try {
+            Object subscriber = entityManager.createQuery(
+                    "SELECT C FROM Subscriber C WHERE C.userName LIKE : userName AND C.password LIKE : password ")
+                    .setParameter("userName", typed_username)
+                    .setParameter("password", typed_pass)
+                    .getSingleResult();
+            return ((Subscriber) subscriber);
+        }catch (Exception e){
+            errorLogger.error("Invalid username or password");
+            return null;
+        }
 
     }
 
     public Subscriber getByUserName(String existingUserName) {
-        Object subscriber = entityManager.createQuery(
-                "SELECT C FROM Subscriber C WHERE C.userName LIKE : userName" )
-                .setParameter("userName",existingUserName)
-                .getSingleResult();
-        return ((Subscriber) subscriber);
+        try {
+            Object subscriber = entityManager.createQuery(
+                    "SELECT C FROM Subscriber C WHERE C.userName LIKE : userName" )
+                    .setParameter("userName",existingUserName)
+                    .getSingleResult();
+            return ((Subscriber) subscriber);
+        }catch (Exception e){
+            errorLogger.error("Unable to find username: "+existingUserName);
+            errorLogger.error(e);
+            return null;
+        }
+
 
     }
 

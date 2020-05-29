@@ -17,11 +17,11 @@ public class ScorePolicyA implements IScorePolicy {
         description = "Winner team get 3 point, looser team get 0 point else each team get 1 point";
 
     }
-
     @Override
     public boolean execute( Season season , boolean tieScore, Team winnerTeam, Team loosingTeam) {
         if(season != null){
             List<Integer> scores = season.getTeam_scores();
+
             int winner_table_position = getTeamPosition(season.getTeams_league(),winnerTeam);
             int loser_table_position = getTeamPosition(season.getTeams_league(),loosingTeam);
             if(winner_table_position != -1 && loser_table_position != -1){
