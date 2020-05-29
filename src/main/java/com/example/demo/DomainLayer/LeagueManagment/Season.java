@@ -92,6 +92,7 @@ public class Season implements Serializable {
         if( teams != null ){
             for(int i = 0 ; i < teams.size() ; i++){
                 teams_league.add(teams.get(i));
+                team_scores.add(teams.get(i).getTid());
                 TeamBySeason teamBySeason = MyFactory.createTeamBySeason(teams.get(i), year );
             }
             return true;

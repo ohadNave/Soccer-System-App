@@ -122,4 +122,10 @@ public class ScorePolicyTest {
         System.out.println(season.getIScorePolicy());
 
     }
+
+    @Test
+    public void retrieveScorePolicyTest(){
+        League league = (League) DBManager.getObject(League.class,1);
+        Season season = league.getSeasons().iterator().next();
+    }
 }

@@ -133,7 +133,6 @@ public class AlertTest {
         Subscriber sr1 = DBManager.getByUserName("refe1");
         Subscriber sr2 = DBManager.getByUserName("refe2");
         Subscriber sr3= DBManager.getByUserName("refe3");
-
         Referee fr1 = sr1.getReferee();
         Referee fr2 = sr2.getReferee();
         Referee fr3 = sr3.getReferee();
@@ -141,6 +140,8 @@ public class AlertTest {
         Game m1 = fr1.getMatches().iterator().next();
 
         m1.changeMatchDate(LocalDate.now());
+
+
     }
 
 
