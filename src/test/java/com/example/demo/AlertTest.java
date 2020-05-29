@@ -41,6 +41,8 @@ public class AlertTest {
         Subscriber sr2 = MyFactory.createSubscriber("refe2","none","none");
         Subscriber sr3= MyFactory.createSubscriber("refe3","none","none");
 
+
+
         sr1.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
         sr2.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
         sr3.makeRefereeActive(Certification.BASIC, RefereeRoll.MAIN_REFEREE);
@@ -82,7 +84,12 @@ public class AlertTest {
 
 
         League leagueFromDB = ((League) DBManager.getObject(League.class, 1));
+
+        Assertions.assertNotNull(leagueFromDB);
+
         Set<Season> seasons = leagueFromDB.getSeasons();
+        Assertions.assertNotNull(seasons);
+
         Season currSeason = seasons.iterator().next();
         Field f1 = MyFactory.createField("Terner");
 
@@ -97,12 +104,16 @@ public class AlertTest {
         System.out.println("asd");
 
 
-
     }
     @Test
     public void fanGameEventAlertTest() {
         Subscriber sf = DBManager.getByUserName("Fan123");
         Subscriber sr1 = DBManager.getByUserName("refe1");
+
+        Assertions.assertNotNull(sf);
+        Assertions.assertNotNull(sr1);
+
+
 
         Referee fr1 = sr1.getReferee();
         Fan fan = sf.getFan();
@@ -119,6 +130,11 @@ public class AlertTest {
     public void fanGameEndedAlertTest() {
         Subscriber sf = DBManager.getByUserName("Fan123");
         Subscriber sr1 = DBManager.getByUserName("refe1");
+
+        Assertions.assertNotNull(sf);
+        Assertions.assertNotNull(sr1);
+
+
         Fan fan = sf.getFan();
         Referee fr1 = sr1.getReferee();
         Game m1 = fr1.getMatches().iterator().next();
@@ -133,6 +149,12 @@ public class AlertTest {
         Subscriber sr1 = DBManager.getByUserName("refe1");
         Subscriber sr2 = DBManager.getByUserName("refe2");
         Subscriber sr3= DBManager.getByUserName("refe3");
+
+        Assertions.assertNotNull(sr1);
+        Assertions.assertNotNull(sr2);
+        Assertions.assertNotNull(sr3);
+
+
         Referee fr1 = sr1.getReferee();
         Referee fr2 = sr2.getReferee();
         Referee fr3 = sr3.getReferee();

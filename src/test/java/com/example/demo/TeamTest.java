@@ -4,6 +4,7 @@ import com.example.demo.DomainLayer.DBManager;
 import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.FAR;
 import com.example.demo.DomainLayer.Users.Subscriber;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -22,7 +23,7 @@ public class TeamTest {
         sub_owner.makeOwnerActive();
 
         sub_owner.getOwner().openTeamRequest("MTA");
-        far.handleRequest(DBManager.getNextRequest(),true);
+        Assertions.assertTrue(far.handleRequest(DBManager.getNextRequest(),true));
 
         //same team name on new team owner - should return null
 //        sub_owner2.getOwner().openTeamRequest("HBS");

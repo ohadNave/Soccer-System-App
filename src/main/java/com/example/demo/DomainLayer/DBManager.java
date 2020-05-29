@@ -24,8 +24,7 @@ public class DBManager {
             return daoMySQL.get(classType,id);
         }
         catch (Exception e){
-            e.printStackTrace();
-            errorLogger.error("database lost connection");
+            errorLogger.error("database lost connection, unable to get object id: " +id+", class: "+ classType);
             errorLogger.error(e);
             return null;
         }
@@ -38,8 +37,7 @@ public class DBManager {
             eventLogger.info("A new object: " + objName+ " was added to the dataBase");
         }
         catch (Exception e){
-            e.printStackTrace();
-            errorLogger.error("database lost connection");
+            errorLogger.error("database lost connection, unable to save object: "+o);
             errorLogger.error(e);
         }
     }
@@ -52,8 +50,7 @@ public class DBManager {
 
         }
         catch (Exception e){
-            e.printStackTrace();
-            errorLogger.error("database lost connection");
+            errorLogger.error("database lost connection, unable to update object: "+o);
             errorLogger.error(e);
         }
     }
@@ -65,8 +62,7 @@ public class DBManager {
             eventLogger.info("A new object: " + objName+ " was removed from the dataBase");
         }
         catch (Exception e){
-            e.printStackTrace();
-            errorLogger.error("database lost connection");
+            errorLogger.error("database lost connection, unable to remove object: "+o);
             errorLogger.error(e);
         }
     }
@@ -76,8 +72,7 @@ public class DBManager {
             daoMySQL.detach(o);
         }
         catch (Exception e){
-            e.printStackTrace();
-            errorLogger.error("database lost connection");
+            errorLogger.error("database lost connection, unable to detach object: "+o);
             errorLogger.error(e);
         }
     }
@@ -87,8 +82,7 @@ public class DBManager {
             return daoMySQL.getAll(classType,table);
         }
         catch (Exception e){
-            e.printStackTrace();
-            errorLogger.error("database lost connection");
+            errorLogger.error("database lost connection, unable to get list of objects");
             errorLogger.error(e);
             return null;
         }
@@ -102,7 +96,7 @@ public class DBManager {
      * For register
      */
     public static boolean checkUserName(String userName){
-        if (  userName != null && userName.length() > 4  ){
+        if (userName != null && userName.length() > 4){
             return daoMySQL.checkUserName(userName);
         }
         return false;

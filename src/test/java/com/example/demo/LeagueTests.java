@@ -7,6 +7,7 @@ import com.example.demo.DomainLayer.LeagueManagment.Team;
 import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.FAR;
 import com.example.demo.DomainLayer.Users.Subscriber;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -60,6 +61,8 @@ public class LeagueTests {
 
         far.initializeSeasonForLeague(1,2020, team_ids);
         League leagueFromDB = ((League) DBManager.getObject(League.class, 1));
+        Assertions.assertNotNull(leagueFromDB);
+
     }
 
 }

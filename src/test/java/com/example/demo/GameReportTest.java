@@ -10,6 +10,7 @@ import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.FAR;
 import com.example.demo.DomainLayer.Users.Referee;
 import com.example.demo.DomainLayer.Users.Subscriber;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -83,6 +84,8 @@ public class GameReportTest {
         referees.add(fr3);
 
         League leagueFromDB = ((League) DBManager.getObject(League.class, 1));
+        Assertions.assertNotNull(leagueFromDB);
+        
         Set<Season> seasons = leagueFromDB.getSeasons();
         Season currSeason = seasons.iterator().next();
 

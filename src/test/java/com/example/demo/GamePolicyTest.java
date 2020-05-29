@@ -12,6 +12,7 @@ import com.example.demo.DomainLayer.Users.FAR;
 import com.example.demo.DomainLayer.Users.Fan;
 import com.example.demo.DomainLayer.Users.Referee;
 import com.example.demo.DomainLayer.Users.Subscriber;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -60,6 +61,14 @@ public class GamePolicyTest {
         Subscriber s4 =  DBManager.getByUserName("owner3 - user");
         Subscriber s5 =  DBManager.getByUserName("owner4 - user");
 
+        Assertions.assertNotNull(s1);
+        Assertions.assertNotNull(s2);
+        Assertions.assertNotNull(s3);
+        Assertions.assertNotNull(s4);
+        Assertions.assertNotNull(s5);
+
+
+
         Team team1 = MyFactory.createTeam(s2.getOwner(),"Real Madrid");
         Team team2 = MyFactory.createTeam(s3.getOwner(),"Barcelona");
         Team team3 = MyFactory.createTeam(s4.getOwner(),"Atletico Madrid");
@@ -96,6 +105,9 @@ public class GamePolicyTest {
         far.initializeLeague(LeagueLevel.PremierLeague,"LaLiga");
         far.initializeSeasonForLeague(1, Year.now().getValue(),teams_id);
         League league = (League) DBManager.getObject(League.class,1);
+
+        Assertions.assertNotNull(league);
+
         Season season = league.getSeasons().iterator().next();
         season.setIScorePolicy(new ScorePolicyA());
         season.setIGamePolicy(new GamePolicy());
@@ -126,7 +138,15 @@ public class GamePolicyTest {
         Subscriber s7 = DBManager.getByUserName("referee - 2");
         Subscriber s8 = DBManager.getByUserName("referee - 3");
 
+        Assertions.assertNotNull(s6);
+        Assertions.assertNotNull(s7);
+        Assertions.assertNotNull(s8);
+
+
         Game game = (Game) DBManager.getObject(Game.class,2);
+
+        Assertions.assertNotNull(game);
+
 
         game.changeMatchDate(LocalDate.now());
 

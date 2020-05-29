@@ -9,6 +9,7 @@ import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.FAR;
 import com.example.demo.DomainLayer.Users.Referee;
 import com.example.demo.DomainLayer.Users.Subscriber;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -57,6 +58,14 @@ public class ScorePolicyTest {
         Subscriber s4 =  DBManager.getByUserName("owner3 - user");
         Subscriber s5 =  DBManager.getByUserName("owner4 - user");
 
+        Assertions.assertNotNull(s1);
+        Assertions.assertNotNull(s2);
+        Assertions.assertNotNull(s3);
+        Assertions.assertNotNull(s4);
+        Assertions.assertNotNull(s5);
+
+
+
         Team team1 = MyFactory.createTeam(s2.getOwner(),"Real Madrid");
         Team team2 = MyFactory.createTeam(s3.getOwner(),"Barcelona");
 
@@ -94,10 +103,17 @@ public class ScorePolicyTest {
     @Test
     public void createMatches(){
         League league = (League) DBManager.getObject(League.class,1);
+        Assertions.assertNotNull(league);
         Season season = league.getSeasons().iterator().next();
+        Assertions.assertNotNull(season);
         Subscriber s6 = DBManager.getByUserName("referee - 1");
         Subscriber s7 = DBManager.getByUserName("referee - 2");
         Subscriber s8 = DBManager.getByUserName("referee - 3");
+
+        Assertions.assertNotNull(s6);
+        Assertions.assertNotNull(s7);
+        Assertions.assertNotNull(s8);
+
 
         Set<Referee> referees = new HashSet<>();
         referees.add(s6.getReferee());
@@ -121,11 +137,21 @@ public class ScorePolicyTest {
         Season season = league.getSeasons().iterator().next();
         System.out.println(season.getIScorePolicy());
 
+        Assertions.assertNotNull(league);
+        Assertions.assertNotNull(season);
+
+
     }
 
     @Test
     public void retrieveScorePolicyTest(){
         League league = (League) DBManager.getObject(League.class,1);
         Season season = league.getSeasons().iterator().next();
+        Assertions.assertNotNull(league);
+        Assertions.assertNotNull(season);
+        Assertions.assertEquals("Winner team get 3 point, looser team get 0 point else each team get 1 point",season.getIScorePolicy().getDescription());
+
+
+
     }
 }
