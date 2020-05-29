@@ -67,6 +67,12 @@ public class ExampleController {
         FARController farController = new FARController();
         return farController.activeGameSchedulerPolicy(param.getSid(),param.getLeagueID());
     }
+    @RequestMapping("/showPlacementPolicy/{sid}")
+    public String[] showPlacementPolicy(@PathVariable String sid){
+        //   System.out.println("i'm in java function");
+        FARController farController = new FARController();
+        return farController.getGamesForLeague(sid);
+    }
 
     @RequestMapping(method = RequestMethod.POST, value = "/login")
     public String[] login(@RequestBody loginParameters param){
