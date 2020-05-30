@@ -327,7 +327,7 @@ function getMainRefereeAlerts() {
 var mainRefereeHistoryAlerts=new Array();
 
 function getHistoryMainRefereeAlerts() {
-    var myURL="http://localhost:8080/mainReferee/getHistoryAlerts/"+getID();
+    var myURL="/mainReferee/getHistoryAlerts/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
