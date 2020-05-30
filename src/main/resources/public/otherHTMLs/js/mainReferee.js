@@ -48,6 +48,8 @@ function hideAllDives() {
     var mainRefereePage = document.getElementById("mainRefereePage");
     var addEventPage = document.getElementById("addEventPage");
     var makeReportPage = document.getElementById("makeReportPage");
+    var makeReport_chooseTeams = document.getElementById("makeReport_chooseTeams");
+    makeReport_chooseTeams.style.display = "none";
     mainRefereePage.style.display = "none";
     addEventPage.style.display = "none";
     makeReportPage.style.display = "none";
@@ -60,7 +62,7 @@ function getAllRelatedGames() {
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             // var jsonData = JSON.parse(this);
-            alert(this.response);
+            // alert(this.response);
             var jsonData = (JSON.parse(this.response));
             if(!document.getElementById("relatedGames0")){
                 for (var i = 0; i < jsonData.length-1; i=i+2) {
@@ -106,7 +108,7 @@ function addEvent() {
     // data.relatedPlayer = document.getElementById("relatedPlayer").value;
 
     var json = JSON.stringify(data);
-    alert("all data is:"+json);
+    // alert("all data is:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
@@ -129,6 +131,7 @@ function addEvent() {
 
 // ****MAKE REPORT****
 function getAllRelatedGames_makeReport() {
+    document.getElementById("makeReport_chooseSpecificMatch").style.display = "block";
     var myURL="/getListOfGames/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -277,7 +280,7 @@ function makeReport(){
 
 
     var json = JSON.stringify(data);
-    alert("details of report are:"+json);
+    // alert("details of report are:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
