@@ -11,7 +11,7 @@ import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.Fan;
 import com.example.demo.DomainLayer.Users.Referee;
 import org.springframework.transaction.annotation.Transactional;
-import sun.security.pkcs11.Secmod;
+//import sun.security.pkcs11.Secmod;
 
 import javax.persistence.*;
 import java.io.Serializable;
