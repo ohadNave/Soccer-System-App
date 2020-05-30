@@ -164,6 +164,7 @@ public Queue<String> getFanAlerts(@PathVariable String sid){
     @RequestMapping(method = RequestMethod.POST, value = "/addEvent")
     public boolean addEvent(@RequestBody addEventParameters param){
      //   RefereeController refereeController = new RefereeController();
+        System.out.println(param.getSid()+","+param.getMatchId()+","+ param.getMinuteInGame()+","+param.getDescription()+","+param.getEventType());
         return refereeController.addEvent(param.getSid(),param.getMatchId(), param.getMinuteInGame(),param.getDescription(),param.getEventType());
     }
 
@@ -179,6 +180,7 @@ public Queue<String> getFanAlerts(@PathVariable String sid){
     @RequestMapping(method = RequestMethod.POST, value = "/makeReport")
     public boolean makeReport(@RequestBody makeReportParameters param){
        // RefereeController refereeController = new RefereeController();
+        System.out.println(param.getSid()+","+param.getMid()+","+param.getWinnerTeamID()+","+param.getLoosingTeamID()+","+param.getScoreWinnerTeam()+","+param.getScoreLoosingTeam());
         return refereeController.makeReport(param.getSid(),param.getMid(),param.getWinnerTeamID(),param.getLoosingTeamID(),param.getScoreWinnerTeam(),param.getScoreLoosingTeam());
     }
 

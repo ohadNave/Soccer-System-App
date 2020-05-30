@@ -157,10 +157,14 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
      * @param newAlert - GameEventAlert/MatchHasEndedAlert.
      */
     @Override
-    @Transactional
     public void notifyMatchFollowers(Alert newAlert) {
-        for (Fan fan : match_followers){
-            fan.update(this,newAlert);
+        if(match_followers!=null) {
+            for (Fan fan : match_followers) {
+                fan.update(this, newAlert);
+            }
+        }
+        else{
+            System.out.println("there is no folowers");
         }
     }
 
