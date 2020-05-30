@@ -23,10 +23,10 @@ function displayAddEvent() {
 }
 function displayMainRefereePage() {
     hideAllDives();
-    if(document.getElementById("relatedGames0")){
-        var relatedGames = document.getElementById("relatedGames0");
-        relatedGames.remove();
-    }
+    // if(document.getElementById("relatedGames0")){
+    //     var relatedGames = document.getElementById("relatedGames0");
+    //     relatedGames.remove();
+    // }
     var x = document.getElementById("mainRefereePage");
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -116,10 +116,10 @@ function addEvent() {
         if (xhr.readyState == 4 && xhr.status == "200") {
             if (xhr.responseText == "true") {
                 alert("event was added successfully!");
-                if(document.getElementById("relatedGames0")){
-                    var relatedGames = document.getElementById("relatedGames0");
-                    relatedGames.remove();
-                }
+                // if(document.getElementById("relatedGames0")){
+                //     var relatedGames = document.getElementById("relatedGames0");
+                //     relatedGames.remove();
+                // }
                 displayMainRefereePage();
             } else {
                 alert("error:" + xhr.responseText);
