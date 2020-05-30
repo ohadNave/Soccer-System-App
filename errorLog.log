@@ -2730,3 +2730,6 @@ Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo can
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124) ~[spring-test-5.2.5.RELEASE.jar:5.2.5.RELEASE]
 	... 63 more
+2020-מאי-30 18:06:08 אחה״צ [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry '2' for key 'fan_game.UK_r9e6q4o3ikwpah69w18mc0t6o'
+2020-מאי-30 18:09:39 אחה״צ [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry '2' for key 'fan_game.UK_r9e6q4o3ikwpah69w18mc0t6o'
+2020-מאי-30 18:14:37 אחה״צ [main] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry '2' for key 'fan_game.UK_r9e6q4o3ikwpah69w18mc0t6o'

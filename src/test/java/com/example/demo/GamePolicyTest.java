@@ -146,7 +146,28 @@ public class GamePolicyTest {
 
         Game game = (Game) DBManager.getObject(Game.class,2);
         Assertions.assertNotNull(game);
+
+
+        Subscriber fan = MyFactory.createSubscriber("fan-1","none","none");
+        fan.makeFanActive();
+        fan.getFan().signForMatchAlerts(game);
+
+
         game.changeMatchDate(LocalDate.now());
+
+    }
+
+    @Test
+    public void ownerTest1(){
+        Subscriber sub3 = MyFactory.createSubscriber("owner1","none","none");
+        Subscriber sub4 = MyFactory.createSubscriber("owner2","none","none");
+        Subscriber sub5 = MyFactory.createSubscriber("owner3","none","none");
+        Subscriber sub6 = MyFactory.createSubscriber("owner4","none","none");
+
+        sub3.makeOwnerActive();
+        sub4.makeOwnerActive();
+        sub5.makeOwnerActive();
+        sub6.makeOwnerActive();
 
     }
 }
