@@ -126,6 +126,7 @@ function addEvent() {
             }
         }
     };
+    //
     xhr.send(json);
 }
 
