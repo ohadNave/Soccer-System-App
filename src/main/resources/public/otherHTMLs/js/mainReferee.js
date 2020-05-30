@@ -49,7 +49,6 @@ function hideAllDives() {
     makeReportPage.style.display = "none";
 }
 
-
 // *****ADD EVENT*****
 function getAllRelatedGames() {
     var myURL="/getListOfGames/"+getID();

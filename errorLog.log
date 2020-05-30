@@ -461,3 +461,4 @@ org.hibernate.AssertionFailure: possible non-threadsafe access to the session
 2020-May-29 21:05:53 PM [Hibernate Connection Pool Validation Thread] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Communications link failure
 
 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2020-May-30 12:37:47 PM [http-nio-8080-exec-4] ERROR errorLogger - Invalid username or password

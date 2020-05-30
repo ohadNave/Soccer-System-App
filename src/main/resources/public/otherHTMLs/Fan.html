@@ -7,11 +7,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Flew &mdash; Free HTML5 Bootstrap Website Template by FreeHTML5.co</title>
+    <title> Teammates Web Application </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
-    <meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-    <meta name="author" content="FreeHTML5.co" />
 
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content=""/>
@@ -84,7 +81,7 @@
             </ul>
         </div>
     </aside>
-    <button id="alertButton" style=" margin-left: 25px; float: left; border: none; background-color: #27E1CE; padding: 20px 40px; color: white; border-radius: 10px;" type="button" onClick= "displayAlerts()">
+    <!-- <button id="alertButton" style=" margin-left: 25px; float: left; border: none; background-color: #27E1CE; padding: 20px 40px; color: white; border-radius: 10px;" type="button" onClick= "displayAlerts()">
         <span>Inbox</span>
         <span id="badge" style="
 							top: 120px;
@@ -93,10 +90,10 @@
 							border-radius: 50%;
 							background-color: red;
 							color: white;"></span>
-    </button>
+    </button> -->
 
-    <button id="HistoryAlertButton" style=" margin-left: 25px; float: left; border: none; background-color: #27E1CE; padding: 20px 40px; color: white; border-radius: 10px;" type="button" onClick= "displayHistoryAlerts()">
-        <span>HistoryInbox</span>
+    <!-- <button id="HistoryAlertButton" style=" margin-left: 25px; float: left; border: none; background-color: #27E1CE; padding: 20px 40px; color: white; border-radius: 10px;" type="button" onClick= "displayHistoryAlerts()"> -->
+        <!-- <span>HistoryInbox</span> -->
         <!--        <span id="badgeHistory" style="-->
         <!--							top: 120px;-->
         <!--							left: 120px;-->
@@ -104,35 +101,53 @@
         <!--							border-radius: 50%;-->
         <!--							background-color: red;-->
         <!--							color: white;"></span>-->
-    </button>
+    <!-- </button> -->
 
     <div id="alerts"  style="display: none;text-align: center; "> <h4>list of alerts!</h4>
         <br>
     </div>
-    <!--start owner page-->
+    <!--start Ref page-->
     <div id="mainFanPage">
+
         <div id="fh5co-work-section" class="fh5co-light-grey-section">
             <div class="container">
-                <h1>hello Fan, what would you like to do?</h1>
+                <h1>Hello Fan, what would you like to do?</h1>
                 <div class="row">
-<!--                    <div class="col-md-4 animate-box">-->
-<!--                        <a onclick="displayAddTeam()" class="item-grid text-center">-->
-<!--                            <div class="image" style="background-image: url(images/image_1.jpg)"></div>-->
-<!--                            <div class="v-align">-->
-<!--                                <div class="v-align-middle">-->
-<!--                                    <h3 class="title">Open A New Team</h3>-->
-<!--                                    <h5 class="category"></h5>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </a>-->
-<!--                    </div>-->
+                   <div class="col-md-4 animate-box">
+                       <a onclick="displayAlerts()" class="item-grid text-center">
+                           <div class="image" style="background-image: url(images/image_3.png)"></div>
+                           <div class="v-align">
+                               <div class="v-align-middle">
+                                   <h3 class="title">Notifications
+                                    <span id="badge" style="color: red;"></span>
+                                   </h3>
+                                   <h5 class="category"></h5>
+                               </div>
+                          </div> 
+                        </a> 
+                    </div>
+                    <div class="col-md-4 animate-box">
+                        <a onclick="displayHistoryAlerts()" class="item-grid text-center">
+                            <div class="image" style="background-image: url(images/history_env.png)"></div>
+                            <div class="v-align">
+                                <div class="v-align-middle">
+                                    <h3 class="title">Watch Message History</h3>
+                                    <h5 class="category"></h5>
+                                </div>
+                           </div> 
+                         </a> 
+                     </div>
                 </div>
             </div>
+            
+             
+           
         </div>
-    </div>
-    <!--end owner page-->
 
-    <!--start add event page-->
+    </div>
+   <!-- end owner page -->
+
+    <!-- start add event page  -->
     <div id="addTeamPage" style="display: none" >
         <div id="fh5co-work-section2" class="fh5co-light-grey-section" style="padding: 100px 100px">
             <div class="container">
