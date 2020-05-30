@@ -136,7 +136,6 @@ public class MyFactory {
         league.setAttributes(leagueLevel,name);
         DBManager.saveObject(league);
         eventLogger.info("A new League created, id: " + league.getLid()+" league name: "+name);
-
         return league;
     }
 

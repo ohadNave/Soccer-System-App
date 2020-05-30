@@ -7,9 +7,7 @@ import com.example.demo.DomainLayer.LeagueManagment.Game;
 import com.example.demo.DomainLayer.LeagueManagment.PrivatePage;
 import com.example.demo.DomainLayer.MyFactory;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.*;
 
@@ -75,7 +73,6 @@ public class Fan extends SystemUser implements Observer, Serializable {
      * UC 3.3
      */
     public boolean signForMatchAlerts(Game match){
-        //Match tempMatch = DBManagerStub.getMatch(mid);
         if ( match != null){
             match.addMatchFollower(this);
             this.followingMatches.add(match);
