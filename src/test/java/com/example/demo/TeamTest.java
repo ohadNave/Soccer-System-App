@@ -16,17 +16,29 @@ public class TeamTest {
 
     @Test
     void registerTeamTest(){
-        Subscriber sub_far = MyFactory.createSubscriber("far-reg","a","b");
+        Subscriber sub_far = MyFactory.createSubscriber("farNewTeam","a","b");
         sub_far.makeFARActive();
         FAR far = sub_far.getFar();
-        Subscriber sub_owner = MyFactory.createSubscriber("owner-reg","a","b");
+        Subscriber sub_owner = MyFactory.createSubscriber("ownerNewTeam","a","b");
         sub_owner.makeOwnerActive();
 //        sub_owner.getOwner().openTeamRequest("MTA");
 //        far.handleRequest(DBManager.getNextRequest(),true);
 //        Assertions.assertTrue(far.handleRequest(DBManager.getNextRequest(),true));
     }
 
-
+    @Test
+    void registerTeamTest2(){
+        Subscriber sub_far = MyFactory.createSubscriber("farNewTeam","a","b");
+        sub_far.makeFARActive();
+        FAR far = sub_far.getFar();
+        Subscriber sub_owner = MyFactory.createSubscriber("ownerNewTeam1","a","b");
+        sub_owner.makeOwnerActive();
+        Subscriber sub_owner2 = MyFactory.createSubscriber("ownerNewTeam2","a","b");
+        sub_owner2.makeOwnerActive();
+//        sub_owner.getOwner().openTeamRequest("MTA");
+//        far.handleRequest(DBManager.getNextRequest(),true);
+//        Assertions.assertTrue(far.handleRequest(DBManager.getNextRequest(),true));
+    }
 
     @Test
     void sameTeamNameTest(){

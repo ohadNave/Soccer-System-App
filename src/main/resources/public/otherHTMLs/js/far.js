@@ -63,6 +63,10 @@ function hideAllDives() {
     var scorePage = document.getElementById("addScorePolicy");
     var mainPage = document.getElementById("mainPageFAR");
     var checkTeamsRequestPage = document.getElementById("checkTeamRequestPage");
+    var showPlacement = document.getElementById("showPlacement");
+    var choosePolicy = document.getElementById("addPlacementPolicy_chooseYearAndPolicy");
+    showPlacement.style.display="none";
+    choosePolicy.style.display="none";
     placementPage.style.display = "none";
     scorePage.style.display = "none";
     mainPage.style.display = "none";
@@ -96,6 +100,7 @@ function addScorePolicy_showLeague() {
 }
 
 function addPlacementPolicy_showLeague() {
+    document.getElementById("addPlacementPolicy_chooseLeague").style.display="block";
     //alert("i enter to get function")
     var theurl = "/addPlacementPolicy/getLeagueNames";
     var client = new HttpClient();
@@ -184,6 +189,17 @@ function moveBackToChooseLeague_fromChooseYear_PlacementPolicy() {
     } else {
         x.style.display = "none";
     }
+}
+function displayShowPlacementPolicy() {
+    var y = document.getElementById("addPlacementPolicy_chooseYearAndPolicy");
+    y.style.display = "none";
+    var x = document.getElementById("showPlacement");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+    showPlacementPolicy();
 }
 function addScorePolicy_getPossibleYearsOfLeague() {
     updateScorePolicy_leagueName();
@@ -331,7 +347,7 @@ function applyPlacementPolicyInDB() {
         if (xhr.readyState == 4 && xhr.status == "200") {
             if (xhr.responseText == "true") {
                 alert("applied placement policy successfully!");
-                displayMainFarPage();
+                displayShowPlacementPolicy();
             } else {
                 alert("error:" + xhr.responseText);
             }
@@ -340,16 +356,56 @@ function applyPlacementPolicyInDB() {
     xhr.send(json);
 }
 
+function showPlacementPolicy() {
+    var theurl = "/showPlacementPolicy/"+getID();
+    var client = new HttpClient();
+    client.get(theurl, function (response) {
+        var jsonData = JSON.parse(response);
+        if(!document.getElementById("h10")){
+            var j=1;
+            for (var i = 0; i < jsonData.length-2; i=i+3) {
+                var date = jsonData[i];
+                var team1Name = jsonData[i+1];
+                var team2Name = jsonData[i+2];
+                var x = document.getElementById("showPlacement");
+                var h1 = document.createElement("h1");
+                h1.setAttribute("id","h1"+i);
+                x.appendChild(h1);
+                document.getElementById("h1"+i).innerHTML = "game number "+j;
+                var text1 = document.createTextNode("date: "+date);
+                var text2 = document.createTextNode("first team name is: "+team1Name);
+                var text3 = document.createTextNode("second team name is: "+team2Name);
+                var br1 = document.createElement("br");
+                var br2 = document.createElement("br");
+                var br3 = document.createElement("br");
+                var br4 = document.createElement("br");
+                x.appendChild(text1);
+                x.appendChild(br1);
+                x.appendChild(text2);
+                x.appendChild(br2);
+                x.appendChild(text3);
+                x.appendChild(br3);
+                x.appendChild(br4);
+                j++;
+            }
+        }
+        // alert("my dictionary is:"+dict_leagueName_leagueID);
+    });
+}
+
 function checkTeamsRequest_showRequest() {
+    document.getElementById('approve').style.visibility = 'visible';
+    document.getElementById('reject').style.visibility = 'visible';
     var myURL="/nextTeamRequest";
     // alert("i'm in addPlacementPolicy_getPossibleYearsOfLeague, my url is:"+myURL);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             // var jsonData = JSON.parse(this);
-            alert("the response is:"+this.response);
             if(this.response==""){
                 alert("no requests to show")
+                document.getElementById('approve').style.visibility = 'hidden';
+                document.getElementById('reject').style.visibility = 'hidden';
             }
             else{
                 var jsonData = JSON.parse(this.responseText);
@@ -357,9 +413,8 @@ function checkTeamsRequest_showRequest() {
                 teamRequest_OwnerName = jsonData[2];
                 teamRequest_OwnerID = jsonData[1];
                 teamRequest_RegistrationID = jsonData[3];
-                if(!document.getElementById("teamRequestDiv")){
                     var gameDetails = document.getElementById("RequestDetails");
-                    var div = document.createElement("dir");
+                    var div = document.createElement("div");
                     div.setAttribute("id","teamRequestDiv");
                     var t1 = document.createTextNode("team name is: "+teamRequest_TeamName);
                     var t2 = document.createTextNode("owner name is: "+teamRequest_OwnerName);
@@ -370,7 +425,7 @@ function checkTeamsRequest_showRequest() {
                     div.appendChild(br2);
                     div.appendChild(t2);
                     gameDetails.appendChild(div);
-                }
+
             }
         }
 
@@ -380,6 +435,10 @@ function checkTeamsRequest_showRequest() {
 }
 
 function approveTeamRequest() {
+    if(document.getElementById("teamRequestDiv")){
+        var previousDiv = document.getElementById("teamRequestDiv");
+        previousDiv.remove();
+    }
     var url = "/approveRequest";
     var data = {};
     data.sid = getID();
@@ -405,6 +464,10 @@ function approveTeamRequest() {
 }
 
 function rejectTeamRequest(){
+    if(document.getElementById("teamRequestDiv")){
+        var previousDiv = document.getElementById("teamRequestDiv");
+        previousDiv.remove();
+    }
     var url = "/rejectRequest";
     var data = {};
     data.sid = getID();

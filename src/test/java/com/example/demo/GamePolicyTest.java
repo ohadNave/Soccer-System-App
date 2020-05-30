@@ -155,4 +155,18 @@ public class GamePolicyTest {
         Referee referee3 = s8.getReferee();
     }
 
+    @Test
+    public void ownerTest() {
+        Subscriber sub2 = MyFactory.createSubscriber("owner123","none","none");
+        Subscriber sub3 = MyFactory.createSubscriber("owner1234","none","none");
+        Subscriber sub4 = MyFactory.createSubscriber("far","none","none");
+
+        sub2.makeOwnerActive();
+        sub3.makeOwnerActive();
+//        sub4.makeFARActive();
+
+
+    }
+
+
 }

@@ -14,6 +14,7 @@ function getFanHistoryAlerts() {
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             var jsonData = JSON.parse(this.responseText);
+
             for (var i = 0; i < jsonData.length; i++) {
                 var alertHistory = jsonData[i];
                 fanHistoryAlerts.push(alertHistory);
@@ -34,11 +35,15 @@ function getFanAlerts() {
     // console.log(localStorage.getItem("sid"))
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
+
+            // alert("my answer is:" + this.responseText);
             var jsonData = JSON.parse(this.responseText);
+            // alert("my json is:" + jsonData);
+
             if(jsonData.length==0){
                 document.getElementById("badge").innerHTML = fanAlerts.length;
                 localStorage.setItem("lengthOfAlerts",fanAlerts.length);
-                localStorage.setItem("arrayOfAlert",JSON.stringify(fanAlerts));
+                localStorage.setItem("arrayOfAlertFan",JSON.stringify(fanAlerts));
             }
             for (var i = 0; i < jsonData.length; i++) {
                 var alert2 = jsonData[i];
@@ -198,6 +203,10 @@ function displayFanAlerts() {
         i--;
 
         // localStorage.setItem("lengthOfAlerts", text.length);
+
+
+
+
         //
         //
         // localStorage.setItem("arrayOfAlert", text);

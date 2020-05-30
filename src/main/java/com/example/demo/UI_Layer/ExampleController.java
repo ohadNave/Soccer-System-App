@@ -67,6 +67,12 @@ public class ExampleController {
         FARController farController = new FARController();
         return farController.activeGameSchedulerPolicy(param.getSid(),param.getLeagueID());
     }
+    @RequestMapping("/showPlacementPolicy/{sid}")
+    public String[] showPlacementPolicy(@PathVariable String sid){
+        //   System.out.println("i'm in java function");
+        FARController farController = new FARController();
+        return farController.getGamesForLeague(sid);
+    }
 
     @RequestMapping(method = RequestMethod.POST, value = "/login")
     public String[] login(@RequestBody loginParameters param){
@@ -77,7 +83,7 @@ public class ExampleController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/owner/openNewTeam")
-    public boolean openTeamRequest(@RequestBody openNewTeanParameters param){
+    public String openTeamRequest(@RequestBody openNewTeanParameters param){
        OwnerController teamRequestController = new OwnerController();
         System.out.println(param.getTeamName()+" "+param.getSid());
         return teamRequestController.sendTeamRequest(param.getTeamName(),param.getSid());
@@ -106,10 +112,10 @@ public Queue<String> getFanAlerts(@PathVariable String sid){
     }
 
     @RequestMapping("owner/getHistoryAlerts/{sid}")
-    public Queue<String> getOwnerHistoryAlerts(@PathVariable String sid){
+    public List<String> getOwnerHistoryAlerts(@PathVariable String sid){
 //        System.out.println(sid);
-        OwnerController getOwnerAlertsController=new OwnerController ();
-        return getOwnerAlertsController.getAlerts(sid);
+        OwnerController ownerController=new OwnerController ();
+        return ownerController.getPrevAlerts(sid);
     }
 
 
@@ -158,6 +164,7 @@ public Queue<String> getFanAlerts(@PathVariable String sid){
     @RequestMapping(method = RequestMethod.POST, value = "/addEvent")
     public boolean addEvent(@RequestBody addEventParameters param){
      //   RefereeController refereeController = new RefereeController();
+        System.out.println(param.getSid()+","+param.getMatchId()+","+ param.getMinuteInGame()+","+param.getDescription()+","+param.getEventType());
         return refereeController.addEvent(param.getSid(),param.getMatchId(), param.getMinuteInGame(),param.getDescription(),param.getEventType());
     }
 
@@ -173,6 +180,7 @@ public Queue<String> getFanAlerts(@PathVariable String sid){
     @RequestMapping(method = RequestMethod.POST, value = "/makeReport")
     public boolean makeReport(@RequestBody makeReportParameters param){
        // RefereeController refereeController = new RefereeController();
+        System.out.println(param.getSid()+","+param.getMid()+","+param.getWinnerTeamID()+","+param.getLoosingTeamID()+","+param.getScoreWinnerTeam()+","+param.getScoreLoosingTeam());
         return refereeController.makeReport(param.getSid(),param.getMid(),param.getWinnerTeamID(),param.getLoosingTeamID(),param.getScoreWinnerTeam(),param.getScoreLoosingTeam());
     }
 
