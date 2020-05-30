@@ -4,7 +4,7 @@ spring:
 #    url: jdbc:mysql://132.72.65.120:3306/soccer_sys_db?serverTimezone=UTC
     url: jdbc:mysql://localhost:3306/soccer_sys_db?serverTimezone=UTC
     username: root
-    password: iris123
+    password: STR21
   jpa:
     hibernate:
       ddl-auto: update

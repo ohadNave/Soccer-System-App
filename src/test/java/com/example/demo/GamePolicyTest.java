@@ -37,6 +37,7 @@ public class GamePolicyTest {
         Subscriber sub4 = MyFactory.createSubscriber("owner2 - user","none","none");
         Subscriber sub5 = MyFactory.createSubscriber("owner3 - user","none","none");
         Subscriber sub6 = MyFactory.createSubscriber("owner4 - user","none","none");
+
          sub3.makeOwnerActive();
          sub4.makeOwnerActive();
          sub5.makeOwnerActive();
@@ -45,6 +46,7 @@ public class GamePolicyTest {
         Subscriber sub7 = MyFactory.createSubscriber("referee - 1","none","none");
         Subscriber sub8= MyFactory.createSubscriber("referee - 2","none","none");
         Subscriber sub9= MyFactory.createSubscriber("referee - 3","none","none");
+
          sub7.makeRefereeActive(Certification.PROFFESIONAL, RefereeRoll.MAIN_REFEREE);
          sub8.makeRefereeActive(Certification.BASIC, RefereeRoll.LINE_REFEREE);
          sub9.makeRefereeActive(Certification.BASIC, RefereeRoll.LINE_REFEREE);
@@ -142,31 +144,9 @@ public class GamePolicyTest {
         Assertions.assertNotNull(s7);
         Assertions.assertNotNull(s8);
 
-
         Game game = (Game) DBManager.getObject(Game.class,2);
-
         Assertions.assertNotNull(game);
-
-
         game.changeMatchDate(LocalDate.now());
 
-        Referee referee1 = s6.getReferee();
-        Referee referee2 = s7.getReferee();
-        Referee referee3 = s8.getReferee();
     }
-
-    @Test
-    public void ownerTest() {
-        Subscriber sub2 = MyFactory.createSubscriber("owner123","none","none");
-        Subscriber sub3 = MyFactory.createSubscriber("owner1234","none","none");
-        Subscriber sub4 = MyFactory.createSubscriber("far","none","none");
-
-        sub2.makeOwnerActive();
-        sub3.makeOwnerActive();
-//        sub4.makeFARActive();
-
-
-    }
-
-
 }

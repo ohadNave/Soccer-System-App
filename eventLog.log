@@ -590,3 +590,571 @@
 2020-May-30 14:22:15 PM [http-nio-8080-exec-1] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
 2020-May-30 14:22:15 PM [http-nio-8080-exec-1] INFO  eventLogger - A new team 1 was created by sid : 2, team name: iris
 2020-May-30 14:22:15 PM [http-nio-8080-exec-1] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:31:32 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-30 14:31:32 PM [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-DC93VFH with PID 14944 (C:\Users\ohadv\IdeaProjects\Teammates\target\classes started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:31:32 PM [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:31:32 PM [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2020-May-30 14:31:48 PM [main] INFO  com.example.demo.TeamTest - Starting TeamTest on DESKTOP-DC93VFH with PID 17068 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:31:48 PM [main] DEBUG com.example.demo.TeamTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:31:48 PM [main] INFO  com.example.demo.TeamTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:32:35 PM [main] INFO  com.example.demo.TeamTest - Starting TeamTest on DESKTOP-DC93VFH with PID 4444 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:32:35 PM [main] DEBUG com.example.demo.TeamTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:32:35 PM [main] INFO  com.example.demo.TeamTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:32:58 PM [main] INFO  com.example.demo.TeamTest - Started TeamTest in 23.978 seconds (JVM running for 26.135)
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new Subscriber created, id: farNewTeam
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new Far created, id: 1
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new Subscriber created, id: ownerNewTeam1
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new Owner created, id: 2
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new Subscriber created, id: ownerNewTeam2
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new Owner created, id: 3
+2020-May-30 14:32:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:33:04 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-30 14:33:05 PM [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-DC93VFH with PID 8964 (C:\Users\ohadv\IdeaProjects\Teammates\target\classes started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:33:05 PM [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:33:05 PM [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2020-May-30 14:33:11 PM [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 6.267 seconds (JVM running for 7.382)
+2020-May-30 14:34:01 PM [http-nio-8080-exec-1] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Request.TeamRequest was added to the dataBase
+2020-May-30 14:34:01 PM [http-nio-8080-exec-1] INFO  eventLogger - A new Team Request created by: 2 ,request id: 1
+2020-May-30 14:34:01 PM [http-nio-8080-exec-1] INFO  eventLogger - A new team request was created by sid : 2, team name: hbs
+2020-May-30 14:34:33 PM [http-nio-8080-exec-2] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:34:33 PM [http-nio-8080-exec-2] INFO  eventLogger - A new team 1 was created by sid : 2, team name: hbs
+2020-May-30 14:34:33 PM [http-nio-8080-exec-2] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:35:25 PM [main] INFO  com.example.demo.AlertTest - Starting AlertTest on DESKTOP-DC93VFH with PID 14544 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:35:25 PM [main] DEBUG com.example.demo.AlertTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:35:25 PM [main] INFO  com.example.demo.AlertTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:35:34 PM [main] INFO  com.example.demo.AlertTest - Started AlertTest in 9.356 seconds (JVM running for 11.42)
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Subscriber created, id: ohad-far2
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Far created, id: 4
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Subscriber created, id: owner1
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Subscriber created, id: owner2
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Subscriber created, id: Fan123
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Subscriber created, id: refe1
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Subscriber created, id: refe2
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Subscriber created, id: refe3
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Referee created, id: 8
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Referee created, id: 9
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Referee created, id: 10
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Owner created, id: 5
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Owner created, id: 6
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Fan created, id: 7
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new team 2 was created by sid : 9, team name: RMA
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new team 3 was created by sid : 11, team name: BAR
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.League was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new League created, id: 1 league name: LaLiga
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A league was initiated by FAR: 4
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Season created, id: 1 for league: LaLiga
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new season was initiated to league: LaLiga year: 2020 by: 4
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Field created, id: 1 field name: Terner
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Field created, id: 2 field name: Vasermil
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Match created, id: 1 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@4290fcd7 ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@2e94655a
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new Match created, id: 2 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@2e94655a ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@4290fcd7
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:35:34 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:37:49 PM [main] INFO  com.example.demo.AlertTest - Starting AlertTest on DESKTOP-DC93VFH with PID 12624 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:37:49 PM [main] DEBUG com.example.demo.AlertTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:37:49 PM [main] INFO  com.example.demo.AlertTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:37:56 PM [main] INFO  com.example.demo.AlertTest - Started AlertTest in 7.323 seconds (JVM running for 9.179)
+2020-May-30 14:37:57 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:37:57 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:37:57 PM [main] INFO  eventLogger -  the fan: 12 signed for match alerts, match: 2
+2020-May-30 14:37:57 PM [main] INFO  eventLogger - A new Game Event created, id: 0
+2020-May-30 14:37:57 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Alerts.GameEventAlert was added to the dataBase
+2020-May-30 14:37:57 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Fan was updated in the dataBase
+2020-May-30 14:37:57 PM [main] INFO  eventLogger - A new Game Event created, id: 0
+2020-May-30 14:37:57 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Alerts.GameEventAlert was added to the dataBase
+2020-May-30 14:37:57 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Fan was updated in the dataBase
+2020-May-30 14:40:36 PM [main] INFO  com.example.demo.AlertTest - Starting AlertTest on DESKTOP-DC93VFH with PID 13076 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:40:36 PM [main] DEBUG com.example.demo.AlertTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:40:36 PM [main] INFO  com.example.demo.AlertTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:40:53 PM [main] INFO  com.example.demo.AlertTest - Started AlertTest in 17.247 seconds (JVM running for 18.939)
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Subscriber created, id: ohad-far2
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Far created, id: 1
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Subscriber created, id: owner1
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Subscriber created, id: owner2
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Subscriber created, id: Fan123
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Subscriber created, id: refe1
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Subscriber created, id: refe2
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Subscriber created, id: refe3
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Referee created, id: 5
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Referee created, id: 6
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Referee created, id: 7
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Owner created, id: 2
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Owner created, id: 3
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Fan created, id: 4
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new team 1 was created by sid : 6, team name: RMA
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new team 2 was created by sid : 8, team name: BAR
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.League was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new League created, id: 1 league name: LaLiga
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A league was initiated by FAR: 1
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Season created, id: 1 for league: LaLiga
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new season was initiated to league: LaLiga year: 2020 by: 1
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Field created, id: 1 field name: Terner
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Field created, id: 2 field name: Vasermil
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Match created, id: 1 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@23acd55e ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@48d84d75
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new Match created, id: 2 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@48d84d75 ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@23acd55e
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:40:54 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:41:01 PM [main] INFO  com.example.demo.AlertTest - Starting AlertTest on DESKTOP-DC93VFH with PID 19176 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:41:01 PM [main] DEBUG com.example.demo.AlertTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:41:01 PM [main] INFO  com.example.demo.AlertTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:41:08 PM [main] INFO  com.example.demo.AlertTest - Started AlertTest in 7.378 seconds (JVM running for 8.966)
+2020-May-30 14:41:08 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:41:08 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:41:08 PM [main] INFO  eventLogger -  the fan: 9 signed for match alerts, match: 2
+2020-May-30 14:41:08 PM [main] INFO  eventLogger - A new Game Event created, id: 0
+2020-May-30 14:41:08 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Alerts.GameEventAlert was added to the dataBase
+2020-May-30 14:41:08 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Fan was updated in the dataBase
+2020-May-30 14:41:08 PM [main] INFO  eventLogger - A new Game Event created, id: 0
+2020-May-30 14:41:08 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Alerts.GameEventAlert was added to the dataBase
+2020-May-30 14:41:08 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Fan was updated in the dataBase
+2020-May-30 14:41:30 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-30 14:41:31 PM [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-DC93VFH with PID 9468 (C:\Users\ohadv\IdeaProjects\Teammates\target\classes started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:41:31 PM [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:41:31 PM [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2020-May-30 14:41:37 PM [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 7.001 seconds (JVM running for 8.688)
+2020-May-30 14:42:25 PM [http-nio-8080-exec-6] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:43:40 PM [main] INFO  com.example.demo.AlertTest - Starting AlertTest on DESKTOP-DC93VFH with PID 10296 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:43:40 PM [main] DEBUG com.example.demo.AlertTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:43:40 PM [main] INFO  com.example.demo.AlertTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:43:59 PM [main] INFO  com.example.demo.AlertTest - Started AlertTest in 18.825 seconds (JVM running for 20.341)
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new Subscriber created, id: ohad-far2
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new Far created, id: 1
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new Subscriber created, id: owner1
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new Subscriber created, id: owner2
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new Subscriber created, id: Fan123
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new Subscriber created, id: refe1
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new Subscriber created, id: refe2
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new Subscriber created, id: refe3
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new Referee created, id: 5
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new Referee created, id: 6
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new Referee created, id: 7
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:43:59 PM [main] INFO  eventLogger - A new Owner created, id: 2
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new Owner created, id: 3
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new Fan created, id: 4
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new team 1 was created by sid : 6, team name: RMA
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new team 2 was created by sid : 8, team name: BAR
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.League was added to the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new League created, id: 1 league name: LaLiga
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A league was initiated by FAR: 1
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was added to the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new Season created, id: 1 for league: LaLiga
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new season was initiated to league: LaLiga year: 2020 by: 1
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new Field created, id: 1 field name: Terner
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new Field created, id: 2 field name: Vasermil
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new Match created, id: 1 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@7806db3f ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@71a509c
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new Match created, id: 2 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@71a509c ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@7806db3f
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:44:00 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:44:11 PM [main] INFO  com.example.demo.AlertTest - Starting AlertTest on DESKTOP-DC93VFH with PID 16360 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:44:11 PM [main] DEBUG com.example.demo.AlertTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:44:11 PM [main] INFO  com.example.demo.AlertTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:44:18 PM [main] INFO  com.example.demo.AlertTest - Started AlertTest in 7.322 seconds (JVM running for 8.931)
+2020-May-30 14:44:19 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:44:19 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:44:19 PM [main] INFO  eventLogger -  the fan: 9 signed for match alerts, match: 2
+2020-May-30 14:44:19 PM [main] INFO  eventLogger - A new Game Event created, id: 0
+2020-May-30 14:44:19 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Alerts.GameEventAlert was added to the dataBase
+2020-May-30 14:44:19 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Fan was updated in the dataBase
+2020-May-30 14:44:19 PM [main] INFO  eventLogger - A new Game Event created, id: 0
+2020-May-30 14:44:19 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Alerts.GameEventAlert was added to the dataBase
+2020-May-30 14:44:19 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Fan was updated in the dataBase
+2020-May-30 14:44:39 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-30 14:44:39 PM [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-DC93VFH with PID 4668 (C:\Users\ohadv\IdeaProjects\Teammates\target\classes started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:44:39 PM [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:44:39 PM [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2020-May-30 14:44:45 PM [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 6.127 seconds (JVM running for 7.271)
+2020-May-30 14:45:22 PM [http-nio-8080-exec-3] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:49:43 PM [main] INFO  com.example.demo.AlertTest - Starting AlertTest on DESKTOP-DC93VFH with PID 12588 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:49:43 PM [main] DEBUG com.example.demo.AlertTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:49:43 PM [main] INFO  com.example.demo.AlertTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:50:03 PM [main] INFO  com.example.demo.AlertTest - Started AlertTest in 20.221 seconds (JVM running for 21.803)
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Subscriber created, id: ohad-far2
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Far created, id: 1
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Subscriber created, id: owner1
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Subscriber created, id: owner2
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Subscriber created, id: Fan123
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Subscriber created, id: refe1
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Subscriber created, id: refe2
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Subscriber created, id: refe3
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Referee created, id: 5
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Referee created, id: 6
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Referee created, id: 7
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Owner created, id: 2
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Owner created, id: 3
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Fan created, id: 4
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new team 1 was created by sid : 6, team name: RMA
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new team 2 was created by sid : 8, team name: BAR
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.League was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new League created, id: 1 league name: LaLiga
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A league was initiated by FAR: 1
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Season created, id: 1 for league: LaLiga
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new season was initiated to league: LaLiga year: 2020 by: 1
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Field created, id: 1 field name: Terner
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Field created, id: 2 field name: Vasermil
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Match created, id: 1 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@727b3b0 ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@63b334fd
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new Match created, id: 2 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@63b334fd ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@727b3b0
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:50:03 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:50:10 PM [main] INFO  com.example.demo.AlertTest - Starting AlertTest on DESKTOP-DC93VFH with PID 17032 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:50:10 PM [main] DEBUG com.example.demo.AlertTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:50:10 PM [main] INFO  com.example.demo.AlertTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:50:17 PM [main] INFO  com.example.demo.AlertTest - Started AlertTest in 7.203 seconds (JVM running for 8.802)
+2020-May-30 14:50:17 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:50:17 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 14:50:17 PM [main] INFO  eventLogger -  the fan: 9 signed for match alerts, match: 2
+2020-May-30 14:50:17 PM [main] INFO  eventLogger - A new Game Event created, id: 0
+2020-May-30 14:50:17 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Alerts.GameEventAlert was added to the dataBase
+2020-May-30 14:50:17 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Fan was updated in the dataBase
+2020-May-30 14:50:17 PM [main] INFO  eventLogger - A new Game Event created, id: 0
+2020-May-30 14:50:17 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Alerts.GameEventAlert was added to the dataBase
+2020-May-30 14:50:17 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Fan was updated in the dataBase
+2020-May-30 14:50:41 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-30 14:50:41 PM [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-DC93VFH with PID 2348 (C:\Users\ohadv\IdeaProjects\Teammates\target\classes started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:50:41 PM [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:50:41 PM [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2020-May-30 14:50:47 PM [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 5.439 seconds (JVM running for 6.472)
+2020-May-30 14:52:01 PM [http-nio-8080-exec-5] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:53:01 PM [main] INFO  com.example.demo.GamePolicyTest - Starting GamePolicyTest on DESKTOP-DC93VFH with PID 19152 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:53:01 PM [main] DEBUG com.example.demo.GamePolicyTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:53:01 PM [main] INFO  com.example.demo.GamePolicyTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:53:09 PM [main] INFO  com.example.demo.GamePolicyTest - Started GamePolicyTest in 9.007 seconds (JVM running for 10.719)
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Subscriber created, id: FAR-user
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Far created, id: 8
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Subscriber created, id: owner1 - user
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Subscriber created, id: owner2 - user
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Subscriber created, id: owner3 - user
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Subscriber created, id: owner4 - user
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Owner created, id: 9
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Owner created, id: 10
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Owner created, id: 11
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Owner created, id: 12
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Subscriber created, id: referee - 1
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Subscriber created, id: referee - 2
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Subscriber created, id: referee - 3
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Referee created, id: 13
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Referee created, id: 14
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new Referee created, id: 15
+2020-May-30 14:53:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 14:53:23 PM [main] INFO  com.example.demo.GamePolicyTest - Starting GamePolicyTest on DESKTOP-DC93VFH with PID 1388 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:53:23 PM [main] DEBUG com.example.demo.GamePolicyTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:53:23 PM [main] INFO  com.example.demo.GamePolicyTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:53:31 PM [main] INFO  com.example.demo.GamePolicyTest - Started GamePolicyTest in 7.644 seconds (JVM running for 9.237)
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new team 3 was created by sid : 12, team name: Real Madrid
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new team 4 was created by sid : 14, team name: Barcelona
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new team 5 was created by sid : 11, team name: Atletico Madrid
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new team 6 was created by sid : 12, team name: Valencia
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new Field created, id: 3 field name: Santiago Bernabeu
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new Field created, id: 4 field name: Camp Nou
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new Field created, id: 5 field name: Metropolitano
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new Field created, id: 6 field name: Mestailla
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.League was added to the dataBase
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new League created, id: 2 league name: LaLiga
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A league was initiated by FAR: 10
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was added to the dataBase
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new Season created, id: 2 for league: LaLiga
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new season was initiated to league: LaLiga year: 2020 by: 10
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:53:31 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:53:42 PM [main] INFO  com.example.demo.GamePolicyTest - Starting GamePolicyTest on DESKTOP-DC93VFH with PID 9904 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:53:42 PM [main] DEBUG com.example.demo.GamePolicyTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:53:42 PM [main] INFO  com.example.demo.GamePolicyTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:53:49 PM [main] INFO  com.example.demo.GamePolicyTest - Started GamePolicyTest in 7.526 seconds (JVM running for 9.237)
+2020-May-30 14:53:49 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:53:49 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:56:24 PM [main] INFO  com.example.demo.GamePolicyTest - Starting GamePolicyTest on DESKTOP-DC93VFH with PID 4348 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:56:24 PM [main] DEBUG com.example.demo.GamePolicyTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:56:24 PM [main] INFO  com.example.demo.GamePolicyTest - No active profile set, falling back to default profiles: default
+2020-May-30 14:56:31 PM [main] INFO  com.example.demo.GamePolicyTest - Started GamePolicyTest in 7.507 seconds (JVM running for 9.103)
+2020-May-30 14:56:32 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:56:32 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 14:56:32 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Alerts.MatchDateChangedAlert was added to the dataBase
+2020-May-30 14:57:04 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-30 14:57:05 PM [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-DC93VFH with PID 14144 (C:\Users\ohadv\IdeaProjects\Teammates\target\classes started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 14:57:05 PM [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 14:57:05 PM [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2020-May-30 14:57:10 PM [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 5.483 seconds (JVM running for 6.469)
+2020-May-30 15:01:39 PM [main] INFO  com.example.demo.GamePolicyTest - Starting GamePolicyTest on DESKTOP-DC93VFH with PID 12840 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 15:01:39 PM [main] DEBUG com.example.demo.GamePolicyTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 15:01:39 PM [main] INFO  com.example.demo.GamePolicyTest - No active profile set, falling back to default profiles: default
+2020-May-30 15:01:58 PM [main] INFO  com.example.demo.GamePolicyTest - Started GamePolicyTest in 19.234 seconds (JVM running for 20.812)
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Subscriber created, id: FAR-user
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Far created, id: 1
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Subscriber created, id: owner1 - user
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Subscriber created, id: owner2 - user
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Subscriber created, id: owner3 - user
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Subscriber created, id: owner4 - user
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Owner created, id: 2
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Owner created, id: 3
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Owner created, id: 4
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Owner created, id: 5
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Subscriber created, id: referee - 1
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Subscriber created, id: referee - 2
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Subscriber created, id: referee - 3
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Referee created, id: 6
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Referee created, id: 7
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new Referee created, id: 8
+2020-May-30 15:01:58 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 15:02:03 PM [main] INFO  com.example.demo.GamePolicyTest - Starting GamePolicyTest on DESKTOP-DC93VFH with PID 19280 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 15:02:03 PM [main] DEBUG com.example.demo.GamePolicyTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 15:02:03 PM [main] INFO  com.example.demo.GamePolicyTest - No active profile set, falling back to default profiles: default
+2020-May-30 15:02:10 PM [main] INFO  com.example.demo.GamePolicyTest - Started GamePolicyTest in 7.694 seconds (JVM running for 9.267)
+2020-May-30 15:02:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 15:02:10 PM [main] INFO  eventLogger - A new team 1 was created by sid : 2, team name: Real Madrid
+2020-May-30 15:02:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 15:02:10 PM [main] INFO  eventLogger - A new team 2 was created by sid : 3, team name: Barcelona
+2020-May-30 15:02:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 15:02:10 PM [main] INFO  eventLogger - A new team 3 was created by sid : 4, team name: Atletico Madrid
+2020-May-30 15:02:10 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 15:02:10 PM [main] INFO  eventLogger - A new team 4 was created by sid : 5, team name: Valencia
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new Field created, id: 1 field name: Santiago Bernabeu
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new Field created, id: 2 field name: Camp Nou
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new Field created, id: 3 field name: Metropolitano
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Field was added to the dataBase
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new Field created, id: 4 field name: Mestailla
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.League was added to the dataBase
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new League created, id: 1 league name: LaLiga
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A league was initiated by FAR: 1
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was added to the dataBase
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new Season created, id: 1 for league: LaLiga
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new season was initiated to league: LaLiga year: 2020 by: 1
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 15:02:11 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 15:02:53 PM [main] INFO  com.example.demo.GamePolicyTest - Starting GamePolicyTest on DESKTOP-DC93VFH with PID 11168 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 15:02:53 PM [main] DEBUG com.example.demo.GamePolicyTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 15:02:53 PM [main] INFO  com.example.demo.GamePolicyTest - No active profile set, falling back to default profiles: default
+2020-May-30 15:03:01 PM [main] INFO  com.example.demo.GamePolicyTest - Started GamePolicyTest in 7.9 seconds (JVM running for 9.486)
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new Match created, id: 1 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@5f67ff3e ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@4578d654
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new Match created, id: 2 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@4578d654 ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@5f67ff3e
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new Match created, id: 3 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@5f67ff3e ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@c11ec9b
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new Match created, id: 4 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@c11ec9b ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@5f67ff3e
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 15:03:01 PM [main] INFO  eventLogger - A new Match created, id: 5 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@5f67ff3e ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@418f0f27
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new Match created, id: 6 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@418f0f27 ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@5f67ff3e
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new Match created, id: 7 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@4578d654 ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@c11ec9b
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new Match created, id: 8 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@c11ec9b ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@4578d654
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new Match created, id: 9 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@4578d654 ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@418f0f27
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new Match created, id: 10 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@418f0f27 ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@4578d654
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new Match created, id: 11 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@c11ec9b ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@418f0f27
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was added to the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new Match created, id: 12 ,Home Team : com.example.demo.DomainLayer.LeagueManagment.Team@418f0f27 ,Away Team: com.example.demo.DomainLayer.LeagueManagment.Team@c11ec9b
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Game was updated in the dataBase
+2020-May-30 15:03:02 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 15:03:16 PM [main] INFO  com.example.demo.GamePolicyTest - Starting GamePolicyTest on DESKTOP-DC93VFH with PID 16236 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 15:03:16 PM [main] DEBUG com.example.demo.GamePolicyTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 15:03:16 PM [main] INFO  com.example.demo.GamePolicyTest - No active profile set, falling back to default profiles: default
+2020-May-30 15:03:23 PM [main] INFO  com.example.demo.GamePolicyTest - Started GamePolicyTest in 7.374 seconds (JVM running for 8.914)
+2020-May-30 15:03:24 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 15:03:24 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 15:03:24 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Alerts.MatchDateChangedAlert was added to the dataBase
+2020-May-30 15:03:24 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Referee was updated in the dataBase
+2020-May-30 15:03:24 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Referee was updated in the dataBase
+2020-May-30 15:03:24 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Referee was updated in the dataBase
+2020-May-30 15:03:53 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-30 15:03:53 PM [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-DC93VFH with PID 11256 (C:\Users\ohadv\IdeaProjects\Teammates\target\classes started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 15:03:53 PM [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 15:03:53 PM [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2020-May-30 15:03:59 PM [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 5.782 seconds (JVM running for 6.783)
+2020-May-30 15:17:11 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-30 15:17:11 PM [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-DC93VFH with PID 18228 (C:\Users\ohadv\IdeaProjects\Teammates\target\classes started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 15:17:11 PM [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 15:17:11 PM [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2020-May-30 15:17:17 PM [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 6.312 seconds (JVM running for 7.315)
