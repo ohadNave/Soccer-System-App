@@ -1,6 +1,7 @@
-package com.example.demo.UI_Layer;
+package com.example.demo.UI_Layer.parameters;
 
 public class teamRequestParameters {
+
     String sid;
     boolean booleanVar;
     String regID;

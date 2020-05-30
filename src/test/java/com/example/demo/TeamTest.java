@@ -28,11 +28,11 @@ public class TeamTest {
 
     @Test
     void registerTeamTest2(){
-        Subscriber sub_far = MyFactory.createSubscriber("farNewTeam","a","b");
-        sub_far.makeFARActive();
-        FAR far = sub_far.getFar();
-        Subscriber sub_owner = MyFactory.createSubscriber("ownerNewTeam1","a","b");
-        sub_owner.makeOwnerActive();
+//        Subscriber sub_far = MyFactory.createSubscriber("farNewTeam","a","b");
+//        sub_far.makeFARActive();
+//        FAR far = sub_far.getFar();
+//        Subscriber sub_owner = MyFactory.createSubscriber("ownerNewTeam1","a","b");
+//        sub_owner.makeOwnerActive();
         Subscriber sub_owner2 = MyFactory.createSubscriber("ownerNewTeam2","a","b");
         sub_owner2.makeOwnerActive();
 //        sub_owner.getOwner().openTeamRequest("MTA");

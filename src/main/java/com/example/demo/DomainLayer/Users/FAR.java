@@ -230,10 +230,11 @@ public class FAR extends SystemUser implements Serializable {
                     subscriber.makeOwnerActive();
                 }
             }
-            DBManager.updateObject(subscriber);
             DBManager.incrementReqID();
+            DBManager.updateObject(subscriber);
             return true;
         }
+        DBManager.incrementReqID();
         return false;
     }
 
