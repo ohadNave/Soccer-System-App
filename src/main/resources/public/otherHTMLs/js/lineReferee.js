@@ -56,13 +56,13 @@ function getAllRelatedGames() {
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             // var jsonData = JSON.parse(this);
+            alert(this.response);
             var jsonData = (JSON.parse(this.response));
             if(!document.getElementById("relatedGames0")){
-                for (var i = 0; i < jsonData.length; i++) {
-                    var gameDate = (jsonData[i].date).substring(0,(jsonData[i].date).length-19);
+                for (var i = 0; i < jsonData.length-1; i=i+2) {
+                    var gameDate = jsonData[i];
                     var counter = gameDate;
-                    dict_date_matchID[gameDate]=jsonData[i].matchId;
-                    alert("match ID in dictionary is:"+jsonData[i].matchId);
+                    dict_date_matchID[gameDate]=jsonData[i+1]
                     var x = document.getElementById("optionalGames");
                     var option = document.createElement("option");
                     option.setAttribute("id", "relatedGames"+i);
@@ -91,7 +91,6 @@ function addEvent() {
     var e1 = document.getElementById("optionalGames");
     var game = e1.options[e1.selectedIndex].value;
     data.matchId  = dict_date_matchID[game];
-    alert("matchID is:"+data.matchId);
     data.minuteInGame =document.getElementById("MGame").value;
 
     data.description = document.getElementById("description").value;
@@ -100,7 +99,7 @@ function addEvent() {
     var eventType = e2.options[e2.selectedIndex].value;
     data.eventType = eventType;
 
-    data.relatedPlayer = document.getElementById("relatedPlayer").value;
+    // data.relatedPlayer = document.getElementById("relatedPlayer").value;
 
     var json = JSON.stringify(data);
     alert("all data is:"+json);
@@ -111,13 +110,17 @@ function addEvent() {
         if (xhr.readyState == 4 && xhr.status == "200") {
             if (xhr.responseText == "true") {
                 alert("event was added successfully!");
+                if(document.getElementById("relatedGames0")){
+                    var relatedGames = document.getElementById("relatedGames0");
+                    relatedGames.remove();
+                }
                 displayMainRefereePage();
             } else {
                 alert("error:" + xhr.responseText);
             }
         }
     };
-    xhr.send(json);
+    xhr.send(json)
 }
 
 // ****MAKE REPORT****

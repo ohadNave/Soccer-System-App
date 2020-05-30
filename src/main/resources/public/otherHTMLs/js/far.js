@@ -63,6 +63,10 @@ function hideAllDives() {
     var scorePage = document.getElementById("addScorePolicy");
     var mainPage = document.getElementById("mainPageFAR");
     var checkTeamsRequestPage = document.getElementById("checkTeamRequestPage");
+    var showPlacement = document.getElementById("showPlacement");
+    var choosePolicy = document.getElementById("addPlacementPolicy_chooseYearAndPolicy");
+    showPlacement.style.display="none";
+    choosePolicy.style.display="none";
     placementPage.style.display = "none";
     scorePage.style.display = "none";
     mainPage.style.display = "none";
@@ -96,6 +100,7 @@ function addScorePolicy_showLeague() {
 }
 
 function addPlacementPolicy_showLeague() {
+    document.getElementById("addPlacementPolicy_chooseLeague").style.display="block";
     //alert("i enter to get function")
     var theurl = "/addPlacementPolicy/getLeagueNames";
     var client = new HttpClient();

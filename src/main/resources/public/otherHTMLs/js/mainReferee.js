@@ -23,6 +23,10 @@ function displayAddEvent() {
 }
 function displayMainRefereePage() {
     hideAllDives();
+    if(document.getElementById("relatedGames0")){
+        var relatedGames = document.getElementById("relatedGames0");
+        relatedGames.remove();
+    }
     var x = document.getElementById("mainRefereePage");
     if (x.style.display === "none") {
         x.style.display = "block";
@@ -92,7 +96,6 @@ function addEvent() {
     var e1 = document.getElementById("optionalGames");
     var game = e1.options[e1.selectedIndex].value;
     data.matchId  = dict_date_matchID[game];
-    alert("matchID is:"+data.matchId);
     data.minuteInGame =document.getElementById("MGame").value;
 
     data.description = document.getElementById("description").value;
@@ -112,6 +115,10 @@ function addEvent() {
         if (xhr.readyState == 4 && xhr.status == "200") {
             if (xhr.responseText == "true") {
                 alert("event was added successfully!");
+                if(document.getElementById("relatedGames0")){
+                    var relatedGames = document.getElementById("relatedGames0");
+                    relatedGames.remove();
+                }
                 displayMainRefereePage();
             } else {
                 alert("error:" + xhr.responseText);
@@ -175,10 +182,8 @@ function getTeamsOfGame(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            alert("i have a response");
             // var jsonData = JSON.parse(this);
             var jsonData = JSON.parse(this.responseText);
-            alert("passed parsing");
             var firstTeam = jsonData[0];
             makeReport_TeamA=firstTeam;
             var secondTeam = jsonData[1];
@@ -186,9 +191,9 @@ function getTeamsOfGame(){
             dict_teamName_teamID[firstTeam]=jsonData[2];
             dict_teamName_teamID[secondTeam]=jsonData[3];
             if(!document.getElementById("teamsOfGameDiv")){
-                alert("i am in the if statement");
                 var x = document.getElementById("scoreOfTeams");
                 var div = document.createElement("teamsOfGameDiv");
+                div.setAttribute("id", "teamsOfGameDiv");
                 var label1 = document.createElement("label1");
                 var t1 = document.createTextNode("score of "+firstTeam+":");
                 label1.setAttribute("for","scoreTeamA");
@@ -221,16 +226,16 @@ function getTeamsOfGame(){
                 x.appendChild(div);
             }
         }
-        else{
-            alert("i don't have a response")
-        }
-
     };
     xhttp.open("GET", myURL, true);
     xhttp.send();
 }
 
 function makeReport_moveBackFromChoosingTeamsToChoosingGame(){
+    if(document.getElementById("teamsOfGameDiv")){
+        var divTeamsInGame = document.getElementById("teamsOfGameDiv");
+        divTeamsInGame.remove();
+    }
     var y = document.getElementById("makeReport_chooseTeams");
     y.style.display = "none";
     var x = document.getElementById("makeReport_chooseSpecificMatch");
@@ -265,8 +270,15 @@ function makeReport(){
         data.scoreWinnerTeam=scoreTeamB;
         data.scoreLoosingTeam=scoreTeamA;
     }
+
+    scoreTeamA=null;
+    scoreTeamB=null;
+    delete dict_teamName_teamID[makeReport_TeamA];
+    delete dict_teamName_teamID[makeReport_TeamB];
+
+
     var json = JSON.stringify(data);
-    // alert("details of report are:"+json);
+    alert("details of report are:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
@@ -274,6 +286,10 @@ function makeReport(){
         if (xhr.readyState == 4 && xhr.status == "200") {
             if (xhr.responseText == "true") {
                 alert("report was added successfully!");
+                if(document.getElementById("teamsOfGameDiv")){
+                    var divTeamsInGame = document.getElementById("teamsOfGameDiv");
+                    divTeamsInGame.remove();
+                }
                 displayMainRefereePage();
             } else {
                 alert("error:" + xhr.responseText);
