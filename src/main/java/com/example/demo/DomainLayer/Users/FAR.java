@@ -234,6 +234,7 @@ public class FAR extends SystemUser implements Serializable {
             DBManager.incrementReqID();
             return true;
         }
+        DBManager.incrementReqID();
         return false;
     }
 

@@ -1,23 +1,14 @@
 package com.example.demo.UI_Layer;
 
-
-
-
-import com.example.demo.DomainLayer.LeagueManagment.Game;
-import com.example.demo.DomainLayer.LeagueManagment.League;
 import com.example.demo.ServiceLayer.*;
+import com.example.demo.UI_Layer.parameters.*;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-/**-
- * ExampleController
- *
- * @author danielpadua
- *
- */
+
 @RestController
-public class ExampleController {
+public class MainController {
 //    ******ADD SCORE POLICY*******
     RefereeController refereeController = new RefereeController();
     @RequestMapping("/addScorePolicy/getLeagueNames")

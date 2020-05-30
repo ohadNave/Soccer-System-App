@@ -1158,3 +1158,39 @@
 2020-May-30 15:17:11 PM [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
 2020-May-30 15:17:11 PM [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
 2020-May-30 15:17:17 PM [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 6.312 seconds (JVM running for 7.315)
+2020-May-30 16:42:04 PM [main] INFO  com.example.demo.TeamTest - Starting TeamTest on DESKTOP-DC93VFH with PID 11388 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 16:42:04 PM [main] DEBUG com.example.demo.TeamTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 16:42:04 PM [main] INFO  com.example.demo.TeamTest - No active profile set, falling back to default profiles: default
+2020-May-30 16:42:21 PM [main] INFO  com.example.demo.TeamTest - Started TeamTest in 16.823 seconds (JVM running for 18.49)
+2020-May-30 16:42:21 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 16:42:21 PM [main] INFO  eventLogger - A new Subscriber created, id: farNewTeam
+2020-May-30 16:42:21 PM [main] INFO  eventLogger - A new Far created, id: 1
+2020-May-30 16:42:21 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 16:42:21 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 16:42:21 PM [main] INFO  eventLogger - A new Subscriber created, id: ownerNewTeam
+2020-May-30 16:42:21 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 16:42:21 PM [main] INFO  eventLogger - A new Owner created, id: 2
+2020-May-30 16:42:21 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 16:42:33 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-30 16:42:34 PM [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-DC93VFH with PID 9672 (C:\Users\ohadv\IdeaProjects\Teammates\target\classes started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 16:42:34 PM [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 16:42:34 PM [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2020-May-30 16:42:39 PM [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 5.936 seconds (JVM running for 7.066)
+2020-May-30 16:43:15 PM [http-nio-8080-exec-8] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Request.TeamRequest was added to the dataBase
+2020-May-30 16:43:15 PM [http-nio-8080-exec-8] INFO  eventLogger - A new Team Request created by: 2 ,request id: 1
+2020-May-30 16:43:15 PM [http-nio-8080-exec-8] INFO  eventLogger - A new team request was created by sid : 2, team name: galtadir
+2020-May-30 16:43:58 PM [http-nio-8080-exec-3] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Team was added to the dataBase
+2020-May-30 16:43:58 PM [http-nio-8080-exec-3] INFO  eventLogger - A new team 1 was created by sid : 2, team name: galtadir
+2020-May-30 16:43:58 PM [http-nio-8080-exec-3] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 16:44:56 PM [main] INFO  com.example.demo.TeamTest - Starting TeamTest on DESKTOP-DC93VFH with PID 4404 (started by ohadv in C:\Users\ohadv\IdeaProjects\Teammates)
+2020-May-30 16:44:56 PM [main] DEBUG com.example.demo.TeamTest - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 16:44:56 PM [main] INFO  com.example.demo.TeamTest - No active profile set, falling back to default profiles: default
+2020-May-30 16:45:03 PM [main] INFO  com.example.demo.TeamTest - Started TeamTest in 7.402 seconds (JVM running for 9.091)
+2020-May-30 16:45:04 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was added to the dataBase
+2020-May-30 16:45:04 PM [main] INFO  eventLogger - A new Subscriber created, id: ownerNewTeam2
+2020-May-30 16:45:04 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Owner was updated in the dataBase
+2020-May-30 16:45:04 PM [main] INFO  eventLogger - A new Owner created, id: 3
+2020-May-30 16:45:04 PM [main] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Users.Subscriber was updated in the dataBase
+2020-May-30 16:45:46 PM [http-nio-8080-exec-9] INFO  eventLogger - A new object: com.example.demo.DomainLayer.Request.TeamRequest was added to the dataBase
+2020-May-30 16:45:46 PM [http-nio-8080-exec-9] INFO  eventLogger - A new Team Request created by: 3 ,request id: 2
+2020-May-30 16:45:46 PM [http-nio-8080-exec-9] INFO  eventLogger - A new team request was created by sid : 3, team name: ohadnave

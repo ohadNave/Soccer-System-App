@@ -10,7 +10,7 @@ public class loginTest {
     @Test
     public void Register(){
         Guest guest = new Guest();
-//        Subscriber subscriber = guest.Register("User-reg","12345","12345","name");
+        Subscriber subscriber = guest.Login("User-reg","12345");
 
     }
 }

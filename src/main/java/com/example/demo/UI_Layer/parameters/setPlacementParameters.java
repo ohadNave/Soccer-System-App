@@ -1,10 +1,10 @@
-package com.example.demo.UI_Layer;
+package com.example.demo.UI_Layer.parameters;
 
-public class setScoreParameters {
+public class setPlacementParameters {
     String sid;
     String leagueID;
 //    String year;
-    String scorePolicy;
+    String placementPolicy;
 
     public String getSid() {
         return sid;
@@ -18,8 +18,7 @@ public class setScoreParameters {
 //        return year;
 //    }
 
-    public String getScorePolicy() {
-        return scorePolicy;
+    public String getPlacementPolicy() {
+        return placementPolicy;
     }
-
 }
