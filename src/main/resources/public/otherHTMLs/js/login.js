@@ -75,7 +75,7 @@ function displayLoginPage_OtherHTMLs() {
 
 function loginButton() {
 
-    var url = "http://localhost:8080/login";
+    var url = "/login";
     username = document.getElementById("username");
     password = document.getElementById("pwd");
     var data = {};
