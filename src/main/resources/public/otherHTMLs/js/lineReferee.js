@@ -56,7 +56,6 @@ function getAllRelatedGames() {
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             // var jsonData = JSON.parse(this);
-            alert(this.response);
             var jsonData = (JSON.parse(this.response));
             if(!document.getElementById("relatedGames0")){
                 for (var i = 0; i < jsonData.length-1; i=i+2) {
@@ -102,7 +101,6 @@ function addEvent() {
     // data.relatedPlayer = document.getElementById("relatedPlayer").value;
 
     var json = JSON.stringify(data);
-    alert("all data is:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
@@ -110,10 +108,10 @@ function addEvent() {
         if (xhr.readyState == 4 && xhr.status == "200") {
             if (xhr.responseText == "true") {
                 alert("event was added successfully!");
-                if(document.getElementById("relatedGames0")){
-                    var relatedGames = document.getElementById("relatedGames0");
-                    relatedGames.remove();
-                }
+                // if(document.getElementById("relatedGames0")){
+                //     var relatedGames = document.getElementById("relatedGames0");
+                //     relatedGames.remove();
+                // }
                 displayMainRefereePage();
             } else {
                 alert("error:" + xhr.responseText);
@@ -169,9 +167,7 @@ function getTeamsOfGame(){
     var e1 = document.getElementById("matches");
     var game = e1.options[e1.selectedIndex].value;
     makeReport_selectedGame = dict_date_matchID[game];
-    alert("the user chose:"+makeReport_selectedGame);
     var myURL="/getTeamsInGame/"+makeReport_selectedGame;
-    alert("mu url is:"+myURL);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -260,7 +256,6 @@ function makeReport(){
         data.scoreLoosingTeam=scoreTeamA;
     }
     var json = JSON.stringify(data);
-    alert("details of report are:"+json);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url, true);
     xhr.setRequestHeader('Content-type','application/json; charset=utf-8');

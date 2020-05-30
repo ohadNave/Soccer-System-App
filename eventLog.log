@@ -1,0 +1,12 @@
+2020-May-30 23:24:40 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-30 23:24:42 PM [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-MRP1GMH with PID 13916 (C:\Users\iris dreizenshtok\Desktop\programming\Teammates\target\classes started by iris dreizenshtok in C:\Users\iris dreizenshtok\Desktop\programming\Teammates)
+2020-May-30 23:24:42 PM [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 23:24:42 PM [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2020-May-30 23:25:11 PM [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 31.447 seconds (JVM running for 38.313)
+2020-May-30 23:29:41 PM [main] INFO  eventLogger - Starting spring boot application
+2020-May-30 23:29:43 PM [main] INFO  com.example.demo.DemoApplication - Starting DemoApplication on DESKTOP-MRP1GMH with PID 23212 (C:\Users\iris dreizenshtok\Desktop\programming\Teammates\target\classes started by iris dreizenshtok in C:\Users\iris dreizenshtok\Desktop\programming\Teammates)
+2020-May-30 23:29:43 PM [main] DEBUG com.example.demo.DemoApplication - Running with Spring Boot v2.2.6.RELEASE, Spring v5.2.5.RELEASE
+2020-May-30 23:29:43 PM [main] INFO  com.example.demo.DemoApplication - No active profile set, falling back to default profiles: default
+2020-May-30 23:30:09 PM [main] INFO  com.example.demo.DemoApplication - Started DemoApplication in 27.586 seconds (JVM running for 33.541)
+2020-May-30 23:30:35 PM [http-nio-8080-exec-8] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
+2020-May-30 23:30:35 PM [http-nio-8080-exec-8] INFO  eventLogger - A new object: com.example.demo.DomainLayer.LeagueManagment.Season was updated in the dataBase
