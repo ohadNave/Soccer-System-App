@@ -1,5 +1,5 @@
 package com.example.demo.DomainLayer.Alerts;
-import com.example.demo.DomainLayer.LeagueManagment.GameReport;
+import com.example.demo.DomainLayer.LeagueManagment.Report;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -8,22 +8,22 @@ import javax.persistence.OneToOne;
 public class MatchEndedAlert extends Alert {
 
     @OneToOne
-    GameReport gameReport;
+    Report report;
 
-    public void setAttributes(GameReport gameReport) {
-        this.gameReport = gameReport;
+    public void setAttributes(Report report) {
+        this.report = report;
     }
 
-    public GameReport getGameReport() {
-        return gameReport;
+    public Report getReport() {
+        return report;
     }
 
-    public void setGameReport(GameReport gameReport) {
-        this.gameReport = gameReport;
+    public void setReport(Report report) {
+        this.report = report;
     }
 
     @Override
     public String toString() {
-        return "Match ended : \n Match details: \n"  + gameReport.toString();
+        return "Match ended : \n Match details: \n"  + report.toString();
     }
 }

@@ -1,10 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.DomainLayer.DBManager;
-import com.example.demo.DomainLayer.Enums.Certification;
-import com.example.demo.DomainLayer.Enums.EventType;
-import com.example.demo.DomainLayer.Enums.LeagueLevel;
-import com.example.demo.DomainLayer.Enums.RefereeRoll;
+import com.example.demo.DomainLayer.Enums.*;
 import com.example.demo.DomainLayer.LeagueManagment.*;
 import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.FAR;
@@ -13,6 +10,7 @@ import com.example.demo.DomainLayer.Users.Referee;
 import com.example.demo.DomainLayer.Users.Subscriber;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import sun.plugin2.os.windows.SECURITY_ATTRIBUTES;
 
 import java.sql.Ref;
 import java.time.LocalDate;
@@ -152,22 +150,16 @@ public class Initialize {
         season1.setSeason_referees(referees);
         season2.setSeason_referees(referees);
 
-
+        season1.setGamePolicyEnum(GamePolicyEnum.STANDARD);
+        season1.setScorePolicyEnum(ScorePolicyEnum.SCORE_POLICY_A);
         season1.setIGamePolicy(new GamePolicy());
+        season1.setIScorePolicy(new ScorePolicyA());
         sub1.getFar().activateGameSchedulePolicyForLeague(1);
     }
 
     @Test
     public void alerts(){
         Subscriber sub11 = DBManager.getByUserName("fan_user");
-
-//        League league = (League) DBManager.getObject(League.class,1);
-//        Season season = league.getSeasons().iterator().next();
-//        Set<Game> games = season.getMatches();
-//
-//        for (Game game : games){
-//            sub11.getFan().signForMatchAlerts(game);
-//        }
         Game game = (Game) DBManager.getObject(Game.class,1);
         sub11.getFan().signForMatchAlerts(game);
         game.changeMatchDate(LocalDate.now());

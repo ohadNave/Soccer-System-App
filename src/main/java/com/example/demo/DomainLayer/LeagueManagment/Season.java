@@ -136,7 +136,7 @@ public class Season implements Serializable {
     }
 
     public IScorePolicy getIScorePolicy() {
-        return IScorePolicy;
+            return IScorePolicy;
     }
 
     public void setIScorePolicy(IScorePolicy IScorePolicy) {

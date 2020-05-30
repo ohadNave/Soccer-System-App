@@ -10,7 +10,6 @@ import com.example.demo.DomainLayer.Enums.MatchStatus;
 import com.example.demo.DomainLayer.MyFactory;
 import com.example.demo.DomainLayer.Users.Fan;
 import com.example.demo.DomainLayer.Users.Referee;
-import org.springframework.transaction.annotation.Transactional;
 //import sun.security.pkcs11.Secmod;
 
 import javax.persistence.*;
@@ -44,7 +43,7 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
     private Set<GameEvent> game_events;
 
     @OneToOne(cascade = CascadeType.ALL)
-    private GameReport game_report;
+    private Report game_report;
 
     @OneToMany (cascade = {CascadeType.ALL})
     private Set<Fan> match_followers;
@@ -99,9 +98,9 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
                 '}';
     }
 
-    public boolean setGameReport(GameReport gameReport) {
-        if (gameReport != null){
-            this.game_report = gameReport;
+    public boolean setGameReport(Report report) {
+        if (report != null){
+            this.game_report = report;
             endMatch(this.game_report);
             return true;
         }
@@ -130,10 +129,10 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
      * Creates new game report.
      * * Notifies match followers.
      */
-    public boolean endMatch(GameReport gameReport){
+    public boolean endMatch(Report report){
         if (status == MatchStatus.IN_PROGRESS ){
             this.status = MatchStatus.FINISHED;
-            MatchEndedAlert matchHasEndedAlert = MyFactory.createMatchEndedAlert(gameReport);
+            MatchEndedAlert matchHasEndedAlert = MyFactory.createMatchEndedAlert(report);
             notifyMatchFollowers(matchHasEndedAlert);
             return true;
         }
@@ -235,7 +234,7 @@ public class Game extends Observable implements ISubjectMatch, Serializable {
     }
 
 
-    public GameReport getGame_report() {
+    public Report getGame_report() {
         return game_report;
     }
 

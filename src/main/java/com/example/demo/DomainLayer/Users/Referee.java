@@ -109,9 +109,9 @@ public class Referee extends SystemUser implements Observer, Serializable {
     public boolean createGameReport(int matchId , Team homeTeam, Team awayTeam, int homeGoals, int awayGoals){
         Game match = (Game) DBManager.getObject(Game.class,matchId);
         if (match != null && this.roll == RefereeRoll.MAIN_REFEREE && homeTeam!=null && awayTeam!=null && homeGoals>=0 && awayGoals>=0 && homeTeam != awayTeam){
-            GameReport gameReport = MyFactory.createGameReport(homeTeam.getTid(),awayTeam.getTid(), homeGoals,awayGoals);
-            match.setGameReport(gameReport);
-            gameReport.setMatch(match);
+            Report report = MyFactory.createGameReport(homeTeam.getTid(),awayTeam.getTid(), homeGoals,awayGoals);
+            match.setGameReport(report);
+            report.setMatch(match);
             Season season = match.getSeason();
             if (homeGoals == awayGoals){
                 season.getIScorePolicy().execute(season, true, homeTeam,awayTeam);

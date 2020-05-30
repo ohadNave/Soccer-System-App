@@ -107,12 +107,15 @@ public class MyFactory {
         return complain;
     }
 
-    public static GameReport createGameReport(int winnerTeam, int losingTeam, int winnerGoals, int loserGoals){
-        GameReport gameReport = new GameReport();
-        gameReport.setAttributes(winnerTeam ,losingTeam ,winnerGoals,loserGoals);
-        DBManager.saveObject(gameReport);
-        eventLogger.info("A new Game Report created, id: " + gameReport.getGr_id());
-        return gameReport;
+    public static Report createGameReport(int winnerTeam, int losingTeam, int winnerGoals, int loserGoals){
+        Report report = new Report();
+        if (report == null){
+            String s = "report null";
+        }
+        report.setAttributes(winnerTeam ,losingTeam ,winnerGoals,loserGoals);
+        DBManager.saveObject(report);
+        eventLogger.info("A new Game Report created, id: " + report.getGr_id());
+        return report;
     }
 
     public static GameEvent createEvent(int minuteInGame, String description, EventType eventType){
@@ -199,9 +202,9 @@ public class MyFactory {
         return matchDateChangedAlert;
     }
 
-    public static MatchEndedAlert createMatchEndedAlert(GameReport gameReport){
+    public static MatchEndedAlert createMatchEndedAlert(Report report){
         MatchEndedAlert matchEndedAlert = new MatchEndedAlert();
-        matchEndedAlert.setAttributes(gameReport);
+        matchEndedAlert.setAttributes(report);
         DBManager.updateObject(matchEndedAlert);
         return matchEndedAlert;
     }

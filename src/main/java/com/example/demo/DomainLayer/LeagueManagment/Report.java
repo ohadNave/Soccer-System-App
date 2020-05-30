@@ -1,13 +1,13 @@
 package com.example.demo.DomainLayer.LeagueManagment;
 
 import com.example.demo.DomainLayer.DBManager;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "gamereport")
-public class GameReport implements Serializable {
+public class Report implements Serializable {
+
+    public Report(){}
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -21,7 +21,7 @@ public class GameReport implements Serializable {
 
     private int loser_goals;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Game match;
 
 
