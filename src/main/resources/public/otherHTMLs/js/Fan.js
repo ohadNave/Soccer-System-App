@@ -8,7 +8,7 @@ var fanAlerts= new Array();
 
 var fanHistoryAlerts=new Array();
 function getFanHistoryAlerts() {
-    var myURL="http://localhost:8080/fan/getHistoryAlerts/"+localStorage.getItem("sid");
+    var myURL="/fan/getHistoryAlerts/"+localStorage.getItem("sid");
     var xhttp = new XMLHttpRequest();
     // console.log(localStorage.getItem("sid"))
     xhttp.onreadystatechange = function() {
@@ -30,7 +30,7 @@ function getFanHistoryAlerts() {
 }
 function getFanAlerts() {
 
-    var myURL="http://localhost:8080/fan/getAlerts/"+localStorage.getItem("sid");
+    var myURL="/fan/getAlerts/"+localStorage.getItem("sid");
     var xhttp = new XMLHttpRequest();
     // console.log(localStorage.getItem("sid"))
     xhttp.onreadystatechange = function() {

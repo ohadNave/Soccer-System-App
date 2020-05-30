@@ -171,6 +171,8 @@ public class FARController {
         RegistrationRequest registrationRequest = (RegistrationRequest) DBManager.getObject(RegistrationRequest.class,regIdIdInt);
         if (registrationRequest == null)
             return false;
-        return far.handleRequest(registrationRequest,approved);
+        far.handleRequest(registrationRequest,approved);
+        return true;
+
     }
 }

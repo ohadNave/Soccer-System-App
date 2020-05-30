@@ -20,6 +20,18 @@ function hideAllDives1() {
     addTeamPage.style.display = "none";
 
 }
+
+
+function displayMainOwnerPage() {
+    hideAllDives1();
+    var x = document.getElementById("mainOwnerPage");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+
+}
 var intervalOwner;
 function setIntervals() {
     getOwnerHistoryAlerts();
@@ -27,7 +39,7 @@ function setIntervals() {
 
 }
 function opentNewTeam() {
-    var url = "http://localhost:8080/owner/openNewTeam";
+    var url = "/owner/openNewTeam";
     teamName = document.getElementById("teamName");
     var data = {};
     data.sid = localStorage.getItem("sid");
@@ -60,6 +72,8 @@ function opentNewTeam() {
                 alert("The request passed successfully");
 
             }
+            displayMainOwnerPage();
+
 
 
         }
@@ -89,7 +103,7 @@ function back() {
 }
 var ownerHistoryAlerts=new Array();
 function getOwnerHistoryAlerts() {
-    var myURL="http://localhost:8080/owner/getHistoryAlerts/"+localStorage.getItem("sid");
+    var myURL="/owner/getHistoryAlerts/"+localStorage.getItem("sid");
     var xhttp = new XMLHttpRequest();
     // console.log(localStorage.getItem("sid"))
     xhttp.onreadystatechange = function() {
@@ -111,9 +125,9 @@ function getOwnerHistoryAlerts() {
 }
 function getOwnerAlerts() {
 
-    var myURL="http://localhost:8080/owner/getAlerts/"+localStorage.getItem("sid");
+    var myURL="/owner/getAlerts/"+localStorage.getItem("sid");
     var xhttp = new XMLHttpRequest();
-    console.log(localStorage.getItem("sid"))
+    // console.log(localStorage.getItem("sid"))
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             var jsonData = JSON.parse(this.responseText);

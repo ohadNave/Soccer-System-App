@@ -279,7 +279,7 @@ function makeReport(){
 
 var LineRefereeHistoryAlerts=new Array();
 function getHistoryLineRefereeAlerts() {
-    var myURL="http://localhost:8080/LineReferee/getHistoryAlerts/"+getID();
+    var myURL="/LineReferee/getHistoryAlerts/"+getID();
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
@@ -327,7 +327,7 @@ function getLineRefereeAlerts() {
 var intervalLineReferee;
 function setIntervals() {
 
-    intervalLineReferee=setInterval(getLineRefereeAlerts,1000);
+    intervalLineReferee=setInterval(getLineRefereeAlerts,20000);
     // getHistoryLineRefereeAlerts();
 
 }
@@ -447,7 +447,7 @@ function displayalertsLineReferee() {
 
         var times = document.createTextNode("X");
         // var text = localStorage.getItem("arrayOfAlert");
-        text = text.split(/[ ","]+/);
+        // text = text.split(/[ ","]+/);
 
 
         var text2 = document.createTextNode(text[i]);
@@ -457,6 +457,7 @@ function displayalertsLineReferee() {
         //     i--;
         // }
         text.splice(i, 1);
+        i--;
 
 
         // localStorage.setItem("lengthOfAlerts", text.length);
