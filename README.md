@@ -2,7 +2,7 @@ Soccer league managment system.
 
 * backend written with Java
 * frontend written with Java-script.
-* Spring boot framework and JPA(Java Persistence API - Hibernate).
+* Database JPA witj implemantation - Hibernate.
 
 key features:
 
