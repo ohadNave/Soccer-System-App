@@ -1,10 +1,10 @@
 Soccer league managment system.
 
-* backend written with Java
-* frontend written with Java-script.
-* Database JPA witj implemantation - Hibernate.
+* backend -  Java
+* frontend  - Java-script
+* Database - Hibernate
 
-key features:
+Key system features:
 
 * Manage leagues, seasons, players and teams.
 * Match scheduling.
