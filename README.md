@@ -15,5 +15,4 @@ Key system features:
 * Private pages for players, teams and coaches.
 
 
-UML - https://www.docdroid.net/tKYYvzF/class-diagram-pdf
-System Modeling - https://docdro.id/0ICzpDm
+UML & System Modeling exists as PDF in the repo.
